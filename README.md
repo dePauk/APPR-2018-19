@@ -10,6 +10,8 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2018/19
 Izbrali si boste temo, s katero se bo vaš projekt ukvarjal.
 Tukaj boste napisali, kje ste dobili podatke, ter kakšen je vaš cilj.
 
+V projektu bom analiziral igralce tedna (player of the week) lige NBA v sezonah od 2000/01 do 2017/18. Zanimal me bo njihov klub, starost, število let od debija, višina, teža in podobno. Te podatke bom nato primerjal s številom zmag in uspešnostjo njihovih ekip v istem obdobju in skušal najti korelacije.
+
 ## Program
 
 Glavni program in poročilo se nahajata v datoteki `projekt.Rmd`.
