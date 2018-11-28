@@ -5,12 +5,18 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2018/19
 * [![Shiny](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/dePauk/APPR-2018-19/master?urlpath=shiny/APPR-2018-19/projekt.Rmd) Shiny
 * [![RStudio](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/dePauk/APPR-2018-19/master?urlpath=rstudio) RStudio
 
-## Tematika
+## Igralci tedna in uspešnost njihovih ekip v ligi NBA v sezonah 2000/01 - 2017/18
 
-Izbrali si boste temo, s katero se bo vaš projekt ukvarjal.
-Tukaj boste napisali, kje ste dobili podatke, ter kakšen je vaš cilj.
+  #Izbrali si boste temo, s katero se bo vaš projekt ukvarjal.
+  #Tukaj boste napisali, kje ste dobili podatke, ter kakšen je vaš cilj.
 
-V projektu bom analiziral igralce tedna (player of the week) lige NBA v sezonah od 2000/01 do 2017/18. Zanimal me bo njihov klub, starost, število let od debija, višina, teža in podobno. Te podatke bom nato primerjal s številom zmag in uspešnostjo njihovih ekip v istem obdobju in skušal najti korelacije.
+V projektu bom analiziral igralce tedna ("Player of the Week") lige NBA v sezonah od 2000/01 do 2017/18. Poskušal bom ugotoviti, kako močna je korelacija med številom osvojenih nazivov igralca tedna posamezne ekipe in številom oziroma odstotkom dobljenih tekem teh ekip v istem obdobju. Poleg tega bom igralce, ki so bili izbrani kot najboljši v tednu primerjal po starosti, višini, teži, število let od debija v ligi ter po tem, kakšna je bila njihova pozicija na t.i. draftu.
+
+Podatke sem (bom) pobiral iz sledečih spletnih naslovov:
+
+    *https://www.kaggle.com/jacobbaruch/nba-player-of-the-week
+    *http://mcubed.net/nba/nbaera.pl?year1=2000&year2=2018&sortby=rswin
+    *https://stats.nba.com/
 
 ## Program
 
