@@ -5,21 +5,31 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2018/19
 * [![Shiny](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/dePauk/APPR-2018-19/master?urlpath=shiny/APPR-2018-19/projekt.Rmd) Shiny
 * [![RStudio](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/dePauk/APPR-2018-19/master?urlpath=rstudio) RStudio
 
-## Igralci tedna in uspešnost njihovih ekip v ligi NBA v sezonah 2000/01 - 2017/18
+## Igralci tedna in uspešnost njihovih ekip v ligi NBA
 
-V projektu bom analiziral igralce tedna ("Player of the Week") lige NBA v sezonah od 2000/01 do 2017/18. Poskušal bom ugotoviti, kako močna je korelacija med številom osvojenih nazivov igralca tedna posamezne ekipe in številom oziroma odstotkom dobljenih tekem teh ekip v istem obdobju. Poleg tega bom igralce, ki so bili izbrani kot najboljši v tednu, primerjal po poziciji igranja, starosti, višini, teži, število let od debija v ligi ter po tem, kakšna je bila njihova pozicija na t.i. draftu. V letih, ko je bil naslov igralca tedna dodeljen le enemu igralcu, in ne po enemu igralcu iz posamezne konference, bom analiziral, katera konferenca je bila uspešnejša v številu teh nazivov in rezultat primerjal z uspešnostjo njihovih ekip v zaključni fazi tekmovanja.
+V projektu bom analiziral igralce tedna ("Player of the Week") lige NBA v sezonah od 1984/85 do 2017/18. Poskušal bom ugotoviti, kako močna je korelacija med številom osvojenih nazivov igralca tedna posamezne ekipe in številom oziroma odstotkom dobljenih tekem teh ekip v istem obdobju. Poleg tega bom igralce, ki so bili izbrani kot najboljši v tednu, primerjal po poziciji igranja, starosti, višini, teži, številu let od debija v ligi ter po tem, katera je bila njihova pozicija na t.i. draftu. V letih, ko je bil naslov igralca tedna dodeljen le enemu igralcu, in ne po enemu igralcu iz posamezne konference, bom analiziral, katera konferenca je bila uspešnejša v številu teh nazivov in rezultat primerjal z uspešnostjo njihovih ekip v zaključni fazi tekmovanja.
 
 Podatke sem (bom) pobiral iz sledečih spletnih naslovov:
 
 * https://www.kaggle.com/jacobbaruch/nba-player-of-the-week (CSV)
+* https://www.kaggle.com/drgilermo/nba-players-stats (CSV)
 * http://mcubed.net/nba/nbaera.pl?year1=2000&year2=2018&sortby=rswin (HTML)
 * https://stats.nba.com/
 
 ## Tabele
 
-1.
-2.
-3.
+1. tabela:
+
+Stolpci: igralec, ekipa, divizija, pozicija igranja, višina, teža, starost, število sezon v ligi, "vrednost" naziva, skupno število dobljenih nazivov
+
+2. tabela:
+
+Stolpci: ekipa, skupno število dobljenih nagrad "Player of the Week", število igralcev z nagrado, število zmag, odstotek zmag, uvrstitve v play-off, uvrstitve v finale, odstotek zmag v finalu
+
+3. tabela: 
+
+
+
 
 ## Program
 
