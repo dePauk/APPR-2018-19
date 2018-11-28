@@ -14,9 +14,9 @@ V projektu bom analiziral igralce tedna ("Player of the Week") lige NBA v sezona
 
 Podatke sem (bom) pobiral iz sledečih spletnih naslovov:
 
-    *https://www.kaggle.com/jacobbaruch/nba-player-of-the-week
-    *http://mcubed.net/nba/nbaera.pl?year1=2000&year2=2018&sortby=rswin
-    *https://stats.nba.com/
+    * https://www.kaggle.com/jacobbaruch/nba-player-of-the-week (CSV)
+    * http://mcubed.net/nba/nbaera.pl?year1=2000&year2=2018&sortby=rswin (HTML)
+    * https://stats.nba.com/
 
 ## Program
 
