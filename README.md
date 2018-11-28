@@ -7,9 +7,6 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2018/19
 
 ## Igralci tedna in uspešnost njihovih ekip v ligi NBA v sezonah 2000/01 - 2017/18
 
- #Izbrali si boste temo, s katero se bo vaš projekt ukvarjal.
- #Tukaj boste napisali, kje ste dobili podatke, ter kakšen je vaš cilj.
-
 V projektu bom analiziral igralce tedna ("Player of the Week") lige NBA v sezonah od 2000/01 do 2017/18. Poskušal bom ugotoviti, kako močna je korelacija med številom osvojenih nazivov igralca tedna posamezne ekipe in številom oziroma odstotkom dobljenih tekem teh ekip v istem obdobju. Poleg tega bom igralce, ki so bili izbrani kot najboljši v tednu, primerjal po poziciji igranja, starosti, višini, teži, število let od debija v ligi ter po tem, kakšna je bila njihova pozicija na t.i. draftu. V letih, ko je bil naslov igralca tedna dodeljen le enemu igralcu, in ne po enemu igralcu iz posamezne konference, bom analiziral, katera konferenca je bila uspešnejša v številu teh nazivov in rezultat primerjal z uspešnostjo njihovih ekip v zaključni fazi tekmovanja.
 
 Podatke sem (bom) pobiral iz sledečih spletnih naslovov:
@@ -17,6 +14,12 @@ Podatke sem (bom) pobiral iz sledečih spletnih naslovov:
 * https://www.kaggle.com/jacobbaruch/nba-player-of-the-week (CSV)
 * http://mcubed.net/nba/nbaera.pl?year1=2000&year2=2018&sortby=rswin (HTML)
 * https://stats.nba.com/
+
+## Tabele
+
+1.
+2.
+3.
 
 ## Program
 
