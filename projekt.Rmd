@@ -24,11 +24,9 @@ source("lib/libraries.r", encoding="UTF-8")
 source("lib/rstudio.r", encoding="UTF-8")
 ```
 
-# Izbira teme
+## Igralci tedna in uspešnost njihovih ekip v ligi NBA
 
-Za vzorec bomo prikazali nekaj podatkov o slovenskih občinah.
-
-![](slike/grb.png)
+V projektu bom analiziral igralce tedna ("Player of the Week") lige NBA v sezonah od 1984/85 do 2017/18. Poskušal bom ugotoviti, kako močna je korelacija med številom osvojenih nazivov igralca tedna posamezne ekipe in številom oziroma odstotkom dobljenih tekem teh ekip v istem obdobju. Poleg tega bom igralce, ki so bili izbrani kot najboljši v tednu, primerjal po poziciji igranja, starosti, višini, teži, številu let od debija v ligi ter po tem, katera je bila njihova pozicija na t.i. draftu. V letih, ko je bil naslov igralca tedna dodeljen le enemu igralcu, in ne po enemu igralcu iz posamezne konference, bom analiziral, katera konferenca je bila uspešnejša v številu teh nazivov in rezultat primerjal z uspešnostjo njihovih ekip v zaključni fazi tekmovanja.
 
 ***
 
