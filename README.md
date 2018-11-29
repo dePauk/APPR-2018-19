@@ -7,7 +7,12 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2018/19
 
 ## Igralci tedna in uspešnost njihovih ekip v ligi NBA
 
-V projektu bom analiziral igralce tedna ("Player of the Week") lige NBA v sezonah od 1984/85 do 2017/18. Poskušal bom ugotoviti, kako močna je korelacija med številom osvojenih nazivov igralca tedna posamezne ekipe in številom oziroma odstotkom dobljenih tekem teh ekip v istem obdobju. Poleg tega bom igralce, ki so bili izbrani kot najboljši v tednu, primerjal po poziciji igranja, starosti, višini, teži, številu let od debija v ligi ter po tem, katera je bila njihova pozicija na t.i. draftu. V letih, ko je bil naslov igralca tedna dodeljen le enemu igralcu, in ne po enemu igralcu iz posamezne konference, bom analiziral, katera konferenca je bila uspešnejša v številu teh nazivov in rezultat primerjal z uspešnostjo njihovih ekip v zaključni fazi tekmovanja.
+V projektu bom analiziral igralce tedna ("Player of the Week") lige NBA v sezonah od 1984/85 do 2017/18. Kot prvo bom primerjal igralce, ki so ta naslov osvoji vsaj enkrat in sicer tako glede na njihovo statistiko (igrane minute, odstotek zadetih metov in podobno) kot tudi glede na njihove lastnosti (pozicija igranja, starost, višina, teža, število let v ligi, v katerem "picku" na draftu so bili izbrani itd.). Dodal bom še število iger v tako imenovanih all-star tekmah.
+
+Poleg tega bom skušal ugotoviti korelacijo med uspešnostjo ekipe - številom oziroma odstotkom dobljenih tekem v radnem delu ter v "play-offih" v istem obdobju - glede na število nazivov igralca tedna, ki so si jih priborili njihovi igralci v izbranih letih.
+
+Ker je od sezone 2001/02 nagrada Player of the Week podeljena po enemu igralcu iz vzhodne in enemu iz zahodne divizije, je vrednost naslova od te sezone naprej 0.5, pred tem pa 1.0. Takrat je namreč nagrado dobil le eden od igralcev iz celotne lige. Za sezone od 1984/85 do 2000/01 bom tako lahko analiziral še število nazivov igralca tedna glede na divizijo in ga primerjal s številom skupnih zmag lige ekip vzhodne in zahodne divizije.
+
 
 Podatke sem (bom) pobiral iz sledečih spletnih naslovov:
 
@@ -20,11 +25,11 @@ Podatke sem (bom) pobiral iz sledečih spletnih naslovov:
 
 1. tabela:
 
-Stolpci: igralec, ekipa, divizija, pozicija igranja, višina, teža, starost, število sezon v ligi, "vrednost" naziva, skupno število dobljenih nazivov
+Stolpci: igralec, ekipa, divizija, pozicija igranja, igrane minute, odstotek zadetih metov, višina, teža, starost, število sezon v ligi, pick na draftu, "vrednost" naziva (0.5 ali 1.0), skupno število dobljenih nazivov tega igralca.
 
 2. tabela:
 
-Stolpci: ekipa, skupno število dobljenih nagrad "Player of the Week", število igralcev z nagrado, število zmag, odstotek zmag, uvrstitve v play-off, uvrstitve v finale, odstotek zmag v finalu
+Stolpci: ekipa, skupno število dobljenih nagrad "Player of the Week" te ekipe, število različnih igralcev te ekipe z nagrado, število zmag, odstotek zmag, uvrstitve v play-off, uspešnost v play-offu, uvrstitve v finale, odstotek zmag v finalu.
 
 3. tabela: 
 
