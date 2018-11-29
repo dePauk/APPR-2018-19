@@ -20,12 +20,13 @@ Podatke sem (bom) pobiral iz sledečih spletnih naslovov:
 * https://www.kaggle.com/drgilermo/nba-players-stats (CSV)
 * http://mcubed.net/nba/nbaera.pl?year1=2000&year2=2018&sortby=rswin (HTML)
 * https://stats.nba.com/
+* https://en.wikipedia.org/wiki/List_of_NBA_All-Stars (HTML)
 
 ## Tabele
 
 1. tabela:
 
-Stolpci: igralec, ekipa, divizija, pozicija igranja, igrane minute, odstotek zadetih metov, višina, teža, starost, število sezon v ligi, pick na draftu, "vrednost" naziva (0.5 ali 1.0), skupno število dobljenih nazivov tega igralca.
+Stolpci: igralec, ekipa, divizija, pozicija igranja, igrane minute, odstotek zadetih metov, višina, teža, starost, število sezon v ligi, pick na draftu, število odigranih all-star obračunov, vrednost" naziva (0.5 ali 1.0), skupno število dobljenih nazivov igralca tedna tega igralca.
 
 2. tabela:
 
