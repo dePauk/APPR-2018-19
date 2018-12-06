@@ -2,20 +2,23 @@
 
 sl <- locale("sl", decimal_mark=",", grouping_mark=".")
 
-# Funkcija, ki uvozi občine iz Wikipedije
+# Funkcija, ki uvozi podatke o zmagah ekip v sezonah od 1984/85 do 2017/18.
 uvozi.obcine <- function() {
   link <- "http://mcubed.net/nba/nbaera.pl?year1=2000&year2=2018&sortby=rswin"
   stran <- html_session(link) %>% read_html()
   vrstice <- stran %>% html_nodes(xpath="//span[@class='hovl']") %>% html_text()
-  csv <- gsub(" {2,}", ",", vrstice) %>% paste(collapse="")
-  podatki <- read_csv(csv, col_names=FALSE)
+  csv <- gsub(" {2,}", ",", vrstice) %>% paste(collapse="") #zamenja, kjer sta vsaj 2 presledka z vejicami
+  
+  stolpci <- c("IZBRIŠI2","število sezon v ligi", "Ekipa", "Št. zmag v rednem delu", "Št. porazov v rednem delu", "Odstotek zmag v rednem delu","Koliko krat v Play-offu", "PO zmage", "Play-off porazi","PO uspešnost", "Zmage serij","Porazi serij","Uspešnost v serijah","Nastopi v finalu", "Zmage v finalu","IZBRIŠI")
+  
+  podatki <- read_csv(csv, locale=locale(encoding="cp1250"), col_names=stolpci)
   
   #pobriši prvi in zadnji stolpec, določi imena stolpcev, spremeni procente v številke
   
-  tabela <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>%
-    .[[1]] %>% html_table(dec=",")
-  for (i in 1:ncol(tabela)) {
-    if (is.character(tabela[[i]])) {
+tabela <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>%
+  .[[1]] %>% html_table(dec=",")
+for (i in 1:ncol(tabela)) {
+  if (is.character(tabela[[i]])) {
       Encoding(tabela[[i]]) <- "UTF-8"
     }
   }
@@ -46,6 +49,12 @@ uvozi.druzine <- function(obcine) {
   data$obcina <- factor(data$obcina, levels=obcine)
   return(data)
 }
+
+print(podatki)
+
+
+uvoz <- read_csv()
+
 
 # Zapišimo podatke v razpredelnico obcine
 obcine <- uvozi.obcine()
