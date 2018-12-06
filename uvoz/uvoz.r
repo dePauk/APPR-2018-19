@@ -4,8 +4,14 @@ sl <- locale("sl", decimal_mark=",", grouping_mark=".")
 
 # Funkcija, ki uvozi občine iz Wikipedije
 uvozi.obcine <- function() {
-  link <- "http://sl.wikipedia.org/wiki/Seznam_ob%C4%8Din_v_Sloveniji"
+  link <- "http://mcubed.net/nba/nbaera.pl?year1=2000&year2=2018&sortby=rswin"
   stran <- html_session(link) %>% read_html()
+  vrstice <- stran %>% html_nodes(xpath="//span[@class='hovl']") %>% html_text()
+  csv <- gsub(" {2,}", ",", vrstice) %>% paste(collapse="")
+  podatki <- read_csv(csv, col_names=FALSE)
+  
+  #pobriši prvi in zadnji stolpec, določi imena stolpcev, spremeni procente v številke
+  
   tabela <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>%
     .[[1]] %>% html_table(dec=",")
   for (i in 1:ncol(tabela)) {
