@@ -26,14 +26,14 @@ uvozi.rezultate <- function() {
   odstotki2 <- podatki$`PO uspešnost`
   odstotki2 <- as.numeric(sub("%","",podatki$`PO uspešnost`,fixed=TRUE))/100
   
-  # odstotki3 <- podatki$`Uspešnost v serijah`
-  # odstotki3 <- as.numeric(sub("%","",podatki$`Uspešnost v serijah`,fixed=TRUE))/100
+  odstotki3 <- podatki$`Uspešnost v serijah`
+  odstotki3 <- as.numeric(sub("%","",podatki$`Uspešnost v serijah`,fixed=TRUE))/100
   
   podatki$`Odstotek zmag v rednem delu` <- odstotki1
   
   podatki$`PO uspešnost` <- odstotki2
   
-  # podatki$`Uspešnost v serijah`<- odstotki3
+  podatki$`Uspešnost v serijah`<- odstotki3
   
   
   
