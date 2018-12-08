@@ -20,13 +20,23 @@ uvozi.rezultate <- function() {
   podatki$IZBRIŠI2 <- NULL
   podatki$IZBRIŠI <- NULL
   
+  odstotki1 <- podatki$`Odstotek zmag v rednem delu`
+  odstotki1 <- as.numeric(sub("%","",data$odstotki1,fixed=TRUE))/100  #NE DELA
+  
+  
+  
+  
+  
   #View(podatki)
+  
+  
+  #podatki %>% View
   
   
 
   
   
-  #pobriši prvi in zadnji stolpec, določi imena stolpcev, spremeni procente v številke
+  #pobriši prvi in zadnji stolpec, določi imena stolpcev, spremeni procente v številke -ODSTOTEK ZMAG V REDNEM DELU, PO USPEŠNOST, USPEŠNOST V SeRIJAH
   
 
   
@@ -71,6 +81,7 @@ uvozi.rezultate <- function() {
 
 #print(podatki)
 
+
 podatki %>% View
 
 
@@ -78,10 +89,10 @@ uvoz <- read_csv()
 
 
 # Zapišimo podatke v razpredelnico obcine
-podatkiekip <- uvozi.rezultate()
+#podatkiekip <- uvozi.rezultate()
 
 # Zapišimo podatke v razpredelnico druzine.
-druzine <- uvozi.druzine(levels(obcine$obcina))
+#druzine <- uvozi.druzine(levels(obcine$obcina))
 
 
 
@@ -95,3 +106,4 @@ druzine <- uvozi.druzine(levels(obcine$obcina))
 # datoteko, tukaj pa bi klicali tiste, ki jih potrebujemo v
 # 2. fazi. Seveda bi morali ustrezno datoteko uvoziti v prihodnjih
 # fazah.
+
