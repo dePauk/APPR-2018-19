@@ -94,14 +94,21 @@ uvozi.rezultate <- function() {
 
 #print(podatki)
 
+#podatki %>% View
+
 uvozi.igralce_tedna <- function(){
-  data <- read.csv("NBA_player_of_the_week.csv", locale=locale(encoding = "Windows1250"))
   
+  stolpci_igralci = c("Starost igralca","V/Z konferenca","Datum nagrade","Leto drafta igralca", "Višina igralca", "Ime igralca","Pozicija igranja", "Sezona", "Sezona okrajšano", "Število sezon v ligi", "Igralčeva ekipa", "Teža igralca", "Vrednost naziva")
+
+  
+  igralci_tedna = read_csv("podatki/NBA_player_of_the_week.csv", col_names = stolpci_igralci, skip=1)
+
 }
 
 
-#podatki %>% View
 
+
+igralci_tedna %>% View
 
 uvoz <- read_csv()
 
