@@ -94,8 +94,13 @@ uvozi.rezultate <- function() {
 
 #print(podatki)
 
+uvozi.igralce_tedna <- function(){
+  data <- read.csv("NBA_player_of_the_week.csv", locale=locale(encoding = "Windows1250"))
+  
+}
 
-podatki %>% View
+
+#podatki %>% View
 
 
 uvoz <- read_csv()
