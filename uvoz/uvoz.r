@@ -19,9 +19,22 @@ uvozi.rezultate <- function() {
   
   podatki$IZBRIŠI2 <- NULL
   podatki$IZBRIŠI <- NULL
-  
+
   odstotki1 <- podatki$`Odstotek zmag v rednem delu`
-  odstotki1 <- as.numeric(sub("%","",data$odstotki1,fixed=TRUE))/100  #NE DELA
+  odstotki1 <- as.numeric(sub("%","",podatki$`Odstotek zmag v rednem delu`,fixed=TRUE))/100 
+  
+  odstotki2 <- podatki$`PO uspešnost`
+  odstotki2 <- as.numeric(sub("%","",podatki$`PO uspešnost`,fixed=TRUE))/100
+  
+  # odstotki3 <- podatki$`Uspešnost v serijah`
+  # odstotki3 <- as.numeric(sub("%","",podatki$`Uspešnost v serijah`,fixed=TRUE))/100
+  
+  podatki$`Odstotek zmag v rednem delu` <- odstotki1
+  
+  podatki$`PO uspešnost` <- odstotki2
+  
+  # podatki$`Uspešnost v serijah`<- odstotki3
+  
   
   
   
