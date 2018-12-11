@@ -1,5 +1,11 @@
 # 2. faza: Uvoz podatkov
 
+library(rvest)
+library(gsubfn)
+library(readr)
+library(dplyr)
+library(stringr)
+
 sl <- locale("sl", decimal_mark=",", grouping_mark=".")
 
 # Funkcija, ki uvozi podatke o zmagah ekip v sezonah od 1984/85 do 2017/18.
@@ -98,12 +104,14 @@ uvozi.rezultate <- function() {
 
 uvozi.igralce_tedna <- function(){
   
-  stolpci_igralci = c("Starost igralca","V/Z konferenca","Datum nagrade","Leto drafta igralca", "Višina igralca", "Ime igralca","Pozicija igranja", "Sezona", "Sezona okrajšano", "Število sezon v ligi", "Igralčeva ekipa", "Teža igralca", "Vrednost naziva")
+  stolpci_igralci <- c("Starost igralca","V/Z konferenca","Datum nagrade","Leto drafta igralca", "Višina igralca", "Ime igralca","Pozicija igranja", "Sezona", "Sezona okrajšano", "Število sezon v ligi", "Igralčeva ekipa", "Teža igralca", "Vrednost naziva")
 
   
-  igralci_tedna = read_csv("podatki/NBA_player_of_the_week.csv", col_names = stolpci_igralci, skip=1)
-
+  igralci_tedna <- read_csv("podatki/NBA_player_of_the_week.csv", locale = locale(encoding="cp1250"), col_names = stolpci_igralci, skip=1)
+  
+  #igralci_tedna %>% View
 }
+
 
 
 
@@ -111,6 +119,20 @@ uvozi.igralce_tedna <- function(){
 igralci_tedna %>% View
 
 uvoz <- read_csv()
+
+uvozi.sezonsko_stat <- function(){
+
+  stolpci_statistika <- c("IZBRISI3", "Leto", "Igralec", "Pozicija igranja", "Starost", "Ekipa", "Število iger", "Število začetih iger", "Odigrane minute", "Player efficiency rating", "True shooting %", "3- point attempt rate", "Free throw rate", "Offensive rebound percentage", "Defensive rebound percentage", "Assist percentage", "Steal percentage", "Block percentage", "Turnover percentage")
+  
+  
+  statistika <- read_csv("podatki/Seasons_Stats.csv", locale = locale(encoding="cp1250"), col_names = stolpci_statistika, skip = 1)
+  
+  
+  izbrisi3 <- statistika$IZBRISI3
+  statistika$IZBRISI3 <- NULL
+  
+  
+}
 
 
 # Zapišimo podatke v razpredelnico obcine
@@ -121,7 +143,7 @@ uvoz <- read_csv()
 
 
 
-
+statistika %>% View
 
 
 
