@@ -45,21 +45,12 @@ uvozi.rezultate <- function() {
   
   
   
-  
-  
   #View(podatki)
   
   
   #podatki %>% View
   
-  
 
-  
-  
-  #pobriši prvi in zadnji stolpec, določi imena stolpcev, spremeni procente v številke -ODSTOTEK ZMAG V REDNEM DELU, PO USPEŠNOST, USPEŠNOST V SeRIJAH
-  
-
-  
 # tabela <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>%
 #   .[[1]] %>% html_table(dec=",")
 # for (i in 1:ncol(tabela)) {
@@ -110,14 +101,15 @@ uvozi.igralce_tedna <- function(){
   
   igralci_tedna <- read_csv("podatki/NBA_player_of_the_week.csv", locale = locale(encoding="UTF-8"), col_names = stolpci_igralci, skip=1)
   
+  ft_to_cm1<- as.numeric(sub("-","",igralci_tedna$`Višina igralca`, fixed=TRUE))  #NAS introduced by coercion             #kar je do "-" recimo pomnoži z 30.48, kar je za tem pa z 2.54
+
+  
   
 # PRETVORI FT V CM
   
   
   #igralci_tedna %>% View
 }
-
-
 
 
 
@@ -151,15 +143,13 @@ uvozi.sezonsko_stat <- function(){
 statistika %>% View
 
 
-
-
 # Če bi imeli več funkcij za uvoz in nekaterih npr. še ne bi
 # potrebovali v 3. fazi, bi bilo smiselno funkcije dati v svojo
 # datoteko, tukaj pa bi klicali tiste, ki jih potrebujemo v
 # 2. fazi. Seveda bi morali ustrezno datoteko uvoziti v prihodnjih
 # fazah.
 
-# pretvori FT v CM !
+
 
 require(ggplot2)
 require(dplyr)
