@@ -5,6 +5,7 @@ library(gsubfn)
 library(readr)
 library(dplyr)
 library(stringr)
+library(ggplot2)
 
 sl <- locale("sl", decimal_mark=",", grouping_mark=".")
 
@@ -17,7 +18,7 @@ uvozi.rezultate <- function() {
   
   stolpci <- c("IZBRIŠI2","število sezon v ligi", "Ekipa", "Št. zmag v rednem delu", "Št. porazov v rednem delu", "Odstotek zmag v rednem delu","Koliko krat v Play-offu", "PO zmage", "Play-off porazi","PO uspešnost", "Zmage serij","Porazi serij","Uspešnost v serijah","Nastopi v finalu", "Zmage v finalu","IZBRIŠI")
   
-  podatki <- read_csv(csv, locale=locale(encoding="cp1250"), col_names=stolpci)
+  podatki <- read_csv(csv, locale=locale(encoding="UTF-8"), col_names=stolpci)
   
   
   izbrisi2 <- podatki$IZBRIŠI2
@@ -107,7 +108,11 @@ uvozi.igralce_tedna <- function(){
   stolpci_igralci <- c("Starost igralca","V/Z konferenca","Datum nagrade","Leto drafta igralca", "Višina igralca", "Ime igralca","Pozicija igranja", "Sezona", "Sezona okrajšano", "Število sezon v ligi", "Igralčeva ekipa", "Teža igralca", "Vrednost naziva")
 
   
-  igralci_tedna <- read_csv("podatki/NBA_player_of_the_week.csv", locale = locale(encoding="cp1250"), col_names = stolpci_igralci, skip=1)
+  igralci_tedna <- read_csv("podatki/NBA_player_of_the_week.csv", locale = locale(encoding="UTF-8"), col_names = stolpci_igralci, skip=1)
+  
+  
+# PRETVORI FT V CM
+  
   
   #igralci_tedna %>% View
 }
@@ -125,7 +130,7 @@ uvozi.sezonsko_stat <- function(){
   stolpci_statistika <- c("IZBRISI3", "Leto", "Igralec", "Pozicija igranja", "Starost", "Ekipa", "Število iger", "Število začetih iger", "Odigrane minute", "Player efficiency rating", "True shooting %", "3- point attempt rate", "Free throw rate", "Offensive rebound percentage", "Defensive rebound percentage", "Assist percentage", "Steal percentage", "Block percentage", "Turnover percentage")
   
   
-  statistika <- read_csv("podatki/Seasons_Stats.csv", locale = locale(encoding="cp1250"), col_names = stolpci_statistika, skip = 1)
+  statistika <- read_csv("podatki/Seasons_Stats.csv", locale = locale(encoding="UTF-8"), col_names = stolpci_statistika, skip = 1)
   
   
   izbrisi3 <- statistika$IZBRISI3
@@ -153,4 +158,11 @@ statistika %>% View
 # datoteko, tukaj pa bi klicali tiste, ki jih potrebujemo v
 # 2. fazi. Seveda bi morali ustrezno datoteko uvoziti v prihodnjih
 # fazah.
+
+# pretvori FT v CM !
+
+require(ggplot2)
+require(dplyr)
+
+ggplot(data = igralci_tedna, aes(x=igralci_tedna$`Teža igralca`, y=igralci_tedna$`Višina igralca`)) + geom_point()
 
