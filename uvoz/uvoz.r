@@ -16,31 +16,31 @@ uvozi.rezultate <- function() {
   vrstice <- stran %>% html_nodes(xpath="//span[@class='hovl']") %>% html_text()
   csv <- gsub(" {2,}", ",", vrstice) %>% paste(collapse="") #zamenja, kjer sta vsaj 2 presledka z vejicami (v CSV)
   
-  stolpci <- c("IZBRIŠI2","število sezon v ligi", "Ekipa", "Št. zmag v rednem delu", "Št. porazov v rednem delu", "Odstotek zmag v rednem delu","Koliko krat v Play-offu", "PO zmage", "Play-off porazi","PO uspešnost", "Zmage serij","Porazi serij","Uspešnost v serijah","Nastopi v finalu", "Zmage v finalu","IZBRIŠI")
+  stolpci <- c("IZBRISI2","Sezon_v_ligi", "Ekipa", "Zmage_redni_del", "Porazi_redni_del", "Odstotek_zmag_redni_del","Stevilo_playoffov", "Playoff_zmage", "Playoff_porazi","Playoff_uspesnost", "Zmage_serij","Porazi_serij","Uspesnost_serije","Nastopi_finale", "Zmage_finale","IZBRISI")
   
   podatki <- read_csv(csv, locale=locale(encoding="UTF-8"), col_names=stolpci)
   
   
-  izbrisi2 <- podatki$IZBRIŠI2
-  izbrisi <- podatki$IZBRIŠI
+  izbrisi2 <- podatki$IZBRISI2
+  izbrisi <- podatki$IZBRISI
   
-  podatki$IZBRIŠI2 <- NULL
-  podatki$IZBRIŠI <- NULL
+  podatki$IZBRISI2 <- NULL
+  podatki$IZBRISI <- NULL
 
-  odstotki1 <- podatki$`Odstotek zmag v rednem delu`
-  odstotki1 <- as.numeric(sub("%","",podatki$`Odstotek zmag v rednem delu`,fixed=TRUE))/100 
+  odstotki1 <- podatki$Odstotek_zmag_redni_del
+  odstotki1 <- as.numeric(sub("%","",podatki$Odstotek_zmag_redni_del,fixed=TRUE))/100 
   
-  odstotki2 <- podatki$`PO uspešnost`
-  odstotki2 <- as.numeric(sub("%","",podatki$`PO uspešnost`,fixed=TRUE))/100
+  odstotki2 <- podatki$Playoff_uspesnost
+  odstotki2 <- as.numeric(sub("%","",podatki$Playoff_uspesnost,fixed=TRUE))/100
   
-  odstotki3 <- podatki$`Uspešnost v serijah`
-  odstotki3 <- as.numeric(sub("%","",podatki$`Uspešnost v serijah`,fixed=TRUE))/100
+  odstotki3 <- podatki$Uspesnost_serije
+  odstotki3 <- as.numeric(sub("%","",podatki$Uspesnost_serije,fixed=TRUE))/100
   
-  podatki$`Odstotek zmag v rednem delu` <- odstotki1
+  podatki$Odstotek_zmag_redni_del <- odstotki1
   
-  podatki$`PO uspešnost` <- odstotki2
+  podatki$Playoff_uspesnost <- odstotki2
   
-  podatki$`Uspešnost v serijah`<- odstotki3
+  podatki$Uspesnost_serije<- odstotki3
   
   
   
@@ -96,16 +96,20 @@ uvozi.rezultate <- function() {
 
 uvozi.igralce_tedna <- function(){
   
-  stolpci_igralci <- c("Starost igralca","V/Z konferenca","Datum nagrade","Leto drafta igralca", "Višina igralca", "Ime igralca","Pozicija igranja", "Sezona", "Sezona okrajšano", "Število sezon v ligi", "Igralčeva ekipa", "Teža igralca", "Vrednost naziva")
+  stolpci_igralci <- c("Starost","Konferenca","Datum_nagrade","Leto_drafta", "Visina", "Ime","Pozicija", "Sezona", "Sezona_okrajsano", "Stevilo_sezon_v_ligi", "Igralceva_ekipa", "Teza", "Vrednost_naziva")
 
   
   igralci_tedna <- read_csv("podatki/NBA_player_of_the_week.csv", locale = locale(encoding="UTF-8"), col_names = stolpci_igralci, skip=1)
   
-  ft_to_cm1<- as.numeric(sub("-","",igralci_tedna$`Višina igralca`, fixed=TRUE))  #NAS introduced by coercion             #kar je do "-" recimo pomnoži z 30.48, kar je za tem pa z 2.54
 
-  
-  
-# PRETVORI FT V CM
+  igralci_tedna$Visina <-  igralci_tedna$Visina %>% strapplyc("([0-9]+)") %>% sapply(function(x) {
+    x <- parse_number(x)
+    if (length(x) == 1) {
+      return(x)
+    } else {
+      return(sum(x * c(12, 1)) * 2.54)
+    }
+  })
   
   
   #igralci_tedna %>% View
@@ -119,7 +123,7 @@ uvoz <- read_csv()
 
 uvozi.sezonsko_stat <- function(){
 
-  stolpci_statistika <- c("IZBRISI3", "Leto", "Igralec", "Pozicija igranja", "Starost", "Ekipa", "Število iger", "Število začetih iger", "Odigrane minute", "Player efficiency rating", "True shooting %", "3- point attempt rate", "Free throw rate", "Offensive rebound percentage", "Defensive rebound percentage", "Assist percentage", "Steal percentage", "Block percentage", "Turnover percentage")
+  stolpci_statistika <- c("IZBRISI3", "Leto", "Igralec", "Pozicija", "Starost", "Ekipa", "Stevilo_iger", "Stevilo_zacetih_iger", "Odigrane_minute", "Player_efficiency_rating", "True_shooting", "3pt_attempt_rate", "Ft_rate", "Off_rebound_percentage", "Def_rebound_percentage", "Assist_percentage", "Steal_percentage", "Block_percentage", "Turnover_percentage")
   
   
   statistika <- read_csv("podatki/Seasons_Stats.csv", locale = locale(encoding="UTF-8"), col_names = stolpci_statistika, skip = 1)
