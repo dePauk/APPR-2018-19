@@ -132,8 +132,37 @@ uvozi.sezonsko_stat <- function(){
   izbrisi3 <- statistika$IZBRISI3
   statistika$IZBRISI3 <- NULL
   
-  
 }
+
+
+
+uVozi.all_star <- function(){
+  link <- "https://en.wikipedia.org/wiki/List_of_NBA_All-Stars"
+  stran <- html_session(link) %>% read_html()
+  all_star_igralci <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable jquery-tablesorter']") %>% .[[2]] %>% html_table()
+}
+
+# Zapis podatkov v tabelo All-star
+all_star_igralci <- uvozi.all_star()
+
+#Poimenovanje stolpcev
+
+all_star_igralci %>% View
+
+
+
+
+
+
+all_star_igralci %>% View
+
+
+
+
+
+
+
+
 
 
 # Zapišimo podatke v razpredelnico obcine
