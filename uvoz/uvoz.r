@@ -139,7 +139,9 @@ uvozi.sezonsko_stat <- function(){
 uVozi.all_star <- function(){
   link <- "https://en.wikipedia.org/wiki/List_of_NBA_All-Stars"
   stran <- html_session(link) %>% read_html()
-  all_star_igralci <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable jquery-tablesorter']") %>% .[[2]] %>% html_table()
+  tabela_allstar <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>% .[[1]] %>% html_table() %>%
+    mutate(Player=Player %>% strapplyc("^([[:alnum:] '.-]*)") %>% unlist())
+  
 }
 
 # Zapis podatkov v tabelo All-star
