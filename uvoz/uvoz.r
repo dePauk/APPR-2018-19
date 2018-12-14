@@ -18,37 +18,37 @@ uvozi.rezultate <- function() {
   
   stolpci <- c("IZBRISI2","Sezon_v_ligi", "Ekipa", "Zmage_redni_del", "Porazi_redni_del", "Odstotek_zmag_redni_del","Stevilo_playoffov", "Playoff_zmage", "Playoff_porazi","Playoff_uspesnost", "Zmage_serij","Porazi_serij","Uspesnost_serije","Nastopi_finale", "Zmage_finale","IZBRISI")
   
-  podatki <- read_csv(csv, locale=locale(encoding="UTF-8"), col_names=stolpci)
+  podatki_ekipe <- read_csv(csv, locale=locale(encoding="UTF-8"), col_names=stolpci)
   
   
-  izbrisi2 <- podatki$IZBRISI2
-  izbrisi <- podatki$IZBRISI
+  izbrisi2 <- podatki_ekipe$IZBRISI2
+  izbrisi <- podatki_ekipe$IZBRISI
   
-  podatki$IZBRISI2 <- NULL
-  podatki$IZBRISI <- NULL
+  podatki_ekipe$IZBRISI2 <- NULL
+  podatki_ekipe$IZBRISI <- NULL
 
-  odstotki1 <- podatki$Odstotek_zmag_redni_del
-  odstotki1 <- as.numeric(sub("%","",podatki$Odstotek_zmag_redni_del,fixed=TRUE))/100 
+  odstotki1 <- podatki_ekipe$Odstotek_zmag_redni_del
+  odstotki1 <- as.numeric(sub("%","",podatki_ekipe$Odstotek_zmag_redni_del,fixed=TRUE))/100 
   
-  odstotki2 <- podatki$Playoff_uspesnost
-  odstotki2 <- as.numeric(sub("%","",podatki$Playoff_uspesnost,fixed=TRUE))/100
+  odstotki2 <- podatki_ekipe$Playoff_uspesnost
+  odstotki2 <- as.numeric(sub("%","",podatki_ekipe$Playoff_uspesnost,fixed=TRUE))/100
   
-  odstotki3 <- podatki$Uspesnost_serije
-  odstotki3 <- as.numeric(sub("%","",podatki$Uspesnost_serije,fixed=TRUE))/100
+  odstotki3 <- podatki_ekipe$Uspesnost_serije
+  odstotki3 <- as.numeric(sub("%","",podatki_ekipe$Uspesnost_serije,fixed=TRUE))/100
   
-  podatki$Odstotek_zmag_redni_del <- odstotki1
+  podatki_ekipe$Odstotek_zmag_redni_del <- odstotki1
   
-  podatki$Playoff_uspesnost <- odstotki2
+  podatki_ekipe$Playoff_uspesnost <- odstotki2
   
-  podatki$Uspesnost_serije<- odstotki3
-  
-  
+  podatki_ekipe$Uspesnost_serije<- odstotki3
   
   
-  #View(podatki)
   
   
-  #podatki %>% View
+  #View(podatki_ekipe)
+  
+  
+  #podatki_ekipe %>% View
   
 
 # tabela <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>%
@@ -90,9 +90,9 @@ uvozi.rezultate <- function() {
 #   return(data)
 # }
 
-#print(podatki)
+#print(podatki_ekipe)
 
-#podatki %>% View
+#podatki_ekipe %>% View
 
 uvozi.igralce_tedna <- function(){
   
@@ -115,6 +115,30 @@ uvozi.igralce_tedna <- function(){
   #igralci_tedna %>% View
 }
 
+#aggregate(data.frame(count=igralci_tedna$Igralceva_ekipa), list(value = igralci_tedna$Igralceva_ekipa, length))
+
+
+
+# Število različnih vrednosti v vsakem stolpcu tabele posebej
+rapply(igralci_tedna, function(x)length(unique(x)))
+
+#Ker dobim za ime ekip 35 različnih možnosti, bo sedaj manj možnosti, da pozabim kakšen klub (upoštevati je namreč treba spremembe imen, ki jih je bilo kar nekaj tekom let)
+# 35- 30 = 5; torej vsaj 5 sprememb imen klubov v teh letih
+
+# New Jersey Nets -> Brooklyn Nets
+# Washington Bullets -> Washington Wizards
+# Seattle SuperSonics -> Oklahoma City Thunder
+# Charlotte Hornets -> Charlotte Bobcats (-> Charlotte Hornets)
+# New Orleans Hornets -> New Orleans Pelicans
+
+rapply(igralci_tedna, function(x)length(unique(x)))
+
+# stevilo_nazivov_ekipa nam pove, koliko nazivov Player of the Week so si izborili igralci vsake ekipe v opazovanem obdobju.
+
+stevilo_nazivov_ekipa <- table(igralci_tedna$Igralceva_ekipa)
+stevilo_nazivov_ekipa
+
+#as.data.frame(table(stevilo_nazivov_ekipa))  Bolj kot ne neuporabno
 
 
 igralci_tedna %>% View
@@ -189,5 +213,7 @@ statistika %>% View
 require(ggplot2)
 require(dplyr)
 
-ggplot(data = igralci_tedna, aes(x=igralci_tedna$`Teža igralca`, y=igralci_tedna$`Višina igralca`)) + geom_point()
+ggplot(data = igralci_tedna, aes(x=igralci_tedna$Teza, y=igralci_tedna$Visina)) + geom_point()
+
+ggplot(data = podatki_ekipe, aes(x=))
 
