@@ -131,7 +131,6 @@ rapply(igralci_tedna, function(x)length(unique(x)))
 # Charlotte Hornets -> Charlotte Bobcats (-> Charlotte Hornets)
 # New Orleans Hornets -> New Orleans Pelicans
 
-rapply(igralci_tedna, function(x)length(unique(x)))
 
 # stevilo_nazivov_ekipa nam pove, koliko nazivov Player of the Week so si izborili igralci vsake ekipe v opazovanem obdobju.
 
@@ -140,9 +139,15 @@ stevilo_nazivov_ekipa
 
 #data.frame ekip in številom osvojenih nazivov Player of the Week
 
-as.data.frame(table(igralci_tedna$Igralceva_ekipa))
+tabela_stevilo_nazivov <- as.data.frame(table(igralci_tedna$Igralceva_ekipa))
+tabela_stevilo_nazivov
 
-# to sedaj 
+tabela_stevilo_nazivov2 <- tabela_stevilo_nazivov[-c(8,12,15,20,31),]
+tabela_stevilo_nazivov2
+
+# TREBA ŠE PRIŠTETI VREDNOSTI IZBRISANIH STOLPCEV PRAVIM
+
+
 
 
 igralci_tedna %>% View
