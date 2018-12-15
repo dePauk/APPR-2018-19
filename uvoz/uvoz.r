@@ -144,8 +144,8 @@ tabela_stevilo_nazivov <- as.data.frame(table(igralci_tedna$Igralceva_ekipa))
 
 tabela_stevilo_nazivov <- tabela_stevilo_nazivov[order(tabela_stevilo_nazivov$Var1),]
 
-tabela_stevilo_nazivov
-tabela_stevilo_nazivov %>% View
+#tabela_stevilo_nazivov
+#tabela_stevilo_nazivov %>% View
 
 tabela_stevilo_nazivov2 <- tabela_stevilo_nazivov
 
@@ -166,8 +166,11 @@ rownames(tabela_stevilo_nazivov_urejeno) <- 1:nrow(tabela_stevilo_nazivov_urejen
 tabela_stevilo_nazivov_urejeno
 tabela_stevilo_nazivov_urejeno %>% View
 
+
 tabela_stevilo_nazivov_urejeno_imena <- tabela_stevilo_nazivov_urejeno
 #tabela_stevilo_nazivov_urejeno_imena[20,1] <-     NE VEM, KAKO PREIMENOVAT 
+
+#replace(tabela_stevilo_nazivov_urejeno_imena$Var1, "New York Knicks", "New York Knickerbockers")
 
 
 
