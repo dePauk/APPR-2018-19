@@ -43,6 +43,11 @@ uvozi.rezultate <- function() {
   podatki_ekipe$Uspesnost_serije<- odstotki3
   
   
+  podatki_ekipe_imensko <- podatki_ekipe[order(podatki_ekipe$Ekipa),]
+  
+  #podatki_ekipe_imensko %>% View
+  
+  
   #podatki_ekipe %>% View
   
   #print(podatki_ekipe)
@@ -115,6 +120,8 @@ uvozi.igralce_tedna <- function(){
 }
 
 
+#igralci_tedna %>% View
+
 
 
 
@@ -139,7 +146,11 @@ stevilo_nazivov_ekipa
 #data.frame ekip in številom osvojenih nazivov Player of the Week
 
 tabela_stevilo_nazivov <- as.data.frame(table(igralci_tedna$Igralceva_ekipa))
+
+tabela_stevilo_nazivov <- tabela_stevilo_nazivov[order(tabela_stevilo_nazivov$Var1),]
+
 tabela_stevilo_nazivov
+tabela_stevilo_nazivov %>% View
 
 tabela_stevilo_nazivov2 <- tabela_stevilo_nazivov
 
@@ -149,28 +160,23 @@ tabela_stevilo_nazivov2[24,2] <- 61
 tabela_stevilo_nazivov2[5,2] <- 26
 tabela_stevilo_nazivov2[22,2] <- 17
 
-tabela_stevilo_nazivov2
+#tabela_stevilo_nazivov2
 
-tabela_stevilo_nazivov2novo <- tabela_stevilo_nazivov2[-c(4,12,20,31,34),]
+tabela_stevilo_nazivov_urejeno <- tabela_stevilo_nazivov2[-c(4,20,21,31,34),]
 
-tabela_stevilo_nazivov2novo
+#tabela_stevilo_nazivov_urejeno
 
+rownames(tabela_stevilo_nazivov_urejeno) <- 1:nrow(tabela_stevilo_nazivov_urejeno)
 
-rownames(tabela_stevilo_nazivov2novo) <- 1:nrow(tabela_stevilo_nazivov2novo)
+tabela_stevilo_nazivov_urejeno
+tabela_stevilo_nazivov_urejeno %>% View
 
-tabela_stevilo_nazivov2novo
-
-# Ali so sedaj številke vrstic ekip kompatibilne s prvo tabelo?
-
-
-
+# Številke vrstic za ekipe so sedaj kompatibilne s prvo tabelo -> lahko bom dodal te številke kar v tisto tabelo.
+# TREBA JE LE PREIMENOVATI NEKAJ IMEN EKIP, NPR. SIXERS -> 76ERS, KNICKS -> KNICKERBOCKERS
 
 
-igralci_tedna %>% View
 
 uvoz <- read_csv()
-
-
 
 
 
@@ -204,16 +210,6 @@ all_star_igralci <- uvozi.all_star()
 #Poimenovanje stolpcev
 
 all_star_igralci %>% View
-
-
-
-
-
-
-all_star_igralci %>% View
-
-
-
 
 
 
