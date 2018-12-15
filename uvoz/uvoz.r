@@ -51,6 +51,7 @@ uvozi.rezultate <- function() {
   #print(podatki_ekipe)
   
   
+#------------------------------------------------------------------------------------------------------------------------------------------------------------  
   
 
 # tabela <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>%
@@ -92,6 +93,7 @@ uvozi.rezultate <- function() {
 # }
 
 
+#--------------------------------------------------------------------------------------------------------------------------------------------------------
 
 uvozi.igralce_tedna <- function(){
   
@@ -195,23 +197,34 @@ uvozi.sezonsko_stat <- function(){
   
 }
 
+#statistika %>% View
+
 
 #----------------------------------------------------------------------------------------------------------------------------------------
 
 uVozi.all_star <- function(){
+  
+  stolpci_allstar <- c("Igralec","Stevilo_allstar_nastopov","Sezone_allstar")
+  
   link <- "https://en.wikipedia.org/wiki/List_of_NBA_All-Stars"
   stran <- html_session(link) %>% read_html()
   tabela_allstar <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>% .[[1]] %>% html_table() %>%
     mutate(Player=Player %>% strapplyc("^([[:alnum:] '.-]*)") %>% unlist())
   
+  tabela_allstar <- tabela_allstar[,-5]
+  tabela_allstar <- tabela_allstar[,-4]
+  
+  
+  
+  names(tabela_allstar) <- stolpci_allstar
+  
 }
 
-# Zapis podatkov v tabelo All-star
-all_star_igralci <- uvozi.all_star()
 
-#Poimenovanje stolpcev
+#tabela_allstar %>% View
 
-all_star_igralci %>% View
+
+
 
 
 
@@ -222,10 +235,6 @@ all_star_igralci %>% View
 #druzine <- uvozi.druzine(levels(obcine$obcina))
 
 
-
-statistika %>% View
-
-
 # Če bi imeli več funkcij za uvoz in nekaterih npr. še ne bi
 # potrebovali v 3. fazi, bi bilo smiselno funkcije dati v svojo
 # datoteko, tukaj pa bi klicali tiste, ki jih potrebujemo v
@@ -234,10 +243,11 @@ statistika %>% View
 
 
 
-require(ggplot2)
-require(dplyr)
+#require(ggplot2)
+#require(dplyr)
 
 ggplot(data = igralci_tedna, aes(x=igralci_tedna$Teza, y=igralci_tedna$Visina)) + geom_point()
 
 ggplot(data = igralci_tedna, aes(x=igralci_tedna$Sezona_okrajsano, y=igralci_tedna$Teza)) + geom_point()
 
+ggplot(data = podatki_ekipe, aes(x=podatki_ekipe$Odstotek_zmag_redni_del, y=podatki_ekipe$Playoff_uspesnost)) + geom_point()
