@@ -166,15 +166,14 @@ rownames(tabela_stevilo_nazivov_urejeno) <- 1:nrow(tabela_stevilo_nazivov_urejen
 tabela_stevilo_nazivov_urejeno
 tabela_stevilo_nazivov_urejeno %>% View
 
-
 tabela_stevilo_nazivov_urejeno_imena <- tabela_stevilo_nazivov_urejeno
-#tabela_stevilo_nazivov_urejeno_imena[20,1] <-     NE VEM, KAKO PREIMENOVAT 
-
-#replace(tabela_stevilo_nazivov_urejeno_imena$Var1, "New York Knicks", "New York Knickerbockers")
+#tabela_stevilo_nazivov_urejeno_imena[20,1] <-  #NE VEM, KAKO PREIMENOVATI
 
 
 
-# Številke vrstic za ekipe so sedaj kompatibilne s prvo tabelo -> lahko bom dodal te številke kar v tisto tabelo.
+
+
+# Številke vrstic za ekipe so sedaj kompatibilne s prvo tabelo -> lahko bom dodal te podatke kar v tisto tabelo.
 # TREBA JE LE PREIMENOVATI NEKAJ IMEN EKIP, NPR. SIXERS -> 76ERS, KNICKS -> KNICKERBOCKERS
 
 
@@ -239,3 +238,6 @@ require(ggplot2)
 require(dplyr)
 
 ggplot(data = igralci_tedna, aes(x=igralci_tedna$Teza, y=igralci_tedna$Visina)) + geom_point()
+
+ggplot(data = igralci_tedna, aes(x=igralci_tedna$Sezona_okrajsano, y=igralci_tedna$Teza)) + geom_point()
+
