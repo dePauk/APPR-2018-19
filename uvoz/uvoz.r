@@ -103,7 +103,10 @@ uvozi.igralce_tedna <- function(){
   igralci_tedna <- read_csv("podatki/NBA_player_of_the_week.csv", locale = locale(encoding="UTF-8"), col_names = stolpci_igralci, skip=1)
   
 
-  igralci_tedna$Visina <-  igralci_tedna$Visina %>% strapplyc("([0-9]+)") %>% sapply(function(x) {
+  igralci_tedna$Teza <- (igralci_tedna$Teza) * 0.453592
+  igralci_tedna$Teza <- signif(igralci_tedna$Teza, digits = 3)  
+  
+  igralci_tedna$Visina <- igralci_tedna$Visina %>% strapplyc("([0-9]+)") %>% sapply(function(x) {
     x <- parse_number(x)
     if (length(x) == 1) {
       return(x)
@@ -112,8 +115,9 @@ uvozi.igralce_tedna <- function(){
     }
   })
   
+  igralci_tedna$Visina <- signif(igralci_tedna$Visina, digits = 3)
   
-  #igralci_tedna %>% View
+  
 }
 
 
@@ -227,20 +231,13 @@ uVozi.all_star <- function(){
 
 
 
-
 # Zapišimo podatke v razpredelnico obcine
 #podatkiekip <- uvozi.rezultate()
 
 # Zapišimo podatke v razpredelnico druzine.
 #druzine <- uvozi.druzine(levels(obcine$obcina))
 
-
-# Če bi imeli več funkcij za uvoz in nekaterih npr. še ne bi
-# potrebovali v 3. fazi, bi bilo smiselno funkcije dati v svojo
-# datoteko, tukaj pa bi klicali tiste, ki jih potrebujemo v
-# 2. fazi. Seveda bi morali ustrezno datoteko uvoziti v prihodnjih
-# fazah.
-
+#---------------------------------------------------------------------------------------------------------------------------------------
 
 
 #require(ggplot2)
