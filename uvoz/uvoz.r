@@ -1,5 +1,3 @@
-# 2. faza: Uvoz podatkov
-
 library(rvest)
 library(gsubfn)
 library(readr)
@@ -52,8 +50,6 @@ uvozi.rezultate <- function() {
   
   #print(podatki_ekipe)
   
-
-  
   
   
 
@@ -78,7 +74,6 @@ uvozi.rezultate <- function() {
 #   return(tabela)
   
 }
-
 
 
 #Funkcija, ki uvozi podatke iz datoteke druzine.csv
@@ -171,13 +166,17 @@ rownames(tabela_stevilo_nazivov_urejeno) <- 1:nrow(tabela_stevilo_nazivov_urejen
 tabela_stevilo_nazivov_urejeno
 tabela_stevilo_nazivov_urejeno %>% View
 
+tabela_stevilo_nazivov_urejeno_imena <- tabela_stevilo_nazivov_urejeno
+#tabela_stevilo_nazivov_urejeno_imena[20,1] <-     NE VEM, KAKO PREIMENOVAT 
+
+
+
 # Številke vrstic za ekipe so sedaj kompatibilne s prvo tabelo -> lahko bom dodal te številke kar v tisto tabelo.
 # TREBA JE LE PREIMENOVATI NEKAJ IMEN EKIP, NPR. SIXERS -> 76ERS, KNICKS -> KNICKERBOCKERS
 
 
 
 uvoz <- read_csv()
-
 
 
 
@@ -195,6 +194,7 @@ uvozi.sezonsko_stat <- function(){
 }
 
 
+#----------------------------------------------------------------------------------------------------------------------------------------
 
 uVozi.all_star <- function(){
   link <- "https://en.wikipedia.org/wiki/List_of_NBA_All-Stars"
@@ -236,6 +236,3 @@ require(ggplot2)
 require(dplyr)
 
 ggplot(data = igralci_tedna, aes(x=igralci_tedna$Teza, y=igralci_tedna$Visina)) + geom_point()
-
-
-
