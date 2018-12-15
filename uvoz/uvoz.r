@@ -43,12 +43,13 @@ uvozi.rezultate <- function() {
   podatki_ekipe$Uspesnost_serije<- odstotki3
   
   
-  
-  
-  #View(podatki_ekipe)
-  
-  
   #podatki_ekipe %>% View
+  
+  #print(podatki_ekipe)
+  
+
+  
+  
   
 
 # tabela <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>%
@@ -90,9 +91,7 @@ uvozi.rezultate <- function() {
 #   return(data)
 # }
 
-#print(podatki_ekipe)
 
-#podatki_ekipe %>% View
 
 uvozi.igralce_tedna <- function(){
   
@@ -115,7 +114,7 @@ uvozi.igralce_tedna <- function(){
   #igralci_tedna %>% View
 }
 
-#aggregate(data.frame(count=igralci_tedna$Igralceva_ekipa), list(value = igralci_tedna$Igralceva_ekipa, length))
+
 
 
 
@@ -142,10 +141,27 @@ stevilo_nazivov_ekipa
 tabela_stevilo_nazivov <- as.data.frame(table(igralci_tedna$Igralceva_ekipa))
 tabela_stevilo_nazivov
 
-tabela_stevilo_nazivov2 <- tabela_stevilo_nazivov[-c(8,12,15,20,31),]
+tabela_stevilo_nazivov2 <- tabela_stevilo_nazivov
+
+tabela_stevilo_nazivov2[3,2] <- 36
+tabela_stevilo_nazivov2[35,2] <- 31
+tabela_stevilo_nazivov2[24,2] <- 61
+tabela_stevilo_nazivov2[5,2] <- 26
+tabela_stevilo_nazivov2[22,2] <- 17
+
 tabela_stevilo_nazivov2
 
-# TREBA ŠE PRIŠTETI VREDNOSTI IZBRISANIH STOLPCEV PRAVIM
+tabela_stevilo_nazivov2novo <- tabela_stevilo_nazivov2[-c(4,12,20,31,34),]
+
+tabela_stevilo_nazivov2novo
+
+
+rownames(tabela_stevilo_nazivov2novo) <- 1:nrow(tabela_stevilo_nazivov2novo)
+
+tabela_stevilo_nazivov2novo
+
+# Ali so sedaj številke vrstic ekip kompatibilne s prvo tabelo?
+
 
 
 
@@ -153,10 +169,6 @@ tabela_stevilo_nazivov2
 igralci_tedna %>% View
 
 uvoz <- read_csv()
-
-
-
-
 
 
 
@@ -205,10 +217,6 @@ all_star_igralci %>% View
 
 
 
-
-
-
-
 # Zapišimo podatke v razpredelnico obcine
 #podatkiekip <- uvozi.rezultate()
 
@@ -233,5 +241,5 @@ require(dplyr)
 
 ggplot(data = igralci_tedna, aes(x=igralci_tedna$Teza, y=igralci_tedna$Visina)) + geom_point()
 
-ggplot(data = podatki_ekipe, aes(x=))
+
 
