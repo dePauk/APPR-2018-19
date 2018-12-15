@@ -138,12 +138,25 @@ rapply(igralci_tedna, function(x)length(unique(x)))
 stevilo_nazivov_ekipa <- table(igralci_tedna$Igralceva_ekipa)
 stevilo_nazivov_ekipa
 
-#as.data.frame(table(stevilo_nazivov_ekipa))  Bolj kot ne neuporabno
+#data.frame ekip in številom osvojenih nazivov Player of the Week
+
+as.data.frame(table(igralci_tedna$Igralceva_ekipa))
+
+# to sedaj 
 
 
 igralci_tedna %>% View
 
 uvoz <- read_csv()
+
+
+
+
+
+
+
+
+
 
 uvozi.sezonsko_stat <- function(){
 
