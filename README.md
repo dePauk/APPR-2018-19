@@ -38,7 +38,7 @@ Stolpci: starost igralca, konferenca, datum osvojenega naziva, leto drafta igral
 
 3. tabela: 
 
-Stolpci: leto, igralec, pozicija igranja, starost, ekipa, število odigranih iger v sezoni, število začetih iger, odigrane minute, "player efficiency rating", "true shooting percentage" - uspešnost vseh metov, "free throw rate" - delež točk iz prostih metov
+Stolpci: leto, igralec, pozicija igranja, starost, ekipa, število odigranih iger v sezoni, število začetih iger, odigrane minute, "player efficiency rating", "true shooting percentage" - uspešnost vseh metov, "free throw rate" - delež točk iz prostih metov, odstotek skokov v napadu, odstotek skokov v obrambi, "assist percentage" - delež točk, ki jih je ta igralec asistiral v času njegovega igranja (brez njegovih točk), ukradene žoge, blokirani meti, odstotek izgubljenih žog (koliko izgubljenih na 100 posesti)
 
 4. tabela (All-star igralci):
 
