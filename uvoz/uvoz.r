@@ -19,12 +19,15 @@ uvozi.rezultate <- function() {
   podatki_ekipe <- read_csv(csv, locale=locale(encoding="UTF-8"), col_names=stolpci)
   
   
-  izbrisi2 <- podatki_ekipe$IZBRISI2
-  izbrisi <- podatki_ekipe$IZBRISI
+#  izbrisi2 <- podatki_ekipe$IZBRISI2
+#  izbrisi <- podatki_ekipe$IZBRISI
   
-  podatki_ekipe$IZBRISI2 <- NULL
-  podatki_ekipe$IZBRISI <- NULL
-
+#  podatki_ekipe$IZBRISI2 <- NULL
+#  podatki_ekipe$IZBRISI <- NULL
+  
+  podatki_ekipe <- podatki_ekipe[,-1]
+  podatki_ekipe <- podatki_ekipe[,-15]
+  
   odstotki1 <- podatki_ekipe$Odstotek_zmag_redni_del
   odstotki1 <- as.numeric(sub("%","",podatki_ekipe$Odstotek_zmag_redni_del,fixed=TRUE))/100 
   
@@ -102,6 +105,10 @@ uvozi.igralce_tedna <- function(){
   
   igralci_tedna <- read_csv("podatki/NBA_player_of_the_week.csv", locale = locale(encoding="UTF-8"), col_names = stolpci_igralci, skip=1)
   
+  # Za prikaz sezone bo dovolj le en stolpec in sicer bom uporabil tistega s končno letnico.
+  # Število sezon v ligi pomeni število končani sezon, torej "Rookie-ji" imajo pri tej spremenljivki vrednost 0.
+  
+  igralci_tedna <- igralci_tedna[,-8]
 
   igralci_tedna$Teza <- (igralci_tedna$Teza) * 0.453592
   igralci_tedna$Teza <- signif(igralci_tedna$Teza, digits = 3)  
@@ -122,7 +129,6 @@ uvozi.igralce_tedna <- function(){
 
 
 #igralci_tedna %>% View
-
 
 
 
@@ -163,19 +169,24 @@ tabela_stevilo_nazivov2[22,2] <- 17
 
 #tabela_stevilo_nazivov2
 
-tabela_stevilo_nazivov_urejeno <- tabela_stevilo_nazivov2[-c(4,20,21,31,34),]
+tabela_stevilo_nazivov2 <- tabela_stevilo_nazivov2[-c(4,20,21,31,34),]
 
-#tabela_stevilo_nazivov_urejeno
+rownames(tabela_stevilo_nazivov2) <- 1:nrow(tabela_stevilo_nazivov2)
 
-rownames(tabela_stevilo_nazivov_urejeno) <- 1:nrow(tabela_stevilo_nazivov_urejeno)
-
-tabela_stevilo_nazivov_urejeno
-tabela_stevilo_nazivov_urejeno %>% View
-
-tabela_stevilo_nazivov_urejeno_imena <- tabela_stevilo_nazivov_urejeno
-#tabela_stevilo_nazivov_urejeno_imena[20,1] <-  #NE VEM, KAKO PREIMENOVATI
+tabela_stevilo_nazivov2
+tabela_stevilo_nazivov2 %>% View
 
 
+
+tabela_stevilo_nazivov_imena <- tabela_stevilo_nazivov2
+
+tabela_stevilo_nazivov_imena <- as.character(sub("New York Knicks", "New York Knickerbockers", tabela_stevilo_nazivov_imena$Var1, fixed= TRUE)) # ta dela
+
+is.atomic((tabela_stevilo_nazivov_imena))  #prejšnja vrstica spremeni atomic na TRUE
+
+tabela_stevilo_nazivov_imena <- as.characte(sub("Philadelphia Sixers", "Philadelphia 76ers", tabela_stevilo_nazivov_imena$Var1, fixed= TRUE)) # $ OPERATOR IS INVALID FOR ATOMIC VECTORS
+
+tabela_stevilo_nazivov_imena %>% View
 
 
 
@@ -192,12 +203,9 @@ uvozi.sezonsko_stat <- function(){
 
   stolpci_statistika <- c("IZBRISI3", "Leto", "Igralec", "Pozicija", "Starost", "Ekipa", "Stevilo_iger", "Stevilo_zacetih_iger", "Odigrane_minute", "Player_efficiency_rating", "True_shooting", "3pt_attempt_rate", "Ft_rate", "Off_rebound_percentage", "Def_rebound_percentage", "Assist_percentage", "Steal_percentage", "Block_percentage", "Turnover_percentage")
   
-  
   statistika <- read_csv("podatki/Seasons_Stats.csv", locale = locale(encoding="UTF-8"), col_names = stolpci_statistika, skip = 1)
+  statistika <- statistika[,-1]
   
-  
-  izbrisi3 <- statistika$IZBRISI3
-  statistika$IZBRISI3 <- NULL
   
 }
 
@@ -238,13 +246,10 @@ uVozi.all_star <- function(){
 #druzine <- uvozi.druzine(levels(obcine$obcina))
 
 #---------------------------------------------------------------------------------------------------------------------------------------
+#Test:
 
+#ggplot(data = igralci_tedna, aes(x=igralci_tedna$Teza, y=igralci_tedna$Visina)) + geom_point()
 
-#require(ggplot2)
-#require(dplyr)
+#ggplot(data = igralci_tedna, aes(x=igralci_tedna$Sezona_okrajsano, y=igralci_tedna$Teza)) + geom_point()
 
-ggplot(data = igralci_tedna, aes(x=igralci_tedna$Teza, y=igralci_tedna$Visina)) + geom_point()
-
-ggplot(data = igralci_tedna, aes(x=igralci_tedna$Sezona_okrajsano, y=igralci_tedna$Teza)) + geom_point()
-
-ggplot(data = podatki_ekipe, aes(x=podatki_ekipe$Odstotek_zmag_redni_del, y=podatki_ekipe$Playoff_uspesnost)) + geom_point()
+#ggplot(data = podatki_ekipe, aes(x=podatki_ekipe$Odstotek_zmag_redni_del, y=podatki_ekipe$Playoff_uspesnost)) + geom_point()
