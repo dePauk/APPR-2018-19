@@ -17,9 +17,8 @@ uvozi.rezultate <- function() {
   
   podatki_ekipe <- read_csv(csv, locale=locale(encoding="UTF-8"), col_names=stolpci)
   
-  podatki_ekipe <- podatki_ekipe[,-16]
-  podatki_ekipe <- podatki_ekipe[,-1]
-  
+  podatki_ekipe <- podatki_ekipe[,-c(1,2,16)]
+
   odstotki1 <- podatki_ekipe$Odstotek_zmag_redni_del
   odstotki1 <- as.numeric(sub("%","",podatki_ekipe$Odstotek_zmag_redni_del,fixed=TRUE))/100 
   
@@ -134,7 +133,7 @@ uvozi.sezonsko_stat <- function(){
 
   stolpci_statistika <- c("IZBRISI3", "Leto", "Igralec", "Pozicija", "Starost", "Ekipa", "Stevilo_iger", "Stevilo_zacetih_iger", "Odigrane_minute", "Player_efficiency_rating", "True_shooting", "3pt_attempt_rate", "Ft_rate", "Off_rebound_percentage", "Def_rebound_percentage", "Assist_percentage", "Steal_percentage", "Block_percentage", "Turnover_percentage")
   statistika <- read_csv("podatki/Seasons_Stats.csv", locale = locale(encoding="UTF-8"), col_names = stolpci_statistika, skip = 1)
-  statistika <- statistika[,-1]
+  statistika <- statistika[,-c(1,12,14,15,16,17,18,19)]
   
 }
 
