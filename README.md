@@ -24,16 +24,25 @@ Podatke sem (bom) pobiral iz sledečih spletnih naslovov:
 
 ## Tabele
 
-1. tabela:
+1. tabela (Ekipe v NBA):
 
-Stolpci: igralec, ekipa, divizija, pozicija igranja, igrane minute, odstotek zadetih metov, višina, teža, starost, število sezon v ligi, pick na draftu, število odigranih all-star obračunov, vrednost" naziva (0.5 ali 1.0), skupno število dobljenih nazivov igralca tedna tega igralca.
+Stolpci: ekipa, št. zmag v rednem delu, št. porazov v rednem delu, delež zmag v rednem delu, število uvrstitev v Play-off (PO), št. zmaganih tekem v PO, št. izgubljenih tekem v PO, delež zmag tekem v PO, zmage serij v PO, porazi serij v PO, uspešnost serij v PO, št. nastopov v finalu, št. zmag celotne lige
 
-2. tabela:
+2. tabela (Igralci tedna):
 
-Stolpci: ekipa, skupno število dobljenih nagrad "Player of the Week" te ekipe, število različnih igralcev te ekipe z nagrado, število zmag, odstotek zmag, uvrstitve v play-off, uspešnost v play-offu, uvrstitve v finale, odstotek zmag v finalu.
+Stolpci: starost igralca, konferenca, datum osvojenega naziva, leto drafta igralca, višina, ime igralca, pozicija igranja, sezona (letnica spomladanskega dela), število sezon v ligi (brez trenutne), igralčeva ekipa, teža igralca, vrednost naziva (0.5 ali 1)
+
+  2a. tabela, dobljena iz tabele 2:
+  
+  Stolpci: ekipa, število osvojenih nazivov igralca tedna
 
 3. tabela: 
 
+Stolpci: leto, igralec, pozicija igranja, starost, ekipa, število odigranih iger v sezoni, število začetih iger, odigrane minute, "player efficiency rating", "true shooting percentage" - uspešnost vseh metov, "free throw rate" - delež točk iz prostih metov
+
+4. tabela (All-star igralci):
+
+  Stolpci: igralec, število uvrstitev v all-star ekipo, sezone uvrstitev v all-star ekipo
 
 
 
