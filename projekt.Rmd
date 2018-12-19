@@ -36,13 +36,23 @@ V projektu bom analiziral igralce tedna ("Player of the Week") lige NBA v sezona
 source("uvoz/uvoz.r", encoding="UTF-8")
 ```
 
-Uvozili smo podatke o občinah v obliki CSV s statističnega urada ter v obliki HTML
-z Wikipedije. Podatke imamo v dveh razpredelnicah v obliki *tidy data*.
+Uvozil sem podatke o igralcih tedna in sezonski statistiki igralcev v izbranih sezonah v obliki CSV s spletne strani Kaggle ter statistiko NBA ekip v tem obdobju s spletne strani mcubed.net in all-star igralce iz Wikipedije v obliki HTML. Podatki so v razpredelnicah v obliki *tidy data*.
 
-1. `druzine` - podatki o družinah za vsako občino
-  - `obcina` - spremenljivka: ime občine (neurejen faktor),
-  - `velikost.druzine` - spremenljivka: število otrok v družini (število: 1, 2, 3 ali 4, kjer zadnja vrednost pomeni 4 ali več),
-  - `stevilo.druzin` - meritev: število družin z ustreznim številom otrok v ustrezni občini (število).
+
+
+1. `Ekipa` - imena ekip, urejena po abecednem vrstnem redu
+  - `Zmage_redni_del` - spremenljivka: število zmag ekipe v izbranem obdobju
+  - `Porazi_redni_del` - spremenljivka: število porazov ekipe v izbranem obdobju
+  - `Uspesnost_redni_del` - spremenljivka: delež zmaganih tekem v rednem delu
+  - `Stevilo_playoffov` - spremenljivka: število uvrstitev v končnico oziroma "Play-off"
+  - `Playoff_zmage` - spremenljivka: število zmag v Play-offih
+  - `Playoff_porazi` - spremenljivka: število porazov v Play-offih
+  - `Zmage_serij` - spremenljivka: število premaganih nasprotnikov v Play-offih (uvrstitev v naslednji krog končnice)
+  - `Porazi_serij` - spremenljivka: število izgubljenih serij (izpadov iz končnice)
+  - `Uspesnost_serij` - spremenljivka: delež zmaganih serij
+  - `Nastopi_finale` - spremenljivka: število nastopov v finalih (zmag svoje konference)
+  - `Zmage_finale` - spremenljivka: število osvojenih nazivov zmagovalca lige
+  
 
 2. `obcine` - podatki o občinah
   - `obcina` - spremenljivka: ime občine (neurejen faktor),
