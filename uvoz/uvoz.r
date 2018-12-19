@@ -111,11 +111,11 @@ tabela_stevilo_nazivov2 %>% View
 
 
 tabela_stevilo_nazivov_imena <- tabela_stevilo_nazivov2
-tabela_stevilo_nazivov_imena <- as.character(sub("New York Knicks", "New York Knickerbockers", tabela_stevilo_nazivov_imena$Var1, fixed= TRUE)) # ta dela
+tabela_stevilo_nazivov_imena <- as.character(sub("New York Knicks", "New York Knickerbockers", tabela_stevilo_nazivov_imena$Var1, fixed= TRUE)) %>% as.character(sub("Philadelphia Sixers", "Philadelphia 76ers", tabela_stevilo_nazivov_imena$Var1, fixed= TRUE))# ta dela
 
 is.atomic((tabela_stevilo_nazivov_imena))  #prejšnja vrstica spremeni atomic na TRUE
 
-tabela_stevilo_nazivov_imena <- as.characte(sub("Philadelphia Sixers", "Philadelphia 76ers", tabela_stevilo_nazivov_imena$Var1, fixed= TRUE)) # $ OPERATOR IS INVALID FOR ATOMIC VECTORS
+#tabela_stevilo_nazivov_imena <- as.character(sub("Philadelphia Sixers", "Philadelphia 76ers", tabela_stevilo_nazivov_imena$Var1, fixed= TRUE)) # $ OPERATOR IS INVALID FOR ATOMIC VECTORS
 
 tabela_stevilo_nazivov_imena %>% View
 
