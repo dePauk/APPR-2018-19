@@ -13,24 +13,24 @@ uvozi.rezultate <- function() {
   stran <- html_session(link) %>% read_html()
   vrstice <- stran %>% html_nodes(xpath="//span[@class='hovl']") %>% html_text()
   csv <- gsub(" {2,}", ",", vrstice) %>% paste(collapse="") #zamenja, kjer sta vsaj 2 presledka z vejicami (v CSV)
-  stolpci <- c("IZBRISI2","Sezon_v_ligi", "Ekipa", "Zmage_redni_del", "Porazi_redni_del", "Odstotek_zmag_redni_del","Stevilo_playoffov", "Playoff_zmage", "Playoff_porazi","Playoff_uspesnost", "Zmage_serij","Porazi_serij","Uspesnost_serije","Nastopi_finale", "Zmage_finale","IZBRISI")
+  stolpci <- c("IZBRISI2","Sezon_v_ligi", "Ekipa", "Zmage_redni_del", "Porazi_redni_del", "Uspesnost_redni_del","Stevilo_playoffov", "Playoff_zmage", "Playoff_porazi","Playoff_uspesnost", "Zmage_serij","Porazi_serij","Uspesnost_serij","Nastopi_finale", "Zmage_finale","IZBRISI")
   
   podatki_ekipe <- read_csv(csv, locale=locale(encoding="UTF-8"), col_names=stolpci)
   
   podatki_ekipe <- podatki_ekipe[,-c(1,2,16)]
 
-  odstotki1 <- podatki_ekipe$Odstotek_zmag_redni_del
-  odstotki1 <- as.numeric(sub("%","",podatki_ekipe$Odstotek_zmag_redni_del,fixed=TRUE))/100 
+  odstotki1 <- podatki_ekipe$Uspesnost_redni_del
+  odstotki1 <- as.numeric(sub("%","",podatki_ekipe$Uspesnost_redni_del,fixed=TRUE))/100 
   
   odstotki2 <- podatki_ekipe$Playoff_uspesnost
   odstotki2 <- as.numeric(sub("%","",podatki_ekipe$Playoff_uspesnost,fixed=TRUE))/100
   
-  odstotki3 <- podatki_ekipe$Uspesnost_serije
-  odstotki3 <- as.numeric(sub("%","",podatki_ekipe$Uspesnost_serije,fixed=TRUE))/100
+  odstotki3 <- podatki_ekipe$Uspesnost_serij
+  odstotki3 <- as.numeric(sub("%","",podatki_ekipe$Uspesnost_serij,fixed=TRUE))/100
   
-  podatki_ekipe$Odstotek_zmag_redni_del <- odstotki1
+  podatki_ekipe$Uspesnost_redni_del <- odstotki1
   podatki_ekipe$Playoff_uspesnost <- odstotki2
-  podatki_ekipe$Uspesnost_serije <- odstotki3
+  podatki_ekipe$Uspesnost_serij <- odstotki3
   
   podatki_ekipe_imensko <- podatki_ekipe[order(podatki_ekipe$Ekipa),]
   
