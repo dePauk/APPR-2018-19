@@ -39,8 +39,9 @@ source("uvoz/uvoz.r", encoding="UTF-8")
 Uvozil sem podatke o igralcih tedna in sezonski statistiki igralcev v izbranih sezonah v obliki CSV s spletne strani Kaggle ter statistiko NBA ekip v tem obdobju s spletne strani mcubed.net in all-star igralce iz Wikipedije v obliki HTML. Podatki so v razpredelnicah v obliki *tidy data*.
 
 
+1. podatki_ekipe_imensko
 
-1. `Ekipa` - imena ekip, urejena po abecednem vrstnem redu
+  - `Ekipa` - imena ekip, urejena po abecednem vrstnem redu
   - `Zmage_redni_del` - spremenljivka: število zmag ekipe v izbranem obdobju
   - `Porazi_redni_del` - spremenljivka: število porazov ekipe v izbranem obdobju
   - `Uspesnost_redni_del` - spremenljivka: delež zmaganih tekem v rednem delu
@@ -53,6 +54,22 @@ Uvozil sem podatke o igralcih tedna in sezonski statistiki igralcev v izbranih s
   - `Nastopi_finale` - spremenljivka: število nastopov v finalih (zmag svoje konference)
   - `Zmage_finale` - spremenljivka: število osvojenih nazivov zmagovalca lige
   
+
+2. igralci_tedna
+
+  - `Starost` - meritev: starost igralca
+  - `Konferenca` - spremenljivka: vzhod/zahod
+  - `Datum_nagrade` - spremenljivka: datum prejetega naziva igralca tedna
+  - `Leto_drafta` - spremenljivka: leto, v katerem je bil igralec draftan v ligo
+  - `Visina` - meritev: višina igralca
+  - `Ime` - spremenljivka: ime igralca
+  - `Pozicija` - spremenljivka: pozicija igranja
+  - `Sezona okrajsano` - spremenljivka: za npr. sezono 1991/92 bo tukaj vrednost 1992
+  - `Stevilo_sezon_v_ligi` - meritev: število odigranih sezon pred začetkom trenutne (v tej sezoni draftani igralci imajo torej vrednost 0)
+  - `Igralceva_ekipa` - spremenljivka: ekipa, v kateri igra
+  - `Teza` - meritev: teža igralca
+  - `Vrednost_naziva` - spremenljivka: 0.5 za sezone, kjer se naziv dodeli po enemu igralcu iz vsake konference oz. 1 za sezone, kjer se naziv dodeli enemu igralcu iz celotne lige
+
 
 2. `obcine` - podatki o občinah
   - `obcina` - spremenljivka: ime občine (neurejen faktor),
