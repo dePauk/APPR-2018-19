@@ -40,6 +40,8 @@ uvozi.rezultate <- function() {
   
 }
   
+podatki_ekipe_imensko <- uvozi.rezultate()
+
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -79,8 +81,7 @@ igralci_tedna <- uvozi.igralce_tedna()
 # Število različnih vrednosti v vsakem stolpcu tabele posebej
 rapply(igralci_tedna, function(x)length(unique(x)))
 
-#Ker dobim za ime ekip 35 različnih možnosti, bo sedaj manj možnosti, da pozabim kakšen klub (upoštevati je namreč treba spremembe imen, ki jih je bilo kar nekaj tekom let)
-# 35- 30 = 5; torej vsaj 5 sprememb imen klubov v teh letih
+# Vrne vrednost 35, 35- 30 = 5; torej vsaj 5 sprememb imen klubov v teh letih (če so igralci vsake ekipe vsaj enkrat dobili naziv)
 # Spremembe: New Jersey Nets -> Brooklyn Nets, Washington Bullets -> Washington Wizards, Seattle SuperSonics -> Oklahoma City Thunder, Charlotte Hornets -> Charlotte Bobcats -> Charlotte Hornets, New Orleans Hornets -> New Orleans Pelicans
 
 
@@ -124,7 +125,7 @@ tabela_stevilo_nazivov_imena <- as.character(tabela_stevilo_nazivov2$Var1) %>%
 stevilo_nazivov <- tabela_stevilo_nazivov2 %>%
   transmute(Ekipa = tabela_stevilo_nazivov_imena, Stevilo = Freq)
 
-stevilo_nazivov %>% View
+#stevilo_nazivov %>% View
 
 #tabela_stevilo_nazivov_imena %>% View
 
@@ -144,9 +145,13 @@ uvozi.sezonsko_stat <- function(){
   #statistika <- statistika[,-c(1,12,14,15,16,17,18,19)]
   statistika <- statistika[,-c(1,12)]
   
+  return(statistika)
+  
 }
 
 #statistika %>% View
+
+statistika <- uvozi.sezonsko_stat
 
 
 #----------------------------------------------------------------------------------------------------------------------------------------
@@ -165,9 +170,13 @@ uvozi.all_star <- function(){
   
   names(tabela_allstar) <- stolpci_allstar
   
+  return(tabela_allstar)
+  
 }
 
 #tabela_allstar %>% View
+
+tabela_allstar <- uvozi.all_star
 
 
 #---------------------------------------------------------------------------------------------------------------------------------------
