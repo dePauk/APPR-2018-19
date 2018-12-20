@@ -53,7 +53,8 @@ uvozi.igralce_tedna <- function(){
   # Za prikaz sezone bo dovolj le en stolpec in sicer bom uporabil tistega s končno letnico.
   # Število sezon v ligi pomeni število končani sezon, torej "Rookie-ji" imajo pri tej spremenljivki vrednost 0.
   
-  igralci_tedna <- igralci_tedna[,-8]
+  igralci_tedna <- igralci_tedna[,-c(3,8)]
+
 
   igralci_tedna$Teza <- (igralci_tedna$Teza) * 0.453592
   igralci_tedna$Teza <- signif(igralci_tedna$Teza, digits = 3)  
