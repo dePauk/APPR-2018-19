@@ -59,7 +59,6 @@ Uvozil sem podatke o igralcih tedna in sezonski statistiki igralcev v izbranih s
 
   - `Starost` - meritev: starost igralca
   - `Konferenca` - spremenljivka: vzhod/zahod
-  - `Datum_nagrade` - spremenljivka: datum prejetega naziva igralca tedna
   - `Leto_drafta` - spremenljivka: leto, v katerem je bil igralec draftan v ligo
   - `Visina` - meritev: višina igralca
   - `Ime` - spremenljivka: ime igralca
