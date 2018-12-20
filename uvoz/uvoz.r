@@ -34,6 +34,8 @@ uvozi.rezultate <- function() {
   
   podatki_ekipe_imensko <- podatki_ekipe[order(podatki_ekipe$Ekipa),]
   
+  return(podatki_ekipe_imensko)
+  
   #podatki_ekipe_imensko %>% View
   
 }
@@ -65,10 +67,13 @@ uvozi.igralce_tedna <- function(){
   
   igralci_tedna$Visina <- signif(igralci_tedna$Visina, digits = 3)
   
+  return(igralci_tedna)
+  
 }
 
 #igralci_tedna %>% View
 
+igralci_tedna <- uvozi.igralce_tedna()
 
 
 # Število različnih vrednosti v vsakem stolpcu tabele posebej
@@ -105,23 +110,26 @@ tabela_stevilo_nazivov2 <- tabela_stevilo_nazivov2[-c(4,20,21,31,34),]
 
 rownames(tabela_stevilo_nazivov2) <- 1:nrow(tabela_stevilo_nazivov2)
 
-tabela_stevilo_nazivov2
-tabela_stevilo_nazivov2 %>% View
-
+#tabela_stevilo_nazivov2
+#tabela_stevilo_nazivov2 %>% View
 
 
 tabela_stevilo_nazivov_imena <- tabela_stevilo_nazivov2
-tabela_stevilo_nazivov_imena <- as.character(sub("New York Knicks", "New York Knickerbockers", tabela_stevilo_nazivov_imena$Var1, fixed= TRUE)) %>% as.character(sub("Philadelphia Sixers", "Philadelphia 76ers", tabela_stevilo_nazivov_imena$Var1, fixed= TRUE))# ta dela
+tabela_stevilo_nazivov_imena <- as.character(tabela_stevilo_nazivov2$Var1) %>%
+  
+{ sub("New York Knicks", "New York Knickerbockers", ., fixed=TRUE) } %>% 
 
-is.atomic((tabela_stevilo_nazivov_imena))  #prejšnja vrstica spremeni atomic na TRUE
+{ sub("Philadelphia Sixers", "Philadelphia 76ers", ., fixed=TRUE) }
 
-#tabela_stevilo_nazivov_imena <- as.character(sub("Philadelphia Sixers", "Philadelphia 76ers", tabela_stevilo_nazivov_imena$Var1, fixed= TRUE)) # $ OPERATOR IS INVALID FOR ATOMIC VECTORS
+stevilo_nazivov <- tabela_stevilo_nazivov2 %>%
+  transmute(Ekipa = tabela_stevilo_nazivov_imena, Stevilo = Freq)
 
-tabela_stevilo_nazivov_imena %>% View
+stevilo_nazivov %>% View
+
+#tabela_stevilo_nazivov_imena %>% View
 
 
 # Številke vrstic za ekipe so sedaj kompatibilne s prvo tabelo -> lahko bom dodal te podatke kar v tisto tabelo.
-# TREBA ŠE PREIMENOVATI SIXERS -> 76ERS
 
 
 uvoz <- read_csv()
