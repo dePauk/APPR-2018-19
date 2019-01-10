@@ -7,7 +7,7 @@ output:
     includes:
       in_header: lib/styles.sty
     latex_engine: xelatex
-runtime: shiny
+runtime: shiny  #to izbriši
 ---
 
 ```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
@@ -70,18 +70,24 @@ Uvozil sem podatke o igralcih tedna in sezonski statistiki igralcev v izbranih s
   - `Vrednost_naziva` - spremenljivka: 0.5 za sezone, kjer se naziv dodeli po enemu igralcu iz vsake konference oz. 1 za sezone, kjer se naziv dodeli enemu igralcu iz celotne lige
 
 
-2. `obcine` - podatki o občinah
-  - `obcina` - spremenljivka: ime občine (neurejen faktor),
-  - `povrsina` - meritev: površina občine v km$^2$ (število),
-  - `prebivalci` - meritev: prebivalstvo občine (število),
-  - `gostota` - meritev: število prebivalcev na km$^2$ (število),
-  - `naselja` - meritev: število naselij v občini (število),
-  - `ustanovitev` - meritev: leto ustanovitve občine (število),
-  - `pokrajina` - meritev: pokrajina, ki ji občina pripada (neurejen faktor),
-  - `regija` - meritev: regija, ki ji občina pripada (neurejen faktor),
-  - `odcepitev` - meritev: podatki o občinah, od katerih se je občina odcepila (besedilo).
+3. stevilo_nazivov
 
-**Opomba**: da bi razpredelnica `obcine` res bila v obliki *tidy data*, bi morali odstraniti stolpec `gostota` (saj je izpeljan iz stolpcev `povrsina` in `prebivalci`), podatke o pokrajinah pa bi morali premakniti v drugo razpredelnico, saj nekatere občine pripadajo dvema pokrajinama. Podobno bi morali narediti tudi s stolpcem `odcepitev`.
+  - `Ekipa` - imena ekip, urejena po vrstnem redu
+  - `Stevilo` - število dobljenih nazivov igralca tedna ekipe
+  
+
+4. statistika
+
+  -
+
+5. tabela_allstar
+
+  -
+
+
+
+
+
 
 Spodnji graf prikazuje porazdelitev števila naselij v občinah.
 
