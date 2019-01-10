@@ -37,7 +37,6 @@ uvozi.rezultate <- function() {
   return(podatki_ekipe_imensko)
   
   #podatki_ekipe_imensko %>% View
-  
 }
   
 podatki_ekipe_imensko <- uvozi.rezultate()
@@ -71,7 +70,6 @@ uvozi.igralce_tedna <- function(){
   igralci_tedna$Visina <- signif(igralci_tedna$Visina, digits = 3)
   
   return(igralci_tedna)
-  
 }
 
 #igralci_tedna %>% View
@@ -85,19 +83,13 @@ rapply(igralci_tedna, function(x)length(unique(x)))
 # Vrne vrednost 35, 35- 30 = 5; torej vsaj 5 sprememb imen klubov v teh letih (če so igralci vsake ekipe vsaj enkrat dobili naziv)
 # Spremembe: New Jersey Nets -> Brooklyn Nets, Washington Bullets -> Washington Wizards, Seattle SuperSonics -> Oklahoma City Thunder, Charlotte Hornets -> Charlotte Bobcats -> Charlotte Hornets, New Orleans Hornets -> New Orleans Pelicans
 
-
 # stevilo_nazivov_ekipa nam pove, koliko nazivov Player of the Week so si izborili igralci vsake ekipe v opazovanem obdobju.
-
 stevilo_nazivov_ekipa <- table(igralci_tedna$Igralceva_ekipa)
-stevilo_nazivov_ekipa
 
 #data.frame ekip in številom osvojenih nazivov Player of the Week
 
 tabela_stevilo_nazivov <- as.data.frame(table(igralci_tedna$Igralceva_ekipa))
-
 tabela_stevilo_nazivov <- tabela_stevilo_nazivov[order(tabela_stevilo_nazivov$Var1),]
-
-#tabela_stevilo_nazivov
 #tabela_stevilo_nazivov %>% View
 
 tabela_stevilo_nazivov2 <- tabela_stevilo_nazivov
@@ -111,10 +103,7 @@ tabela_stevilo_nazivov2[22,2] <- 17
 tabela_stevilo_nazivov2 <- tabela_stevilo_nazivov2[-c(4,20,21,31,34),]
 
 rownames(tabela_stevilo_nazivov2) <- 1:nrow(tabela_stevilo_nazivov2)
-
-#tabela_stevilo_nazivov2
 #tabela_stevilo_nazivov2 %>% View
-
 
 tabela_stevilo_nazivov_imena <- tabela_stevilo_nazivov2
 tabela_stevilo_nazivov_imena <- as.character(tabela_stevilo_nazivov2$Var1) %>%
@@ -128,11 +117,6 @@ stevilo_nazivov <- tabela_stevilo_nazivov2 %>%
 
 #stevilo_nazivov %>% View
 
-#tabela_stevilo_nazivov_imena %>% View
-
-uvoz <- read_csv()
-
-
 #-------------------------------------------------------------------------------------------------------------------------------------------
 
 uvozi.sezonsko_stat <- function(){
@@ -143,13 +127,11 @@ uvozi.sezonsko_stat <- function(){
   statistika <- statistika[,-c(1,12)]
   
   return(statistika)
-  
 }
 
 #statistika %>% View
 
 statistika <- uvozi.sezonsko_stat
-
 
 #----------------------------------------------------------------------------------------------------------------------------------------
 
