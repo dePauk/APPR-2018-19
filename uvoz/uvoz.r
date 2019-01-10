@@ -130,10 +130,6 @@ stevilo_nazivov <- tabela_stevilo_nazivov2 %>%
 
 #tabela_stevilo_nazivov_imena %>% View
 
-
-# Številke vrstic za ekipe so sedaj kompatibilne s prvo tabelo -> lahko bom dodal te podatke kar v tisto tabelo.
-
-
 uvoz <- read_csv()
 
 
@@ -179,7 +175,3 @@ uvozi.all_star <- function(){
 
 tabela_allstar <- uvozi.all_star
 
-
-#---------------------------------------------------------------------------------------------------------------------------------------
-
-ggplot(data = igralci_tedna, aes(x=igralci_tedna$Teza, y=igralci_tedna$Visina)) + geom_point()
