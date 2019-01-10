@@ -7,7 +7,12 @@ library(ggplot2)
 
 sl <- locale("sl", decimal_mark=",", grouping_mark=".")
 
+
+
+
+#-----------------------------------------------------------------------------------------------------------------------------------------
 # Funkcija, ki uvozi podatke o zmagah ekip v sezonah od 1984/85 do 2017/18.
+
 uvozi.rezultate <- function() {
   link <- "http://mcubed.net/nba/nbaera.pl?year1=2000&year2=2018&sortby=rswin"
   stran <- html_session(link) %>% read_html()
@@ -47,6 +52,7 @@ podatki_ekipe_imensko <- uvozi.rezultate()
 
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------
+#Funkcija, ki uvozi vse igralce tedna v sezonah od 1984/85 do 2017/18.
 
 uvozi.igralce_tedna <- function(){
   
@@ -86,6 +92,8 @@ igralci_tedna <- uvozi.igralce_tedna()
 
 
 #--------------------------------------------------------------------------------------------------------------------------------
+# Funckija, ki iz tabele igralci_tedna prešteje število dobljenih nazivov igralca tedne vsake ekipe.
+
 
 # Število različnih vrednosti v vsakem stolpcu tabele posebej
 rapply(igralci_tedna, function(x)length(unique(x)))
@@ -133,6 +141,7 @@ stevilo_nazivov <- tabela_stevilo_nazivov2 %>%
 
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
+# Funkcija, ki uvozi statistiko velikega števila igralcev v ligi v sezonah od 1984/85 do 2017/18.
 
 uvozi.sezonsko_stat <- function(){
 
@@ -154,6 +163,8 @@ statistika <- uvozi.sezonsko_stat
 
 
 #----------------------------------------------------------------------------------------------------------------------------------------
+# Funkcija, ki uvozi podatke o All-star igralcih.
+
 
 uvozi.all_star <- function(){
   
