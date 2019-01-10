@@ -76,6 +76,7 @@ uvozi.igralce_tedna <- function(){
 
 igralci_tedna <- uvozi.igralce_tedna()
 
+#--------------------------------------------------------------------------------------------------------------------------------
 
 # Število različnih vrednosti v vsakem stolpcu tabele posebej
 rapply(igralci_tedna, function(x)length(unique(x)))
@@ -127,9 +128,9 @@ uvozi.sezonsko_stat <- function(){
   statistika <- statistika[,-c(1,12)]
   
   return(statistika)
+  #statistika %>% View
 }
 
-#statistika %>% View
 
 statistika <- uvozi.sezonsko_stat
 
@@ -150,12 +151,13 @@ uvozi.all_star <- function(){
   names(tabela_allstar) <- stolpci_allstar
   
   return(tabela_allstar)
+  #tabela_allstar %>% View
   
 }
 
-#tabela_allstar %>% View
 
 tabela_allstar <- uvozi.all_star
+
 
 #--------------------------------------------------------------------------------------------------------------------------------------------
 podatki.join <- inner_join(x = podatki_ekipe_imensko, y= stevilo_nazivov, by = "Ekipa") # %>% select("Ekipa", "Stevilo", "Uspesnost_redni_del")
