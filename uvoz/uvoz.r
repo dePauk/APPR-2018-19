@@ -148,7 +148,6 @@ uvozi.sezonsko_stat <- function(){
 
   stolpci_statistika <- c("IZBRISI3", "Leto", "Igralec", "Pozicija", "Starost", "Ekipa", "Stevilo_iger", "Stevilo_zacetih_iger", "Odigrane_minute", "Player_efficiency_rating", "True_shooting", "3pt_attempt_rate", "Ft_rate", "Odstotek_skoki_napad", "Odstotek_skoki_obramba", "Odstotek_asistenc", "Ukradene_zoge", "Blokirani_meti", "Odstotek_izgubljenih_zog")
   statistika <- read_csv("podatki/Seasons_Stats.csv", locale = locale(encoding="UTF-8"), col_names = stolpci_statistika, skip = 7216)
-  #statistika <- statistika[,-c(1,12,14,15,16,17,18,19)]
   statistika <- statistika[,-c(1,12)]
   
   return(statistika)
@@ -187,7 +186,6 @@ uvozi.all_star <- function(){
 
 
 tabela_allstar <- uvozi.all_star
-
 
 
 
