@@ -68,7 +68,7 @@ Uvozil sem podatke o igralcih tedna in sezonski statistiki igralcev v izbranih s
   - `Vrednost_naziva` - spremenljivka: 0.5 za sezone, kjer se naziv dodeli po enemu igralcu iz vsake konference oz. 1 za sezone, kjer se naziv dodeli enemu igralcu iz celotne lige
 
 
-3. 'stevilo_nazivov'
+3. 'stevilo_nazivov' - pridobljena iz tabele igralci_tedna
 
   - `Ekipa` - imena ekip, urejena po vrstnem redu
   - `Stevilo` - število dobljenih nazivov igralca tedna ekipe
@@ -114,5 +114,13 @@ Spodnji graf prikazuje uspešnost ekip v rednem delu VS uspešnost ekip v Play-O
 ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe_imensko$Uspesnost_redni_del, y=podatki_ekipe_imensko$Playoff_uspesnost)) + geom_jitter(size=(podatki_ekipe_imensko$Stevilo_playoffov)/1, shape=19, color="dodgerblue3") + 
   ggtitle("Korelacija uspešnosti") + xlab("Uspešnost v rednem delu") + ylab("Uspešnost v Play-offih")
 ```
+
+
+```{r grafvsdva, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Uspešnost ekip v rednem delu VS uspešnost ekip v Play-Ofssfih'}
+
+#ggplot(data=statistika, aes(x=statistika$Starost, y=statistika$Odigrane_minute)) + geom_smooth(model=lm) + ggtitle("Starost in odigrane #minute") + xlab("Starost") + ylab("Odigrane minute")
+```
+
+
 
 
