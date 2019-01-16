@@ -19,7 +19,7 @@ ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe_imensko$Stevilo_playoffov
 #Uspešnost ekip v rednem delu VS Število nazivov igralca tedna
 #zdruzi_ekipe_nazivi <- inner_join(podatki_ekipe_imensko, tabela_stevilo_nazivov_imena, by = "Ekipa")
 
-# TEST ZA RIBBON -----------------
+# TEST ZA RIBBON ----------------- #
 #ggplot(data=igralci_tedna, aes(x=igralci_tedna$Sezona_okrajsano, y=igralci_tedna$Starost)) + geom_ribbon(ymin=igralci_tedna$Starost -1, ymax=igralci_tedna$Starost +1)
 -------------------------------
   
@@ -27,7 +27,9 @@ ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe_imensko$Stevilo_playoffov
 #ggplot(data=podatki.join, aes(x=podatki.join$Uspesnost_redni_del, y=podatki.join$Stevilo)) + geom_point(size=2,color="dodgerblue3")  
   
   
-# Število nazivov glede na pozicijo
-  
+# Število nazivov glede na pozicijo 
 
+
+
+  
 
