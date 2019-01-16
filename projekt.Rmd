@@ -65,7 +65,6 @@ Uvozil sem podatke o igralcih tedna in sezonski statistiki igralcev v izbranih s
   - `Sezona okrajsano` - spremenljivka: za npr. sezono 1991/92 bo tukaj vrednost 1992
   - `Stevilo_sezon_v_ligi` - meritev: število odigranih sezon pred začetkom trenutne (v tej sezoni draftani igralci imajo torej vrednost 0)
   - `Igralceva_ekipa` - spremenljivka: ekipa, v kateri igra
-  - `Teza` - meritev: teža igralca
   - `Vrednost_naziva` - spremenljivka: 0.5 za sezone, kjer se naziv dodeli po enemu igralcu iz vsake konference oz. 1 za sezone, kjer se naziv dodeli enemu igralcu iz celotne lige
 
 
