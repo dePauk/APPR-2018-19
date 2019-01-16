@@ -57,16 +57,17 @@ podatki_ekipe_imensko <- uvozi.rezultate()
 uvozi.igralce_tedna <- function(){
   
   stolpci_igralci <- c("Starost","Konferenca","Datum_nagrade","Leto_drafta", "Visina", "Ime","Pozicija", "Sezona", "Sezona_okrajsano", "Stevilo_sezon_v_ligi", "Igralceva_ekipa", "Teza", "Vrednost_naziva")
-  igralci_tedna <- read_csv("podatki/NBA_player_of_the_week.csv", locale = locale(encoding="UTF-8"), col_names = stolpci_igralci, skip=1)
-  
+  igralci_tedna <- read_csv("podatki/NBA_player_of_the_week.csv", locale = locale(encoding="UTF-8"), col_types = cols("Teza" = col_skip()), col_names = stolpci_igralci, skip=1)
+
+
   # Za prikaz sezone bo dovolj le en stolpec in sicer bom uporabil tistega s končno letnico.
   # Število sezon v ligi pomeni število končani sezon, torej "Rookie-ji" imajo pri tej spremenljivki vrednost 0.
   
   igralci_tedna <- igralci_tedna[,-c(3,8)]
 
 
-  igralci_tedna$Teza <- (igralci_tedna$Teza) * 0.453592
-  igralci_tedna$Teza <- signif(igralci_tedna$Teza, digits = 3)  
+#  igralci_tedna$Teza <- (igralci_tedna$Teza) * 0.453592
+#  igralci_tedna$Teza <- signif(igralci_tedna$Teza, digits = 3)  
   
   igralci_tedna$Visina <- igralci_tedna$Visina %>% strapplyc("([0-9]+)") %>% sapply(function(x) {
     x <- parse_number(x)
