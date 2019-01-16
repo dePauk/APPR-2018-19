@@ -1,6 +1,6 @@
 ---
 title: "Poročilo pri predmetu Analiza podatkov s programom R"
-author: "Darjan Pavšič""
+author: "Darjan Pavšič"
 output:
   html_document: default
   pdf_document:
@@ -105,30 +105,15 @@ Uvozil sem podatke o igralcih tedna in sezonski statistiki igralcev v izbranih s
 
 
 
-***
-
-# Analiza in vizualizacija podatkov
-
-```{r vizualizacija, echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
-source("vizualizacija/vizualizacija.r", encoding="UTF-8")
-```
 
 
 
-Spodnji graf prikazuje uspešnost ekip v rednem delu VS uspešnost ekip v Play-Offih.
+Spodnji graf prikazuje uspešnost ekip v rednem delu VS uspešnost ekip v Play-Offih. Velikost kroga pomeni število uvrstitev v Play-offe.
 
 ```{r grafvs, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Uspešnost ekip v rednem delu VS uspešnost ekip v Play-Offih'}
 
 ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe_imensko$Uspesnost_redni_del, y=podatki_ekipe_imensko$Playoff_uspesnost)) + geom_jitter(size=(podatki_ekipe_imensko$Stevilo_playoffov)/1, shape=19, color="dodgerblue3") + 
-  ggtitle("Korelacija uspešnosti (velikost kroga pomeni število uvrstitev v Play-offe)") + xlab("Uspešnost v rednem delu") + ylab("Uspešnost v Play-offih")
-
-
+  ggtitle("Korelacija uspešnosti") + xlab("Uspešnost v rednem delu") + ylab("Uspešnost v Play-offih")
 ```
 
 
-***
-
-# Napredna analiza podatkov
-
-
-***
