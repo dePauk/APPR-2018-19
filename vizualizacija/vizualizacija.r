@@ -24,10 +24,10 @@ ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe_imensko$Stevilo_playoffov
 -------------------------------
   
 # Uspešnost ekip v rednem delu VS Število osvojenih nazivov igralca tedna v tem obdobju  
-ggplot(data=podatki.join, aes(x=podatki.join$Uspesnost_redni_del, y=podatki.join$Stevilo)) + geom_point(size=2,color="dodgerblue3")  
+#ggplot(data=podatki.join, aes(x=podatki.join$Uspesnost_redni_del, y=podatki.join$Stevilo)) + geom_point(size=2,color="dodgerblue3")  
   
   
-# Števiilo nazivov glede na pozicijo
+# Število nazivov glede na pozicijo
   
 
 
