@@ -29,7 +29,9 @@ ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe_imensko$Stevilo_playoffov
   
 # Število nazivov glede na pozicijo 
 
+#ggplot(data=statistika, aes(x=statistika$Player_efficiency_rating, y=statistika$Leto)) + geom_point()
 
 
-  
+ggplot(data=statistika, aes(x=statistika$Starost, y=statistika$Odigrane_minute)) + geom_smooth(model=lm)
+
 
