@@ -7,7 +7,6 @@ output:
     includes:
       in_header: lib/styles.sty
     latex_engine: xelatex
-runtime: shiny  #to izbriši
 ---
 
 ```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
@@ -39,7 +38,7 @@ source("uvoz/uvoz.r", encoding="UTF-8")
 Uvozil sem podatke o igralcih tedna in sezonski statistiki igralcev v izbranih sezonah v obliki CSV s spletne strani Kaggle ter statistiko NBA ekip v tem obdobju s spletne strani mcubed.net in all-star igralce iz Wikipedije v obliki HTML. Podatki so v razpredelnicah v obliki *tidy data*.
 
 
-1. podatki_ekipe_imensko
+1. 'podatki_ekipe_imensko'
 
   - `Ekipa` - imena ekip, urejena po abecednem vrstnem redu
   - `Zmage_redni_del` - spremenljivka: število zmag ekipe v izbranem obdobju
@@ -55,7 +54,7 @@ Uvozil sem podatke o igralcih tedna in sezonski statistiki igralcev v izbranih s
   - `Zmage_finale` - spremenljivka: število osvojenih nazivov zmagovalca lige
   
 
-2. igralci_tedna
+2. 'igralci_tedna'
 
   - `Starost` - meritev: starost igralca
   - `Konferenca` - spremenljivka: vzhod/zahod
@@ -70,13 +69,13 @@ Uvozil sem podatke o igralcih tedna in sezonski statistiki igralcev v izbranih s
   - `Vrednost_naziva` - spremenljivka: 0.5 za sezone, kjer se naziv dodeli po enemu igralcu iz vsake konference oz. 1 za sezone, kjer se naziv dodeli enemu igralcu iz celotne lige
 
 
-3. stevilo_nazivov
+3. 'stevilo_nazivov'
 
   - `Ekipa` - imena ekip, urejena po vrstnem redu
   - `Stevilo` - število dobljenih nazivov igralca tedna ekipe
   
 
-4. statistika
+4. 'statistika'
 
   - `Leto`
   - `Igralec`
@@ -97,7 +96,7 @@ Uvozil sem podatke o igralcih tedna in sezonski statistiki igralcev v izbranih s
   - `Odstotek_izgubljenih_zog`
   
 
-5. tabela_allstar
+5. 'tabela_allstar'
 
   - `Igralec`
   - `Stevilo_allstar_nastopov`
@@ -105,15 +104,6 @@ Uvozil sem podatke o igralcih tedna in sezonski statistiki igralcev v izbranih s
 
 
 
-
-
-
-Spodnji graf prikazuje porazdelitev števila naselij v občinah.
-
-```{r histogram, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Histogram števila naselij v občinah'}
-ggplot(obcine, aes(x=naselja)) + geom_histogram() +
-  ggtitle("Pogostost števila naselij") + xlab("Število naselij") + ylab("Število občin")
-```
 
 ***
 
@@ -123,37 +113,21 @@ ggplot(obcine, aes(x=naselja)) + geom_histogram() +
 source("vizualizacija/vizualizacija.r", encoding="UTF-8")
 ```
 
-Spodnji zemljevid prikazuje povprečno velikost družine za vsako občino.
 
-```{r zemljevid, echo=FALSE, fig.align='center', fig.cap='Zemljevid povprečnega števila otrok v družini'}
-ggplot() + geom_polygon(data=left_join(zemljevid, povprecja, by=c("OB_UIME"="obcina")),
-                        aes(x=long, y=lat, group=group, fill=povprecje)) +
-  ggtitle("Povprečno število otrok v družini") + xlab("") + ylab("") +
-  guides(fill=guide_colorbar(title="Povprečje"))
+
+Spodnji graf prikazuje uspešnost ekip v rednem delu VS uspešnost ekip v Play-Offih.
+
+```{r grafvs, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Uspešnost ekip v rednem delu VS uspešnost ekip v Play-Offih'}
+
+ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe_imensko$Uspesnost_redni_del, y=podatki_ekipe_imensko$Playoff_uspesnost)) + geom_point() + 
+  ggtitle("Korelacija uspešnosti") + xlab("Uspešnost v rednem delu") + ylab("Uspešnost v Play-offih")
+
 ```
+
 
 ***
 
 # Napredna analiza podatkov
 
-```{r analiza, echo=FALSE, message=FALSE}
-source("analiza/analiza.r", encoding="UTF-8")
-```
-
-Spodnji graf prikazuje povezavo med številom naselij in površino občine.
-
-```{r graf, echo=FALSE, fig.align='center', fig.cap='Povezava med številom naselij in površino občine'}
-ggplot(inner_join(obcine, data.frame(obcina=names(skupine),
-                                     skupina=factor(skupine)), by="obcina")
-, aes(x=povrsina, y=naselja, color=skupina, size=prebivalci/1000)) + geom_point() +
-  ggtitle("Število naselij glede na površino občine") +
-  xlab(expression("Površina (km"^2 * ")")) + ylab("Št. naselij") +
-  guides(color=guide_legend(title="Skupina"),
-         size=guide_legend(title="Prebivalci (* 1000)"))
-```
 
 ***
-
-```{r shiny, echo=FALSE}
-shinyAppDir("shiny", options=list(width="100%", height=600))
-```
