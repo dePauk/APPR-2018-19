@@ -39,9 +39,20 @@ uvozi.rezultate <- function() {
   
   podatki_ekipe_imensko <- podatki_ekipe[order(podatki_ekipe$Ekipa),]
   
-  return(podatki_ekipe_imensko)
+
+  ekipe_okrajsano = c("ATL","BKN","BOS","CHA","CHI","CLE","DAL","DEN","DET",
+                      "GSW","HOU","IND","LAC","LAL","MEM","MIA","MIL","MIN",
+                      "NOP","NYK","OKC","ORL","PHI","PHX","POR","SAC","SAS",
+                      "TOR","UTA","WAS")
+
+  podatki_ekipe_imensko$Kratice <- ekipe_okrajsano
+  podatki_ekipe_imensko[,c(1,14,2,3,4,5,6,7,8,9,10,11,12,13)]
+
+  #View(podatki_ekipe_imensko)
   
-  #podatki_ekipe_imensko %>% View
+  
+  return(podatki_ekipe_imensko)
+
 }
   
 podatki_ekipe_imensko <- uvozi.rezultate()
