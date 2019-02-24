@@ -41,5 +41,6 @@ ggplot(data=igralci_tedna,aes(x=igralci_tedna$Pozicija, y=igralci_tedna$Visina))
 ggplot(data=statistika,aes(x=statistika$Pozicija, y=statistika$Odigrane_minute)) + geom_jitter() + geom_boxplot(alpha=I(0.4))
 
 
-## test
-ggplot(data=statistika,aes(x=statistika$Pozicija, y=statistika$Odstotek_skoki_obramba)) + geom_jitter() + geom_boxplot(alpha=I(0.4))
+### DODAJ KRATICE IN VIŠINO GLEDE NA NPR. ŠTEVILO POTW IGRALCEV ALI KAJ PODOBNEGA
+
+ggplot(data=podatki_ekipe_imensko,aes(x=podatki_ekipe_imensko$Ekipa, fill=podatki_ekipe_imensko$Zmage_redni_del)) + geom_bar()
