@@ -116,7 +116,7 @@ ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe_imensko$Uspesnost_redni_d
 ```
 
 
-```{r grafvsdva, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Uspešnost ekip v rednem delu VS uspešnost ekip v Play-Ofssfih'}
+```{r grafvsdva, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Uspešnost ekip v rednem delu VS uspešnost ekip v Play-Offih'}
 
 #ggplot(data=statistika, aes(x=statistika$Starost, y=statistika$Odigrane_minute)) + geom_smooth(model=lm) + ggtitle("Starost in odigrane #minute") + xlab("Starost") + ylab("Odigrane minute")
 ```

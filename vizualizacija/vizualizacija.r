@@ -34,4 +34,6 @@ ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe_imensko$Stevilo_playoffov
 
 ggplot(data=statistika, aes(x=statistika$Starost, y=statistika$Odigrane_minute)) + geom_smooth(model=lm)
 
+# Bolj napredni grafi:
 
+ggplot(data=igralci_tedna,aes(x=igralci_tedna$Pozicija, y=igralci_tedna$Visina)) + geom_jitter() + geom_boxplot(alpha=I(0.4))
