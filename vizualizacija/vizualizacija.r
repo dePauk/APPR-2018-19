@@ -42,4 +42,4 @@ ggplot(data=igralci_tedna, aes(x=igralci_tedna$Pozicija, y=igralci_tedna$Visina)
 
 
 
-ggplot(data=podatki.join, aes(x=podatki.join$Kratice, fill=podatki.join$Zmage_redni_del)) + geom_bar()
+ggplot(data=podatki.join, aes(x=podatki.join$Kratice, fill=podatki.join$Zmage_redni_del)) + geom_bar() + xlab("Ekipa") 
