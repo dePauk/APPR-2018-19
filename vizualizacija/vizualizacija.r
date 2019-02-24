@@ -31,16 +31,15 @@ ggplot(data=statistika, aes(x=statistika$Starost, y=statistika$Odigrane_minute))
 
 # Bolj napredni grafi:
 
-### v grafih ena, dva izloči redke pozicije 
+### v grafu ena izloči redke pozicije 
 
 ## ena
-ggplot(data=igralci_tedna,aes(x=igralci_tedna$Pozicija, y=igralci_tedna$Visina)) + geom_jitter() + geom_boxplot(alpha=I(0.4))
+ggplot(data=igralci_tedna, aes(x=igralci_tedna$Pozicija, y=igralci_tedna$Visina)) + geom_boxplot(alpha=I(0.8),fill="firebrick1",outlier.size = 0.3)
 
 
-## dva
-ggplot(data=statistika,aes(x=statistika$Pozicija, y=statistika$Odigrane_minute)) + geom_jitter() + geom_boxplot(alpha=I(0.4))
+
+### DODAJ VIŠINO GLEDE NA NPR. ŠTEVILO POTW IGRALCEV ALI KAJ PODOBNEGA
 
 
-### DODAJ KRATICE IN VIŠINO GLEDE NA NPR. ŠTEVILO POTW IGRALCEV ALI KAJ PODOBNEGA
 
-ggplot(data=podatki_ekipe_imensko,aes(x=podatki_ekipe_imensko$Ekipa, fill=podatki_ekipe_imensko$Zmage_redni_del)) + geom_bar()
+ggplot(data=podatki.join, aes(x=podatki.join$Kratice, fill=podatki.join$Zmage_redni_del)) + geom_bar()

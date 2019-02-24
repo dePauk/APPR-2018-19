@@ -204,3 +204,4 @@ tabela_allstar <- uvozi.all_star
 
 #--------------------------------------------------------------------------------------------------------------------------------------------
 podatki.join <- inner_join(x = podatki_ekipe_imensko, y= stevilo_nazivov, by = "Ekipa") # %>% select("Ekipa", "Stevilo", "Uspesnost_redni_del")
+#View(podatki.join)

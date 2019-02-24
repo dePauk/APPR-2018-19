@@ -116,6 +116,16 @@ ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe_imensko$Uspesnost_redni_d
 ```
 
 
+```{r grafvisina_pozicija, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Višina igralcev glede na pozicijo igranja'}
+
+ggplot(data=igralci_tedna, aes(x=igralci_tedna$Pozicija, y=igralci_tedna$Visina)) + geom_boxplot(alpha=I(0.8),fill="firebrick1",outlier.size = 0.3) + ggtitle("Višina glede na pozicijo igranja") + xlab("Pozicija igranja") + ylab("Višina igralcev")
+```
+
+
+
+
+
+
 ```{r grafvsdva, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Uspešnost ekip v rednem delu VS uspešnost ekip v Play-Offih'}
 
 #ggplot(data=statistika, aes(x=statistika$Starost, y=statistika$Odigrane_minute)) + geom_smooth(model=lm) + ggtitle("Starost in odigrane #minute") + xlab("Starost") + ylab("Odigrane minute")
