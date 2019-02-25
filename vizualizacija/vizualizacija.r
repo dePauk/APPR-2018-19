@@ -1,7 +1,9 @@
 # 3. faza: Vizualizacija podatkov
 
 # Uspešnost ekip v rednem delu VS Uspešnost ekip v Play-Offih
-ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe_imensko$Uspesnost_redni_del, y=podatki_ekipe_imensko$Playoff_uspesnost)) + geom_point()
+ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe_imensko$Uspesnost_redni_del, y=podatki_ekipe_imensko$Playoff_uspesnost)) + 
+  geom_jitter(size=(podatki_ekipe_imensko$Stevilo_playoffov)/1, shape=18, color="dodgerblue3") + geom_smooth(model=lm) +
+  ggtitle("Korelacija uspešnosti") + xlab("Uspešnost v rednem delu") + ylab("Uspešnost v Play-offih")
 
   
 # Uspešnost ekip v rednem delu VS Število osvojenih nazivov igralca tedna v tem obdobju  
@@ -36,8 +38,6 @@ ggplot(data=statistika, aes(x=statistika$Starost, y=statistika$Odigrane_minute))
 
 #NAREDI BOLJŠI GRAF IZ TEGA MOGOČE
 ggplot(data=statistika, aes(x=statistika$True_shooting, y=statistika$Player_efficiency_rating))+ geom_point() #+ facet_grid(~Starost)
-
-
 
 
 
