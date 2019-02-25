@@ -43,3 +43,21 @@ ggplot(data=igralci_tedna, aes(x=igralci_tedna$Pozicija, y=igralci_tedna$Visina)
 
 
 ggplot(data=podatki.join, aes(x=podatki.join$Kratice, fill=podatki.join$Uspesnost_redni_del)) + geom_bar() + xlab("Ekipa") 
+
+
+
+### 
+ggplot(data=igralci_tedna, aes(x=igralci_tedna$Pozicija, y=igralci_tedna$Visina)) + geom_boxplot(alpha=I(0.8),fill="firebrick1",outlier.size = 0.3)
+
+##TEST za facet_grid
+ggplot(data=statistika, aes(x=statistika$True_shooting, y=statistika$Player_efficiency_rating))+ geom_point() #+ facet_grid(~Starost)
+
+
+###igralci tedna leto vs pozicija
+
+##za vsako leto treba prešteti koliko nazivov pri neki poziciji in to dati pod spremenljivko y
+
+ggplot(data=igralci_tedna, aes(x=igralci_tedna$Sezona_okrajsano, y=igralci_tedna$Pozicija)) + geom_count() + facet_grid(~Pozicija) #rezervna verizja
+
+ggplot(data=igralci_tedna, aes=) + geom_count() + facet_grid(~Pozicija)
+
