@@ -113,7 +113,7 @@ Spodnji graf prikazuje uspešnost ekip v rednem delu VS uspešnost ekip v Play-O
 ```{r grafvs, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Uspešnost ekip v rednem delu VS uspešnost ekip v Play-Offih'}
 
 ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe_imensko$Uspesnost_redni_del, y=podatki_ekipe_imensko$Playoff_uspesnost)) + 
-  geom_jitter(size=(podatki_ekipe_imensko$Stevilo_playoffov)/1, shape=18, color="dodgerblue3") + geom_smooth() +
+  geom_jitter(size=(podatki_ekipe_imensko$Stevilo_playoffov)/1, shape=16, color="dodgerblue3") + geom_smooth() +
   ggtitle("Korelacija uspešnosti") + xlab("Uspešnost v rednem delu") + ylab("Uspešnost v Play-offih")
 ```
 
@@ -135,4 +135,11 @@ ggplot(data=igralci_tedna_pozicijefilt, aes(x=igralci_tedna_pozicijefilt$Sezona_
 
 
 
+```{r graf_uspesnost_ekipe_igralci, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Število zmag vs Število osvojenih nazivov igralca tedna po ekipah'}
+
+ggplot(data=join_za_graf, aes(x=reorder(Kratice,desc(Zmage_redni_del+Playoff_zmage)), y=Stevilo, fill=Zmage_redni_del+Playoff_zmage)) + geom_col() + xlab("Ekipa") + ggtitle("Število zmag in število osvojenih nazivov igralca tedna po ekipah") + xlab("Ekipa") + ylab("Igralec tedna")
+```
+
+
+ 
 
