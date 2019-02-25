@@ -108,6 +108,18 @@ Uvozil sem podatke o igralcih tedna in sezonski statistiki igralcev v izbranih s
 
 
 
+
+```{r grafzda, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Število naslovov igralca tedna po zveznih državah'}
+
+plot_usmap(data = nazivi_zvezne, values = "Nazivi", lines = "black") + 
+  scale_fill_continuous(name = "Število", label = scales::comma) + 
+  theme(legend.position = "right") + ggtitle("Število nazivov igralca tedna v sezonah 1984/85 do 2017/18") #+ xlab("Uspešnost v rednem delu") + ylab("Uspešnost v Play-offih")
+```
+
+
+
+
+
 Spodnji graf prikazuje uspešnost ekip v rednem delu VS uspešnost ekip v Play-Offih. Velikost kroga pomeni število uvrstitev v Play-offe.
 
 ```{r grafvs, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Uspešnost ekip v rednem delu VS uspešnost ekip v Play-Offih'}
