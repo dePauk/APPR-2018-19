@@ -40,7 +40,7 @@ uvozi.rezultate <- function() {
   podatki_ekipe_imensko <- podatki_ekipe[order(podatki_ekipe$Ekipa),]
   
 
-  ekipe_okrajsano = c("ATL","BKN","BOS","CHA","CHI","CLE","DAL","DEN","DET",
+  ekipe_okrajsano = c("ATL","BOS","BKN","CHA","CHI","CLE","DAL","DEN","DET",
                       "GSW","HOU","IND","LAC","LAL","MEM","MIA","MIL","MIN",
                       "NOP","NYK","OKC","ORL","PHI","PHX","POR","SAC","SAS",
                       "TOR","UTA","WAS")
@@ -148,12 +148,26 @@ stevilo_nazivov <- tabela_stevilo_nazivov2 %>%
 #stevilo_nazivov %>% View
 
 
-# ŠTEVILO NAZIVOV GLEDE NA VREDNOST 0.5 ALI 1 ??
 
 
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
 # Funkcija, ki uvozi statistiko velikega števila igralcev v ligi v sezonah od 1984/85 do 2017/18.
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
 
 uvozi.sezonsko_stat <- function(){
 
@@ -166,7 +180,8 @@ uvozi.sezonsko_stat <- function(){
 }
 
 
-statistika <- uvozi.sezonsko_stat()
+#MOGOČE SPLOH NE BOM UPORABLJAL TEGA
+#statistika <- uvozi.sezonsko_stat()
 
 
 
@@ -207,3 +222,8 @@ podatki.join <- inner_join(x = podatki_ekipe_imensko, y= stevilo_nazivov, by = "
 #View(podatki.join)
 
 igralci_tedna_pozicijefilt <- igralci_tedna[igralci_tedna$Pozicija != "G-F" & igralci_tedna$Pozicija != "F-C",]
+
+stevilo_nazivov_zvezne = c(0,0,45,0,44+27+71+23,41,0,0,31,57+17,32,0,0,44,23,0,0,0,17,0,0,43,29,26,0,0,0,0,0,0,0,0,36+36,26,0,59,61,33,37,0,0,0,9,30+56+61,47,0,0,0,0,26,0)
+
+nazivi_zvezne <- statepop
+nazivi_zvezne$Nazivi <- stevilo_nazivov_zvezne
