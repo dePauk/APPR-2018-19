@@ -166,7 +166,7 @@ uvozi.sezonsko_stat <- function(){
 }
 
 
-statistika <- uvozi.sezonsko_stat
+statistika <- uvozi.sezonsko_stat()
 
 
 
@@ -196,7 +196,7 @@ uvozi.all_star <- function(){
 }
 
 
-tabela_allstar <- uvozi.all_star
+tabela_allstar <- uvozi.all_star()
 
 
 
