@@ -3,7 +3,7 @@
 
 # Uspešnost ekip v rednem delu VS Uspešnost ekip v Play-Offih
 ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe_imensko$Uspesnost_redni_del, y=podatki_ekipe_imensko$Playoff_uspesnost)) + 
-  geom_jitter(size=(podatki_ekipe_imensko$Stevilo_playoffov)/1, shape=16, color="dodgerblue3") + geom_smooth(model=lm) + # geom_abline(intercept=0)+
+  geom_jitter(size=(podatki_ekipe_imensko$Stevilo_playoffov)/1, shape=16, color="dodgerblue3") + geom_smooth(method="lm") + # geom_abline(intercept=0)+
   ggtitle("Korelacija uspešnosti") + xlab("Uspešnost v rednem delu") + ylab("Uspešnost v Play-offih")
 
 
@@ -13,7 +13,7 @@ ggplot(data=podatki.join, aes(x=podatki.join$Uspesnost_redni_del, y=podatki.join
   
 
 # Število osvojenih nazivov igralca tedna glede na število sezon v ligi (0 = sezona drafta)
-ggplot(data=tabela_nazivi_po_letih, aes(x=Var1,y=Freq)) + geom_point() 
+ggplot(data=tabela_nazivi_po_letih, aes(x=Var1,y=Freq)) + geom_point(size=3) + geom_smooth(color="red", size=1)
 
 
 # Število osvojenih nazivov igralca tedna glede na pozicijo
