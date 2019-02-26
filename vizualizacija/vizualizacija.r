@@ -12,6 +12,10 @@ podatki.join <- inner_join(x = podatki_ekipe_imensko, y= stevilo_nazivov, by = "
 ggplot(data=podatki.join, aes(x=podatki.join$Uspesnost_redni_del, y=podatki.join$Stevilo)) + geom_point(size=2,color="dodgerblue3")  
   
 
+# Število osvojenih nazivov igralca tedna glede na število sezon v ligi (0 = sezona drafta)
+ggplot(data=tabela_nazivi_po_letih, aes(x=Var1,y=Freq)) + geom_point() 
+
+
 # Število osvojenih nazivov igralca tedna glede na pozicijo
     #Prirejena tabela - izločeni poziciji G-F in F-C zaradi zelo majhnega števila igralcev:
     igralci_tedna_pozicijefilt <- igralci_tedna[igralci_tedna$Pozicija != "G-F" & igralci_tedna$Pozicija != "F-C",]
@@ -43,6 +47,8 @@ plot_usmap(data = nazivi_zvezne, values = "Nazivi", lines = "black") +
     
 
 
+
+
 #_______________________________________________
 
 
@@ -51,6 +57,8 @@ plot_usmap(data = nazivi_zvezne, values = "Nazivi", lines = "black") +
 
 
 
+
+ggplot(data=tabela_nazivi_po_letih, aes(x=Var1, y=Freq)) + geom_point()
 
 
 
