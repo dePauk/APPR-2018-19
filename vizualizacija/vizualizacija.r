@@ -1,64 +1,68 @@
 # 3. faza: Vizualizacija podatkov
 
 
-# Uspešnost ekip v rednem delu VS Uspešnost ekip v Play-Offih
-ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe_imensko$Uspesnost_redni_del, y=podatki_ekipe_imensko$Playoff_uspesnost)) + 
-  geom_jitter(size=(podatki_ekipe_imensko$Stevilo_playoffov)/1, shape=16, color="dodgerblue3") + geom_smooth(method="lm") + # geom_abline(intercept=0)+
-  ggtitle("Korelacija uspešnosti") + xlab("Uspešnost v rednem delu") + ylab("Uspešnost v Play-offih")
-
-
-# Uspešnost ekip v rednem delu VS Število osvojenih nazivov igralca tedna v tem obdobju  
-podatki.join <- inner_join(x = podatki_ekipe_imensko, y= stevilo_nazivov, by = "Ekipa") # %>% select("Ekipa", "Stevilo", "Uspesnost_redni_del")
-ggplot(data=podatki.join, aes(x=podatki.join$Uspesnost_redni_del, y=podatki.join$Stevilo)) + geom_point(size=2,color="dodgerblue3")  
-  
-
-# Število osvojenih nazivov igralca tedna glede na število sezon v ligi (0 = sezona drafta)
-ggplot(data=tabela_nazivi_po_letih, aes(x=Var1,y=Freq)) + geom_point(size=3) + geom_smooth(color="red", size=1)
-
-
-# Število osvojenih nazivov igralca tedna glede na pozicijo
-    #Prirejena tabela - izločeni poziciji G-F in F-C zaradi zelo majhnega števila igralcev:
-    igralci_tedna_pozicijefilt <- igralci_tedna[igralci_tedna$Pozicija != "G-F" & igralci_tedna$Pozicija != "F-C",]
-ggplot(data=igralci_tedna_pozicijefilt, aes(x=igralci_tedna_pozicijefilt$Sezona_okrajsano)) + geom_histogram(binwidth=1) + facet_grid(~Pozicija)
-
-
-# Povprečna višina igralcev glede na pozicijo igranja
-    igralci_tedna_pozicijefilt <- igralci_tedna[igralci_tedna$Pozicija != "G-F" & igralci_tedna$Pozicija != "F-C",]
-ggplot(data=igralci_tedna_pozicijefilt, aes(x=igralci_tedna_pozicijefilt$Pozicija, y=igralci_tedna_pozicijefilt$Visina)) + 
-  geom_boxplot(alpha=I(1),fill="firebrick1",outlier.size = 0.3)
-
-
-# Število zmag in število nazivov igralca tedna
-    #Vrstni red prilagojen, da bo graf preglednejši
-    join_za_graf <- podatki.join %>% arrange(desc(Zmage_redni_del+Playoff_zmage))
-ggplot(data=join_za_graf, aes(x=reorder(Kratice,desc(Zmage_redni_del+Playoff_zmage)), y=Stevilo, fill=Zmage_redni_del+Playoff_zmage)) + geom_col() + xlab("Ekipa") 
-
-
-# Število nazivov igralca tedna po zveznih državah
-    stevilo_nazivov_zvezne = c(0,0,45,0,44+27+71+23,41,0,0,31,57+17,32,0,0,44,23,0,0,0,17,0,0,43,29,26,0,0,0,0,0,0,0,0,36+36,26,0,59,61,33,37,0,0,0,9,30+56+61,47,0,0,0,0,26,0)
+#1 Število nazivov igralca tedna po zveznih državah
+    stevilo_nazivov_zvezne = c(0,0,45,0,44+27+71+23,41,0,0,31,57+17,32,0,0,44,23,0,0,0,17,0,0,43,
+                               29,26,0,0,0,0,0,0,0,0,36+36,26,0,59,61,33,37,0,0,0,9,30+56+61,47,0,0,0,0,26,0)
     nazivi_zvezne <- statepop
-
     #Dodal bom nov stolpec s številom nazivov
     nazivi_zvezne$Nazivi <- stevilo_nazivov_zvezne
 
-plot_usmap(data = nazivi_zvezne, values = "Nazivi", lines = "black") + 
-  scale_fill_continuous(name = "Število nazivov v sezonah 1984/85 do 2017/18", label = scales::comma) + 
-  theme(legend.position = "right")
+graf_zda <- plot_usmap(data = nazivi_zvezne, values = "Nazivi", lines = "black") + 
+  scale_fill_continuous(name = "Število", label = scales::comma) + 
+  theme(legend.position = "right") + ggtitle("Število nazivov igralca tedna po zveznih državah v sezonah 1984/85 do 2017/18")
+
+
+
+#2 Uspešnost ekip v rednem delu VS Uspešnost ekip v Play-Offih
+graf_korelacija_uspesn <- ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe_imensko$Uspesnost_redni_del, y=podatki_ekipe_imensko$Playoff_uspesnost)) + 
+  geom_jitter(size=(podatki_ekipe_imensko$Stevilo_playoffov)/1.6, shape=16, color="dodgerblue3") + geom_smooth(method = "lm", color="red") +
+  ggtitle("Korelacija deleža zmag v rednem delu in izločilnih bojih (Play-Offih)") + xlab("Uspešnost v rednem delu") + ylab("Uspešnost v Play-offih") +
+  annotate("text", x = 0.63, y = 0.22, label = "Velikost kroga pomeni relativno število uvrstitev v izločilne boje", size=3) 
+
+
+
+#3 Število osvojenih nazivov igralca tedna glede na število sezon v ligi (0 = sezona drafta)
+graf_sezone <- ggplot(data=tabela_nazivi_po_letih, aes(x=Var1,y=Freq)) + geom_point(size=4, shape=16, color="grey15") + 
+  geom_hline(yintercept=mean(tabela_nazivi_po_letih$Freq), color="red", size=0.8) + 
+  ggtitle("Število nazivov glede na število sezon v ligi") + xlab("Število sezon v ligi") + ylab("Število nazivov")+
+  annotate("text", x = 14.2, y = 145, label = "Število pomeni število že zaključenih sezon pred trenutno", size = 3)
+
+
+
+#4 Višina nagrajenih igralcev glede na pozicijo
+    igralci_tedna_pozicijefilt <- igralci_tedna[igralci_tedna$Pozicija != "G-F" & igralci_tedna$Pozicija != "F-C" & igralci_tedna$Pozicija != "F",]
     
+graf_visina_pozicija <- ggplot(data=igralci_tedna_pozicijefilt, aes(x=reorder(Pozicija,igralci_tedna_pozicijefilt$Visina), y=Visina)) + 
+  geom_boxplot(alpha=I(1),fill="firebrick1",outlier.size = 0.3) + ggtitle("Višina nagrajenih košarkarjev glede na pozicijo igranja") + 
+  xlab("Pozicija igranja") + ylab("Višina igralcev")
+
+
+
+#5 Število osvojenih nazivov igralca tedna glede na pozicijo
+    #Prirejena tabela - izločeni pozicij G-F in F-C zaradi zelo majhnega števila igralcev:
+    igralci_tedna_pozicijefilt <- igralci_tedna[igralci_tedna$Pozicija != "G-F" & igralci_tedna$Pozicija != "F-C",]
+
+graf_pozicije_cas <- ggplot(data=igralci_tedna_pozicijefilt, aes(x=igralci_tedna_pozicijefilt$Sezona_okrajsano)) + 
+  geom_histogram(binwidth=1, color="greenyellow", fill="greenyellow") + facet_grid(~Pozicija) + theme_dark() + 
+  theme(axis.text.x = element_text(angle=90))  + ggtitle("Osvojeni nazivi igralca tedna glede na pozicijo igranja skozi čas") + 
+  xlab("Leto") + ylab("Število")
+
+
+
+#6 Število zmag in število nazivov igralca tedna
+    podatki.join <- inner_join(x = podatki_ekipe_imensko, y= stevilo_nazivov, by = "Ekipa") # %>% select("Ekipa", "Stevilo", "Uspesnost_redni_del")
+    join_za_graf <- podatki.join %>% arrange(desc(Zmage_redni_del+Playoff_zmage))
+graf_zmage_nazivi <- ggplot(data=join_za_graf, aes(x=reorder(Kratice,desc(Zmage_redni_del+Playoff_zmage)), y=Stevilo, fill=Zmage_redni_del+Playoff_zmage)) + 
+  theme(axis.text.x = element_text(angle=90)) + geom_col() + xlab("Ekipa") + ggtitle("Število zmag in število osvojenih nazivov igralca tedna po ekipah") + 
+  xlab("Ekipa") + ylab("Igralec tedna") + labs(fill="Zmage")
 
 
 
 
-#_______________________________________________
-
-
-##kaj v zvezi s številom sezon v ligi- igr. tedna
 ##par ekip, koliko naslovov na sezono, nato napredna analiza
 
 
-
-
-ggplot(data=tabela_nazivi_po_letih, aes(x=Var1, y=Freq)) + geom_point()
 
 
 
