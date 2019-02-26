@@ -128,6 +128,15 @@ stevilo_nazivov <- tabela_stevilo_nazivov2 %>%
   transmute(Ekipa = tabela_stevilo_nazivov_imena, Stevilo = Freq)
 
 
+
+stevilo_po_letih_vligi <- table(igralci_tedna$Stevilo_sezon_v_ligi)
+tabela_nazivi_po_letih <- as.data.frame(table(igralci_tedna$Stevilo_sezon_v_ligi))
+
+
+
+
+
+
 #-------------------------------------------------------------------------------------------------------------------------------------------
 
 # # Funkcija, ki uvozi statistiko velikega števila igralcev v ligi v sezonah od 1984/85 do 2017/18.
