@@ -55,25 +55,11 @@ plot_usmap(data = nazivi_zvezne, values = "Nazivi", lines = "black") +
 #_______________________________________________
 
 
+##kaj v zvezi s številom sezon v ligi- igr. tedna
+##par ekip, koliko naslovov na sezono, nato napredna analiza
 
 
 
-
-
-
-
-
-#Če bom vrgel tabelo statistika ven, ne bo naslednjih treh grafov
-
-
-#NAREDI BOLJŠI GRAF IZ TEGA MOGOČE
-ggplot(data=statistika, aes(x=statistika$Player_efficiency_rating, y=statistika$Leto)) + geom_point()
-
-#NAREDI BOLJŠI GRAF IZ TEGA MOGOČE
-###ggplot(data=statistika, aes(x=statistika$Starost, y=statistika$Odigrane_minute)) + geom_smooth()
-
-#NAREDI BOLJŠI GRAF IZ TEGA MOGOČE
-ggplot(data=statistika, aes(x=statistika$True_shooting, y=statistika$Player_efficiency_rating))+ geom_point() #+ facet_grid(~Starost)
 
 
 
