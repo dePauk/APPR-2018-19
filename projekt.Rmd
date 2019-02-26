@@ -131,6 +131,11 @@ ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe_imensko$Uspesnost_redni_d
 
 
 
+ggplot(data=tabela_nazivi_po_letih, aes(x=Var1,y=Freq)) + geom_point() 
+
+
+
+
 ```{r grafvisina_pozicija, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Višina igralcev glede na pozicijo igranja'}
 
 ggplot(data=igralci_tedna, aes(x=igralci_tedna$Pozicija, y=igralci_tedna$Visina)) + geom_boxplot(alpha=I(1),fill="firebrick1",outlier.size = 0.3) + ggtitle("Višina glede na pozicijo igranja") + xlab("Pozicija igranja") + ylab("Višina igralcev")
