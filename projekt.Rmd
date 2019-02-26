@@ -119,13 +119,12 @@ plot_usmap(data = nazivi_zvezne, values = "Nazivi", lines = "black") +
 
 
 
-
 Spodnji graf prikazuje uspešnost ekip v rednem delu VS uspešnost ekip v Play-Offih. Velikost kroga pomeni število uvrstitev v Play-offe.
 
 ```{r grafvs, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Uspešnost ekip v rednem delu VS uspešnost ekip v Play-Offih'}
 
 ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe_imensko$Uspesnost_redni_del, y=podatki_ekipe_imensko$Playoff_uspesnost)) + 
-  geom_jitter(size=(podatki_ekipe_imensko$Stevilo_playoffov)/1, shape=16, color="dodgerblue3") + geom_smooth() +
+  geom_jitter(size=(podatki_ekipe_imensko$Stevilo_playoffov)/1, shape=16, color="dodgerblue3") + geom_smooth(method = "lm") +
   ggtitle("Korelacija uspešnosti") + xlab("Uspešnost v rednem delu") + ylab("Uspešnost v Play-offih")
 ```
 
@@ -134,7 +133,7 @@ ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe_imensko$Uspesnost_redni_d
 
 ```{r grafvisina_pozicija, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Višina igralcev glede na pozicijo igranja'}
 
-ggplot(data=igralci_tedna, aes(x=igralci_tedna$Pozicija, y=igralci_tedna$Visina)) + geom_boxplot(alpha=I(0.8),fill="firebrick1",outlier.size = 0.3) + ggtitle("Višina glede na pozicijo igranja") + xlab("Pozicija igranja") + ylab("Višina igralcev")
+ggplot(data=igralci_tedna, aes(x=igralci_tedna$Pozicija, y=igralci_tedna$Visina)) + geom_boxplot(alpha=I(1),fill="firebrick1",outlier.size = 0.3) + ggtitle("Višina glede na pozicijo igranja") + xlab("Pozicija igranja") + ylab("Višina igralcev")
 ```
 
 
@@ -142,14 +141,15 @@ ggplot(data=igralci_tedna, aes(x=igralci_tedna$Pozicija, y=igralci_tedna$Visina)
 
 ```{r graf_nazivi_pozicija, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Osvajanje nazivov igralca tedna glede na pozicijo skozi čas'}
 
-ggplot(data=igralci_tedna_pozicijefilt, aes(x=igralci_tedna_pozicijefilt$Sezona_okrajsano)) + geom_histogram(binwidth=1) + facet_grid(~Pozicija) + ggtitle("Osvojeni nazivi igralca tedna glede na pozicijo igranja skozi čas") + xlab("Leto") + ylab("Število")
+ggplot(data=igralci_tedna_pozicijefilt, aes(x=igralci_tedna_pozicijefilt$Sezona_okrajsano)) + geom_histogram(binwidth=1, color="yellow", fill="yellow") + facet_grid(~Pozicija) + theme_dark() + theme(axis.text.x = element_text(angle=90))  + ggtitle("Osvojeni nazivi igralca tedna glede na pozicijo igranja skozi čas") + xlab("Leto") + ylab("Število")
 ```
+
 
 
 
 ```{r graf_uspesnost_ekipe_igralci, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Število zmag vs Število osvojenih nazivov igralca tedna po ekipah'}
 
-ggplot(data=join_za_graf, aes(x=reorder(Kratice,desc(Zmage_redni_del+Playoff_zmage)), y=Stevilo, fill=Zmage_redni_del+Playoff_zmage)) + geom_col() + xlab("Ekipa") + ggtitle("Število zmag in število osvojenih nazivov igralca tedna po ekipah") + xlab("Ekipa") + ylab("Igralec tedna")
+ggplot(data=join_za_graf, aes(x=reorder(Kratice,desc(Zmage_redni_del+Playoff_zmage)), y=Stevilo, fill=Zmage_redni_del+Playoff_zmage)) + theme(axis.text.x = element_text(angle=90)) + geom_col() + xlab("Ekipa") + ggtitle("Število zmag in število osvojenih nazivov igralca tedna po ekipah") + xlab("Ekipa") + ylab("Igralec tedna")
 ```
 
 
