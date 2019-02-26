@@ -124,14 +124,22 @@ Spodnji graf prikazuje uspešnost ekip v rednem delu VS uspešnost ekip v Play-O
 ```{r grafvs, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Uspešnost ekip v rednem delu VS uspešnost ekip v Play-Offih'}
 
 ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe_imensko$Uspesnost_redni_del, y=podatki_ekipe_imensko$Playoff_uspesnost)) + 
-  geom_jitter(size=(podatki_ekipe_imensko$Stevilo_playoffov)/1, shape=16, color="dodgerblue3") + geom_smooth(method = "lm") +
+  geom_jitter(size=(podatki_ekipe_imensko$Stevilo_playoffov)/1.4, shape=16, color="dodgerblue3") + geom_smooth(method = "lm", color="red") +
   ggtitle("Korelacija uspešnosti") + xlab("Uspešnost v rednem delu") + ylab("Uspešnost v Play-offih")
 ```
 
 
 
 
-ggplot(data=tabela_nazivi_po_letih, aes(x=Var1,y=Freq)) + geom_point() 
+
+```{r grafvisina_pozicija, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Število nazivov glede na število sezon v ligi NBA'}
+
+ggplot(data=tabela_nazivi_po_letih, aes(x=Var1,y=Freq)) + geom_point(size=4, shape=16, color="grey15") + geom_hline(yintercept=mean(tabela_nazivi_po_letih$Freq), color="red",size=0.8) + ggtitle("Število nazivov glede na število sezon v ligi") + xlab("Število sezon v ligi") + ylab("Število nazivov")
+```
+
+
+
+
 
 
 
@@ -146,7 +154,7 @@ ggplot(data=igralci_tedna, aes(x=igralci_tedna$Pozicija, y=igralci_tedna$Visina)
 
 ```{r graf_nazivi_pozicija, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Osvajanje nazivov igralca tedna glede na pozicijo skozi čas'}
 
-ggplot(data=igralci_tedna_pozicijefilt, aes(x=igralci_tedna_pozicijefilt$Sezona_okrajsano)) + geom_histogram(binwidth=1, color="yellow", fill="yellow") + facet_grid(~Pozicija) + theme_dark() + theme(axis.text.x = element_text(angle=90))  + ggtitle("Osvojeni nazivi igralca tedna glede na pozicijo igranja skozi čas") + xlab("Leto") + ylab("Število")
+ggplot(data=igralci_tedna_pozicijefilt, aes(x=igralci_tedna_pozicijefilt$Sezona_okrajsano)) + geom_histogram(binwidth=1, color="greenyellow", fill="greenyellow") + facet_grid(~Pozicija) + theme_dark() + theme(axis.text.x = element_text(angle=90))  + ggtitle("Osvojeni nazivi igralca tedna glede na pozicijo igranja skozi čas") + xlab("Leto") + ylab("Število")
 ```
 
 
