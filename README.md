@@ -7,11 +7,9 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2018/19
 
 ## Igralci tedna in uspešnost njihovih ekip v ligi NBA
 
-V projektu bom analiziral igralce tedna ("Player of the Week") lige NBA v sezonah od 1984/85 do 2017/18. Kot prvo bom primerjal igralce, ki so ta naslov osvoji vsaj enkrat in sicer tako glede na njihovo statistiko (igrane minute, odstotek zadetih metov in podobno) kot tudi glede na njihove lastnosti (pozicija igranja, starost, višina, teža, število let v ligi, v katerem "picku" na draftu so bili izbrani itd.). Dodal bom še število iger v tako imenovanih all-star tekmah.
+V projektu bom analiziral igralce tedna ("Player of the Week") lige NBA v sezonah od 1984/85 do 2017/18. Primerjal jih bom glede na njihove atribute (pozicija igranja, starost, višina, teža, število let v ligi, v katerem "picku" na draftu so bili izbrani itd.). Pogledal si bom tudi, ekipe katerih zveznih držav in igralci katerih pozicij so največkrat dobili ta naziv.
 
-Poleg tega bom skušal ugotoviti korelacijo med uspešnostjo ekipe - številom oziroma odstotkom dobljenih tekem v radnem delu ter v "play-offih" v istem obdobju - glede na število nazivov igralca tedna, ki so si jih priborili njihovi igralci v izbranih letih.
-
-Ker je od sezone 2001/02 nagrada Player of the Week podeljena po enemu igralcu iz vzhodne in enemu iz zahodne divizije, je vrednost naslova od te sezone naprej 0.5, pred tem pa 1.0. Takrat je namreč nagrado dobil le eden od igralcev iz celotne lige. Za sezone od 1984/85 do 2000/01 bom tako lahko analiziral še število nazivov igralca tedna glede na divizijo in ga primerjal s številom skupnih zmag lige ekip vzhodne in zahodne divizije.
+Poleg tega bom skušal ugotoviti korelacijo med uspešnostjo ekipe - številom oziroma odstotkom dobljenih tekem v rednem delu ter v "play-offih" v istem obdobju - glede na število nazivov igralca tedna, ki so si jih priborili njihovi igralci v izbranih letih.
 
 
 Podatke sem (bom) pobiral iz sledečih spletnih naslovov:
