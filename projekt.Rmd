@@ -125,6 +125,13 @@ print(graf_pozicije_cas)
 
 
 
+```{r graf_harden_curry, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Primerjava dveh igralcev'}
+print (graf_harden_curry)
+
+```
+
+
+
 ```{r graf_zmage_nazivi, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Število zmag vs Število osvojenih nazivov igralca tedna po ekipah'}
 print (graf_zmage_nazivi)
 
