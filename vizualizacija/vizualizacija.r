@@ -24,16 +24,16 @@ graf_korelacija_uspesn <- ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe
 
 #3 Število osvojenih nazivov igralca tedna glede na število sezon v ligi (0 = sezona drafta)
 graf_sezone <- ggplot(data=tabela_nazivi_po_letih, aes(x=Var1,y=Freq)) + geom_point(size=4, shape=16, color="grey15") + 
-  geom_hline(yintercept=mean(tabela_nazivi_po_letih$Freq), color="red", size=0.5) + geom_smooth(color="black") +
+  geom_hline(yintercept=mean(tabela_nazivi_po_letih$Freq), color="red", size=0.5) + geom_smooth(color="black", size=1.1) +
   ggtitle("Število nazivov glede na število sezon v ligi") + xlab("Število sezon v ligi") + ylab("Število nazivov")+
-  annotate("text", x = 14.2, y = 145, label = "Število pomeni število že zaključenih sezon pred trenutno", size = 3)
+  annotate("text", x = 14, y = 145, label = "Število sezon pomeni število že zaključenih sezon pred trenutno", size = 3)
 
 
 
 #4 Višina nagrajenih igralcev glede na pozicijo
-    igralci_tedna_pozicijefilt <- igralci_tedna[igralci_tedna$Pozicija != "G-F" & igralci_tedna$Pozicija != "F-C" & igralci_tedna$Pozicija != "F",]
+    igralci_tedna_pozicijefilt2 <- igralci_tedna[igralci_tedna$Pozicija != "G-F" & igralci_tedna$Pozicija != "F-C" & igralci_tedna$Pozicija != "F",]
     
-graf_visina_pozicija <- ggplot(data=igralci_tedna_pozicijefilt, aes(x=reorder(Pozicija,igralci_tedna_pozicijefilt$Visina), y=Visina)) + 
+graf_visina_pozicija <- ggplot(data=igralci_tedna_pozicijefilt2, aes(x=reorder(Pozicija,igralci_tedna_pozicijefilt2$Visina), y=Visina)) + 
   geom_boxplot(alpha=I(1),fill="firebrick1",outlier.size = 0.3) + ggtitle("Višina nagrajenih košarkarjev glede na pozicijo igranja") + 
   xlab("Pozicija igranja") + ylab("Višina igralcev")
 
@@ -74,10 +74,11 @@ graf_zmage_nazivi <- ggplot(data=join_za_graf, aes(x=reorder(Kratice,desc(Zmage_
   
   
 
+# Mogoče napoved števila centrov v prihodnosti
 
-
-
-
+#ggplot(data=igralci_tedna_pozicijefilt %>% filter(Pozicija=="C"), aes(x=Sezona_okrajsano)) + 
+#  geom_point() #+
+  
 
 
 
