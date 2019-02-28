@@ -16,7 +16,7 @@ graf_zda <- plot_usmap(data = nazivi_zvezne, values = "Nazivi", lines = "black")
 
 #2 Uspešnost ekip v rednem delu VS Uspešnost ekip v Play-Offih
 graf_korelacija_uspesn <- ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe_imensko$Uspesnost_redni_del, y=podatki_ekipe_imensko$Playoff_uspesnost)) + 
-  geom_jitter(size=(podatki_ekipe_imensko$Stevilo_playoffov)/1.6, shape=16, color="dodgerblue3") + geom_smooth(method = "lm", color="red") +
+  geom_jitter(size=(podatki_ekipe_imensko$Stevilo_playoffov)/1.8, shape=16, color="dodgerblue3") + geom_smooth(method = "lm", color="red") +
   ggtitle("Korelacija deleža zmag v rednem delu in izločilnih bojih (Play-Offih)") + xlab("Uspešnost v rednem delu") + ylab("Uspešnost v Play-offih") +
   annotate("text", x = 0.63, y = 0.22, label = "Velikost kroga pomeni relativno število uvrstitev v izločilne boje", size=3) 
 
@@ -24,7 +24,7 @@ graf_korelacija_uspesn <- ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe
 
 #3 Število osvojenih nazivov igralca tedna glede na število sezon v ligi (0 = sezona drafta)
 graf_sezone <- ggplot(data=tabela_nazivi_po_letih, aes(x=Var1,y=Freq)) + geom_point(size=4, shape=16, color="grey15") + 
-  geom_hline(yintercept=mean(tabela_nazivi_po_letih$Freq), color="red", size=0.8) + 
+  geom_hline(yintercept=mean(tabela_nazivi_po_letih$Freq), color="red", size=0.5) + geom_smooth(color="black") +
   ggtitle("Število nazivov glede na število sezon v ligi") + xlab("Število sezon v ligi") + ylab("Število nazivov")+
   annotate("text", x = 14.2, y = 145, label = "Število pomeni število že zaključenih sezon pred trenutno", size = 3)
 
@@ -50,20 +50,29 @@ graf_pozicije_cas <- ggplot(data=igralci_tedna_pozicijefilt, aes(x=igralci_tedna
 
 
 
-#6 Število zmag in število nazivov igralca tedna
-    podatki.join <- inner_join(x = podatki_ekipe_imensko, y= stevilo_nazivov, by = "Ekipa") # %>% select("Ekipa", "Stevilo", "Uspesnost_redni_del")
-    join_za_graf <- podatki.join %>% arrange(desc(Zmage_redni_del+Playoff_zmage))
+#6 Primerjava dveh igralcev
+graf_harden_curry <- ggplot(data=zdruzena, aes(Year,P_WEEK)) + geom_point(data = zdruzena %>% filter (Name =="Harden"), color="red", size=2.8) + 
+  geom_smooth(data = zdruzena %>% filter (Name =="Harden"), color="red", fill="indianred1", size=1.3) +
+  geom_point(data= zdruzena %>% filter (Name == "Curry"), color = "darkgoldenrod", size =2.8) + 
+  geom_smooth(data= zdruzena %>% filter (Name == "Curry"), color = "darkgoldenrod", fill="goldenrod1", size=1.3) + xlab("Sezona") + ylab("Igralec tedna") +
+  ggtitle("Primerjava števila osvojenih nazivov igralca tedna") + theme(legend.position = "right") +
+  annotate("text", x=16.8, y=7, label= "James Harden", color="red", size=5) + 
+  annotate("text",x=14,y=-2,label="Stephen Curry", color="darkgoldenrod", size=5)
+  
+
+
+#7 Število zmag in število nazivov igralca tedna
+podatki.join <- inner_join(x = podatki_ekipe_imensko, y= stevilo_nazivov, by = "Ekipa") # %>% select("Ekipa", "Stevilo", "Uspesnost_redni_del")
+join_za_graf <- podatki.join %>% arrange(desc(Zmage_redni_del+Playoff_zmage))
 graf_zmage_nazivi <- ggplot(data=join_za_graf, aes(x=reorder(Kratice,desc(Zmage_redni_del+Playoff_zmage)), y=Stevilo, fill=Zmage_redni_del+Playoff_zmage)) + 
   theme(axis.text.x = element_text(angle=90)) + geom_col() + xlab("Ekipa") + ggtitle("Število zmag in število osvojenih nazivov igralca tedna po ekipah") + 
   xlab("Ekipa") + ylab("Igralec tedna") + labs(fill="Zmage")
 
-
-
-
-##par ekip, koliko naslovov na sezono, nato napredna analiza
-
-
-
+  
+  
+  ##scale_colour_manual("Line Color", values=c(hardpoint="red", hardsmooth="red", curpoint="darkgoldenrod", cursmooth="darkgoldenrod"))
+  
+  
 
 
 
