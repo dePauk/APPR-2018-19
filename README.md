@@ -15,10 +15,9 @@ Poleg tega bom skušal ugotoviti korelacijo med uspešnostjo ekipe - številom o
 Podatke sem (bom) pobiral iz sledečih spletnih naslovov:
 
 * https://www.kaggle.com/jacobbaruch/nba-player-of-the-week (CSV)
-* https://www.kaggle.com/drgilermo/nba-players-stats (CSV)
 * http://mcubed.net/nba/nbaera.pl?year1=2000&year2=2018&sortby=rswin (HTML)
-* https://stats.nba.com/
-* https://en.wikipedia.org/wiki/List_of_NBA_All-Stars (HTML)
+* https://en.wikipedia.org/wiki/James_Harden (HTML)
+* https://en.wikipedia.org/wiki/Stephen_Curry (HTML)
 
 ## Tabele
 
