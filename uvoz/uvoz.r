@@ -164,26 +164,100 @@ tabela_nazivi_po_letih <- as.data.frame(table(igralci_tedna$Stevilo_sezon_v_ligi
 
 # Funkcija, ki uvozi podatke o All-star igralcih.
 
-uvozi.all_star <- function(){
-  
-  stolpci_allstar <- c("Igralec","Stevilo_allstar_nastopov","Sezone_allstar")
-  link <- "https://en.wikipedia.org/wiki/List_of_NBA_All-Stars"
-  stran <- html_session(link) %>% read_html()
-  tabela_allstar <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>% .[[1]] %>% html_table() %>%
-    mutate(Player=Player %>% strapplyc("^([[:alnum:] '.-]*)") %>% unlist())
-  
-  tabela_allstar <- tabela_allstar[,-c(4,5)]
-
-  names(tabela_allstar) <- stolpci_allstar
-  
-  return(tabela_allstar)
-  #tabela_allstar %>% View
-}
-
-tabela_allstar <- uvozi.all_star()
+# uvozi.all_star <- function(){
+#   
+#   stolpci_allstar <- c("Igralec","Stevilo_allstar_nastopov","Sezone_allstar")
+#   link <- "https://en.wikipedia.org/wiki/List_of_NBA_All-Stars"
+#   stran <- html_session(link) %>% read_html()
+#   tabela_allstar <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>% .[[1]] %>% html_table() %>%
+#     mutate(Player=Player %>% strapplyc("^([[:alnum:] '.-]*)") %>% unlist())
+#   
+#   tabela_allstar <- tabela_allstar[,-c(4,5)]
+# 
+#   names(tabela_allstar) <- stolpci_allstar
+#   
+#   return(tabela_allstar)
+#   #tabela_allstar %>% View
+# }
+# 
+# tabela_allstar <- uvozi.all_star()
 
 
 ##ČE IZBRIŠEŠ, IZBRIŠI TUDI V README.MD IN PROJEKT.RMD
+
+
+
+
+
+
+uvozi.harden <- function(){
+  link <- "https://en.wikipedia.org/wiki/James_Harden"
+  stran <- html_session(link) %>% read_html()
+  tabela_harden_uvoz <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>% .[[1]] %>% html_table()
+  
+  tabela_harden <- tabela_harden_uvoz[-c(10,11),]
+  tabela_harden$Year <- gsub("[0-9]{4}–","", tabela_harden$Year)
+  tabela_harden$MPG <- gsub("\\*","", tabela_harden$MPG)
+  tabela_harden$PPG <- gsub("\\*","", tabela_harden$PPG)
+  tabela_harden$APG <- gsub("\\*","", tabela_harden$APG)
+  
+  tabela_harden$`FT%` <- as.numeric(tabela_harden$`FT%`)*100
+  tabela_harden$`FG%` <- as.numeric(tabela_harden$`FG%`)*100
+  tabela_harden$`3P%` <- as.numeric(tabela_harden$`3P%`)*100
+  tabela_harden$MPG <- as.numeric(tabela_harden$MPG)
+  tabela_harden$APG <- as.numeric(tabela_harden$APG)
+  tabela_harden$PPG <- as.numeric(tabela_harden$PPG)
+  
+  tabela_harden <- tabela_harden[,-c(2,12)]
+  tabela_harden <- as.data.frame(tabela_harden)
+}
+
+tabela_harden <- uvozi.harden()
+
+
+
+uvozi.curry <- function(){
+  link <- "https://en.wikipedia.org/wiki/Stephen_Curry"
+  stran <- html_session(link) %>% read_html()
+  tabela_curry_uvoz <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>% .[[1]] %>% html_table()
+  
+  tabela_curry <- tabela_curry_uvoz[-c(10,11),]
+  tabela_curry$Year <- gsub ("[^–0-9]","", tabela_curry$Year)
+  tabela_curry$Year <- gsub("[0-9]{4}–","", tabela_curry$Year)
+  tabela_curry$MPG <- gsub("\\*","", tabela_curry$MPG)
+  tabela_curry$PPG <- gsub("\\*","", tabela_curry$PPG)
+  tabela_curry$APG <- gsub("\\*","", tabela_curry$APG)
+  tabela_curry$`FT%`<- gsub("\\*","", tabela_curry$`FT%`)
+  tabela_curry$SPG <- gsub("\\*","", tabela_curry$SPG)
+  
+  tabela_curry$`FT%` <- as.numeric(tabela_curry$`FT%`)*100
+  tabela_curry$`FG%` <- as.numeric(tabela_curry$`FG%`)*100
+  tabela_curry$`3P%` <- as.numeric(tabela_curry$`3P%`)*100
+  tabela_harden$MPG <- as.numeric(tabela_harden$MPG)
+  tabela_harden$APG <- as.numeric(tabela_harden$APG)
+  tabela_harden$PPG <- as.numeric(tabela_harden$PPG)
+  
+  tabela_curry <- tabela_curry[,-c(2,12)]
+  tabela_curry <- as.data.frame(tabela_curry)
+}
+
+tabela_curry <- uvozi.curry()
+
+
+
+
+
+
+"mod-container mod-table mod-player-stats"
+
+
+
+
+
+
+
+
+
 
 #--------------------------------------------------------------------------------------------------------------------------------------------
 
