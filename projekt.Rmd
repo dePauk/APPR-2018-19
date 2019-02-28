@@ -75,35 +75,6 @@ Uvozil sem podatke o igralcih tedna in sezonski statistiki igralcev v izbranih s
   - `Stevilo` - število dobljenih nazivov igralca tedna ekipe
   
 
-4. 'statistika'
-
-  - `Leto`
-  - `Igralec`
-  - `Pozicija`
-  - `Starost`
-  - `Ekipa`
-  - `Stevilo_iger`
-  - `Stevilo_zacetih_iger`
-  - `Odigrane_minute`
-  - `Player_efficiency_rating`
-  - `True_shooting`
-  - `Ft_rate`
-  - `Odstotek_skoki_napad`
-  - `Odstotek_skoki_obramba`
-  - `Odstotek_asistenc`
-  - `Ukradene_zoge`
-  - `Blokirani_meti`
-  - `Odstotek_izgubljenih_zog`
-  
-
-5. 'tabela_allstar'
-
-  - `Igralec`
-  - `Stevilo_allstar_nastopov`
-  - `Sezone_allstar`
-
-
-
 
 
 
