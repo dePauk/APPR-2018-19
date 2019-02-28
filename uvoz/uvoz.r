@@ -45,7 +45,6 @@ uvozi.rezultate <- function() {
   podatki_ekipe_imensko$Kratice <- ekipe_okrajsano
   podatki_ekipe_imensko[,c(1,14,2,3,4,5,6,7,8,9,10,11,12,13)]
 
-  #View(podatki_ekipe_imensko)
   return(podatki_ekipe_imensko)
 
 }
@@ -84,13 +83,17 @@ uvozi.igralce_tedna <- function(){
 igralci_tedna <- uvozi.igralce_tedna()
 
 
-## NEKAJ NAREDI S TEM
+
 
 harden_nazivi <- igralci_tedna %>% filter(Ime == "James Harden")
 harden_nazivi <- harden_nazivi[,-c(2,3,4,6,9,10)]
+harden_nazivi$Sezona_okrajsano <- gsub("[0-2]{2}","", harden_nazivi$Sezona_okrajsano)
+  
 
-curry_nazivi <- igralci_tedna %>% filter(Ime == "Stephen curry")
+curry_nazivi <- igralci_tedna %>% filter(Ime == "Stephen Curry")
 curry_nazivi <- curry_nazivi[,-c(2,3,4,6,9,10)]
+curry_nazivi$Sezona_okrajsano <- gsub("[0-2]{2}","", curry_nazivi$Sezona_okrajsano)
+
 
 
 #___________________________________________________________________________________________________________________________________________________________
@@ -135,6 +138,7 @@ stevilo_nazivov <- tabela_stevilo_nazivov2 %>%
 
 stevilo_po_letih_vligi <- table(igralci_tedna$Stevilo_sezon_v_ligi)
 tabela_nazivi_po_letih <- as.data.frame(table(igralci_tedna$Stevilo_sezon_v_ligi))
+tabela_nazivi_po_letih$Var1 <- as.numeric(tabela_nazivi_po_letih$Var1)
 
 
 
@@ -162,6 +166,9 @@ uvozi.harden <- function(){
   
   tabela_harden <- tabela_harden[,-c(2,12)]
   tabela_harden <- as.data.frame(tabela_harden)
+  tabela_harden$P_WEEK <- c(0,0,0,3,2,3,1,4,5)
+  tabela_harden$Name <- c("Harden","Harden","Harden","Harden","Harden","Harden","Harden","Harden","Harden")
+  
 }
 
 tabela_harden <- uvozi.harden()
@@ -185,18 +192,23 @@ uvozi.curry <- function(){
   tabela_curry$`FT%` <- as.numeric(tabela_curry$`FT%`)*100
   tabela_curry$`FG%` <- as.numeric(tabela_curry$`FG%`)*100
   tabela_curry$`3P%` <- as.numeric(tabela_curry$`3P%`)*100
-  tabela_harden$MPG <- as.numeric(tabela_harden$MPG)
-  tabela_harden$APG <- as.numeric(tabela_harden$APG)
-  tabela_harden$PPG <- as.numeric(tabela_harden$PPG)
+  tabela_curry$MPG <- as.numeric(tabela_curry$MPG)
+  tabela_curry$APG <- as.numeric(tabela_curry$APG)
+  tabela_curry$PPG <- as.numeric(tabela_curry$PPG)
+  tabela_curry$Year <- as.numeric(tabela_curry$Year)
   
   tabela_curry <- tabela_curry[,-c(2,12)]
   tabela_curry <- as.data.frame(tabela_curry)
+  tabela_curry$P_WEEK <- c(0,0,0,0,0,2,5,3,2)
+  tabela_curry$Name <- c("Curry","Curry","Curry","Curry","Curry","Curry","Curry","Curry","Curry")
+  
 }
 
 tabela_curry <- uvozi.curry()
 
 
-
+zdruzena <- merge(tabela_curry, tabela_harden, all=TRUE)
+zdruzena$Year <- as.numeric(zdruzena$Year)
 
 
 
