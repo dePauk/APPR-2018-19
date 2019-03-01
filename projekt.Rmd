@@ -138,8 +138,8 @@ print(graf_napoved)
 
 
 
-```{r graf_harden_curry, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Primerjava dveh igralcev'}
-print (graf_harden_curry)
+```{r graf_harden_curry2, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Primerjava in napoved za dva igralca'}
+print (graf_harden_curry2)
 
 ```
 
