@@ -78,6 +78,13 @@ Uvozil sem podatke o igralcih tedna in sezonski statistiki igralcev v izbranih s
 
 
 
+```{r analiza, echo=FALSE, message=FALSE}
+source("analiza/analiza.r", encoding="UTF-8")
+```
+
+
+
+
 
 
 ```{r graf_zda, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Število naslovov igralca tedna po zveznih državah'}
@@ -119,6 +126,12 @@ print (graf_visina_pozicija)
 
 ```{r graf_pozicije_cas, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Osvajanje nazivov igralca tedna glede na pozicijo skozi čas'}
 print(graf_pozicije_cas)
+
+```
+
+
+```{r graf_napoved, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Napoved za centre'}
+print(graf_napoved)
 
 ```
 
