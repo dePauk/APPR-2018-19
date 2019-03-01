@@ -80,39 +80,37 @@ uvozi.igralce_tedna <- function(){
   igralci_tedna$Visina <- signif(igralci_tedna$Visina, digits = 3)
   
   
-  
-  
-  igralci_tedna_pozicijefilt <- igralci_tedna[igralci_tedna$Pozicija != "G-F" & igralci_tedna$Pozicija != "F-C",]
-  igralci_tedna_pozicijefilt2 <- igralci_tedna[igralci_tedna$Pozicija != "G-F" & igralci_tedna$Pozicija != "F-C" & igralci_tedna$Pozicija != "F",]
-  
-  
-  harden_nazivi <- igralci_tedna %>% filter(Ime == "James Harden")
-  harden_nazivi <- harden_nazivi[,-c(2,3,4,6,9,10)]
-  harden_nazivi$Sezona_okrajsano <- gsub("[0-2]{2}","", harden_nazivi$Sezona_okrajsano)
-  
-  
-  curry_nazivi <- igralci_tedna %>% filter(Ime == "Stephen Curry")
-  curry_nazivi <- curry_nazivi[,-c(2,3,4,6,9,10)]
-  curry_nazivi$Sezona_okrajsano <- gsub("[0-2]{2}","", curry_nazivi$Sezona_okrajsano)
-  
-  
-  
-  
-  
-  stevilo_nazivov_zvezne = c(0,0,45,0,44+27+71+23,41,0,0,31,57+17,32,0,0,44,
-                             23,0,0,0,17,0,0,43,29,26,0,0,0,0,0,0,0,0,36+36,
-                             26,0,59,61,33,37,0,0,0,9,30+56+61,47,0,0,0,0,26,0)
-  
-  nazivi_zvezne <- statepop
-  nazivi_zvezne$Nazivi <- stevilo_nazivov_zvezne
-  
-  
+
   
   
   return(igralci_tedna)
 }
 
 igralci_tedna <- uvozi.igralce_tedna()
+
+igralci_tedna_pozicijefilt <- igralci_tedna[igralci_tedna$Pozicija != "G-F" & igralci_tedna$Pozicija != "F-C",]
+igralci_tedna_pozicijefilt2 <- igralci_tedna[igralci_tedna$Pozicija != "G-F" & igralci_tedna$Pozicija != "F-C" & igralci_tedna$Pozicija != "F",]
+
+
+harden_nazivi <- igralci_tedna %>% filter(Ime == "James Harden")
+harden_nazivi <- harden_nazivi[,-c(2,3,4,6,9,10)]
+harden_nazivi$Sezona_okrajsano <- gsub("[0-2]{2}","", harden_nazivi$Sezona_okrajsano)
+
+curry_nazivi <- igralci_tedna %>% filter(Ime == "Stephen Curry")
+curry_nazivi <- curry_nazivi[,-c(2,3,4,6,9,10)]
+curry_nazivi$Sezona_okrajsano <- gsub("[0-2]{2}","", curry_nazivi$Sezona_okrajsano)
+
+
+
+
+
+stevilo_nazivov_zvezne = c(0,0,45,0,44+27+71+23,41,0,0,31,57+17,32,0,0,44,
+                           23,0,0,0,17,0,0,43,29,26,0,0,0,0,0,0,0,0,36+36,
+                           26,0,59,61,33,37,0,0,0,9,30+56+61,47,0,0,0,0,26,0)
+
+nazivi_zvezne <- statepop
+nazivi_zvezne$Nazivi <- stevilo_nazivov_zvezne
+
 
 
 #___________________________________________________________________________________________________________________________________________________________
@@ -188,9 +186,13 @@ uvozi.harden <- function(){
   tabela_harden$P_WEEK <- c(0,0,0,3,2,3,1,4,5)
   tabela_harden$Name <- c("Harden","Harden","Harden","Harden","Harden","Harden","Harden","Harden","Harden")
   
+  return(tabela_harden)
+  
 }
 
 tabela_harden <- uvozi.harden()
+
+
 
 
 
@@ -221,19 +223,16 @@ uvozi.curry <- function(){
   tabela_curry$P_WEEK <- c(0,0,0,0,0,2,5,3,2)
   tabela_curry$Name <- c("Curry","Curry","Curry","Curry","Curry","Curry","Curry","Curry","Curry")
   
+  return(tabela_curry)
   
-  
-  
-  
-  zdruzena <- merge(tabela_curry, tabela_harden, all=TRUE)
-  zdruzena$Year <- as.numeric(zdruzena$Year)
-  
+ 
 }
 
 tabela_curry <- uvozi.curry()
 
 
-
+zdruzena <- merge(tabela_curry, tabela_harden, all=TRUE)
+zdruzena$Year <- as.numeric(zdruzena$Year)
 
 
 
