@@ -49,8 +49,10 @@ graf_pozicije_cas <- ggplot(data=igralci_tedna_pozicijefilt, aes(x=igralci_tedna
   xlab("Leto") + ylab("Število")
 
 
+#6 --> analiza/analiza.r
 
-#6 Primerjava dveh igralcev
+
+#7 Primerjava dveh igralcev
 graf_harden_curry <- ggplot(data=zdruzena, aes(Year,P_WEEK)) + geom_point(data = zdruzena %>% filter (Name =="Harden"), color="red", size=2.8) + 
   geom_smooth(data = zdruzena %>% filter (Name =="Harden"), color="red", fill="indianred1", size=1) +
   geom_point(data= zdruzena %>% filter (Name == "Curry"), color = "darkgoldenrod", size =2.8) + theme_bw()+
@@ -61,7 +63,7 @@ graf_harden_curry <- ggplot(data=zdruzena, aes(Year,P_WEEK)) + geom_point(data =
   
 
 
-#7 Število zmag in število nazivov igralca tedna
+#8 Število zmag in število nazivov igralca tedna
 podatki.join <- inner_join(x = podatki_ekipe_imensko, y= stevilo_nazivov, by = "Ekipa") # %>% select("Ekipa", "Stevilo", "Uspesnost_redni_del")
 join_za_graf <- podatki.join %>% arrange(desc(Zmage_redni_del+Playoff_zmage))
 graf_zmage_nazivi <- ggplot(data=join_za_graf, aes(x=reorder(Kratice,desc(Zmage_redni_del+Playoff_zmage)), y=Stevilo, fill=Zmage_redni_del+Playoff_zmage)) + 
@@ -69,20 +71,31 @@ graf_zmage_nazivi <- ggplot(data=join_za_graf, aes(x=reorder(Kratice,desc(Zmage_
   xlab("Ekipa") + ylab("Igralec tedna") + labs(fill="Zmage") 
 
   
- ##scale_colour_manual("Line Color", values=c(hardpoint="red", hardsmooth="red", curpoint="darkgoldenrod", cursmooth="darkgoldenrod"))
-  
-  
-
-# Mogoče napoved števila centrov v prihodnosti
-
-
-tabela_centri <- igralci_tedna %>% filter(Pozicija == "C")
-ggplot(data=tabela_centri, aes(Sezona_okrajsano,)) + geom_point()
 
 
 
-ggplot(data=igralci_tedna_pozicijefilt %>% filter(Pozicija=="C"), aes(x=Sezona_okrajsano,y=))+geom_histogram() + geom_smooth(method="lm")
-#  geom_point() #+
+
+
+##napoved števila centrov v prihodnosti
+
+
+# tabela_centri_vmesno <- igralci_tedna %>% filter(Pozicija == "C")
+# stetje <- count(tabela_centri_vmesno, Sezona_okrajsano)
+# tabela_centri <- as.data.frame(stetje)
+# 
+# pril_lm <- lm(data=tabela_centri, n~Sezona_okrajsano)
+# nova_leta <- data.frame(Sezona_okrajsano=seq(2019,2022,1))
+# 
+# napoved <- mutate(nova_leta, n=predict(pril_lm, nova_leta))
+# 
+# graf_napoved <- ggplot(tabela_centri, aes(Sezona_okrajsano,n)) + geom_smooth(method="lm", fullrange=TRUE)+
+#                          geom_point(data=napoved,aes(Sezona_okrajsano,n),color="red", size=2)+
+#                          geom_point() + ggtitle("Napoved števila centrov kot igralcev tedna") + xlab("Sezona")+ylab("Število")
+
+
+
+
+
   
 
 
