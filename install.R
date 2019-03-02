@@ -6,11 +6,6 @@
 #   https://github.com/jaanos/APPR-docker
 # Ne vključuj v svoj program!
 
-#install.packages(c(
-#    "dendextend",
-#    "expm",
-#    "formatR",
-#    "numDeriv",
-#    "praise",
-#    "rootSolve"
-#))
+install.packages("usmap")
+
+
