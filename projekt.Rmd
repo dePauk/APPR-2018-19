@@ -29,6 +29,11 @@ V projektu bom analiziral igralce tedna ("Player of the Week") lige NBA v sezona
 
 ***
 
+
+![](slike/nba-r.jpg)
+
+
+
 # Obdelava, uvoz in čiščenje podatkov
 
 ```{r uvoz, echo=FALSE, message=FALSE}
