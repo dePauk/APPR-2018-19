@@ -7,10 +7,7 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2018/19
 
 ## Igralci tedna in uspešnost njihovih ekip v ligi NBA
 
-V projektu bom analiziral igralce tedna ("Player of the Week") lige NBA v sezonah od 1984/85 do 2017/18. Primerjal jih bom glede na njihove atribute (pozicija igranja, starost, višina, teža, število let v ligi, v katerem "picku" na draftu so bili izbrani itd.). Pogledal si bom tudi, ekipe katerih zveznih držav in igralci katerih pozicij so največkrat dobili ta naziv.
-
-Poleg tega bom skušal ugotoviti korelacijo med uspešnostjo ekipe - številom oziroma odstotkom dobljenih tekem v rednem delu ter v "play-offih" v istem obdobju - glede na število nazivov igralca tedna, ki so si jih priborili njihovi igralci v izbranih letih.
-
+V projektu bom analiziral igralce tedna ("Player of the Week") lige NBA v sezonah od 1984/85 do 2017/18 glede na njihovo pozicijo, višino, število sezon v ligi in podobne spremenljivke. Poskušal bom ugotoviti, kako močna je korelacija med številom osvojenih nazivov igralca tedna posamezne ekipe in številom oziroma odstotkom dobljenih tekem teh ekip v istem obdobju. Raziskal bom kako se je pomembnost določenih pozicij spreminjala tekom sezon, saj vemo da se je v zadnjih desetletjih (oziroma celo letih) način igranja v ligi NBA opazno spremenil ter napovedal pomembnost centrov v prihodnosti. Ogledal si bom tudi zvezne države, ki so prejele največ nazivov.
 
 Podatke sem (bom) pobiral iz sledečih spletnih naslovov:
 
@@ -23,23 +20,15 @@ Podatke sem (bom) pobiral iz sledečih spletnih naslovov:
 
 1. tabela (Ekipe v NBA):
 
-Stolpci: ekipa, št. zmag v rednem delu, št. porazov v rednem delu, delež zmag v rednem delu, število uvrstitev v Play-off (PO), št. zmaganih tekem v PO, št. izgubljenih tekem v PO, delež zmag tekem v PO, zmage serij v PO, porazi serij v PO, uspešnost serij v PO, št. nastopov v finalu, št. zmag celotne lige
+Stolpci: ekipa, št. zmag v rednem delu, št. porazov v rednem delu, delež zmag v rednem delu, število uvrstitev v končnico, št. zmaganih tekem v končnici, št. izgubljenih tekem v končnici, delež zmag tekem v končnici, zmage serij v končnici, porazi serij v končnici, uspešnost serij v končnici, št. nastopov v finalu (oz. zmag konference), št. osvojenih nazivov lige
 
 2. tabela (Igralci tedna):
 
-Stolpci: starost igralca, konferenca, datum osvojenega naziva, leto drafta igralca, višina, ime igralca, pozicija igranja, sezona (letnica spomladanskega dela), število sezon v ligi (brez trenutne), igralčeva ekipa, teža igralca, vrednost naziva (0.5 ali 1)
+Stolpci: starost igralca, konferenca igralčeve ekipe, leto drafta igralca, višina, ime igralca, pozicija igranja, sezona - letnica zaključka sezone, število sezon v ligi (brez trenutne), igralčeva ekipa, vrednost naziva (0.5 ali 1)
 
-  2a. tabela, dobljena iz tabele 2:
-  
-  Stolpci: ekipa, število osvojenih nazivov igralca tedna
+3. tabela (Statistika igralca Jamesa Hardena) in 4. tabela (Statistika igralca Stephena Curryja): 
 
-3. tabela: 
-
-Stolpci: leto, igralec, pozicija igranja, starost, ekipa, število odigranih iger v sezoni, število začetih iger, odigrane minute, "player efficiency rating", "true shooting percentage" - uspešnost vseh metov, "free throw rate" - delež točk iz prostih metov, odstotek skokov v napadu, odstotek skokov v obrambi, "assist percentage" - delež točk, ki jih je ta igralec asistiral v času njegovega igranja (brez njegovih točk), ukradene žoge, blokirani meti, odstotek izgubljenih žog (koliko izgubljenih na 100 posesti)
-
-4. tabela (All-star igralci):
-
-  Stolpci: igralec, število uvrstitev v all-star ekipo, sezone uvrstitev v all-star ekipo
+Stolpci: sezona - letnica zaključka sezone, št. odigranih tekem, št. začetih tekem, povprečno št. odigranih minut na tekmo, delež zadetih metov iz igre, delež zadetih metov za 3 točke, delež zadetih prostih metov, povprečno št. skokov na tekmo, povp. število asistenc na tekmo, povp. število ukradenih žog na tekmo, povp. število točk na tekmo, št. nazivov igralca tedna, ime igralca
 
 
 
@@ -76,6 +65,8 @@ Za zagon tega vzorca je potrebno namestiti sledeče pakete za R:
 * `mosaic` - za pretvorbo zemljevidov v obliko za risanje z `ggplot2`
 * `maptools` - za delo z zemljevidi
 * `extrafont` - za pravilen prikaz šumnikov (neobvezno)
+* `usmap` - za prikaz zemljevida
+
 
 ## Binder
 
