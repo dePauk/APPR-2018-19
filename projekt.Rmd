@@ -100,19 +100,16 @@ source("analiza/analiza.r", encoding="UTF-8")
 ```
 
 
-
-
-
+# Analiza in vizualizacija podatkov
 
 ```{r graf_zda, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Število naslovov igralca tedna po zveznih državah'}
 print(graf_zda)
 
 ```
 
+Največ nazivov so pričakovano dobili igralci, ki igrajo za ekipe iz zveznih držav Kalifornija in Texas, saj tam domuje več uspešnih ekip.
 
 
-
-Spodnji graf prikazuje uspešnost ekip v rednem delu VS uspešnost ekip v Play-Offih. Velikost kroga pomeni število uvrstitev v Play-offe.
 
 ```{r graf_korelacija_uspesn, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Uspešnost ekip v rednem delu VS uspešnost ekip v Play-Offih'}
 print(graf_korelacija_uspesn)
@@ -120,6 +117,7 @@ print(graf_korelacija_uspesn)
 ```
 
 
+Opazna je ne preveč močna korelacija med uspešnostjo ekip v rednem delu in v končnici.
 
 
 
@@ -128,8 +126,7 @@ print(graf_sezone)
 
 ```
 
-
-
+Iz grafa je razvidno, da igralci v povprečju dosegajo vrhunec od 5. do 7. sezone v ligi. Nadpovprečno število nazivov osvajajo od svoje tretje do desete sezone.
 
 
 
@@ -138,6 +135,7 @@ print (graf_visina_pozicija)
 
 ```
 
+Po pričakovanjih se v povprečju višine nagrajenih igralcev povečujejo z bolj napadalno pozicijo igranja.
 
 
 
@@ -145,6 +143,9 @@ print (graf_visina_pozicija)
 print(graf_pozicije_cas)
 
 ```
+
+Vidimo, da je trend v zadnjih desetletjih tak, da naslove vedno bolj pogosto osvajajo obrambne pozicije, pomembnost centrov pa je vedno manjša. Tako pravi tudi spodnja napoved za naslednje štiri sezone.
+
 
 
 ```{r graf_napoved, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Napoved za centre'}
@@ -154,11 +155,12 @@ print(graf_napoved)
 
 
 
-
 ```{r graf_harden_curry2, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Primerjava in napoved za dva igralca'}
 print (graf_harden_curry2)
 
 ```
+
+Iz grafa se vidi, da je Stephen Curry že v zatonu, medtem ko se James Harden še vedno vzpenja po že devetih odigranih sezonah. Za vsakega igralca sta prikazani dve različni grobi napovedi osvojenega števila nazivov igralca tedna za naslednjo sezono.
 
 
 
@@ -167,6 +169,8 @@ print (graf_zmage_nazivi)
 
 ```
 
+
+Vidna je korelacija. V splošnem so igralci ekip, ki so v izbranih sezonah več zmagovale, tudi prejemali več nazivov igralca tedna. Je pa opaznih nekaj izrazitih izjem.
 
  
 
