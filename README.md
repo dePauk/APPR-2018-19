@@ -5,16 +5,18 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2018/19
 * [![Shiny](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/dePauk/APPR-2018-19/master?urlpath=shiny/APPR-2018-19/projekt.Rmd) Shiny
 * [![RStudio](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/dePauk/APPR-2018-19/master?urlpath=rstudio) RStudio
 
+
 ## Igralci tedna in uspešnost njihovih ekip v ligi NBA
 
 V projektu bom analiziral igralce tedna ("Player of the Week") lige NBA v sezonah od 1984/85 do 2017/18 glede na njihovo pozicijo, višino, število sezon v ligi in podobne spremenljivke. Poskušal bom ugotoviti, kako močna je korelacija med številom osvojenih nazivov igralca tedna posamezne ekipe in številom oziroma odstotkom dobljenih tekem teh ekip v istem obdobju. Raziskal bom kako se je pomembnost določenih pozicij spreminjala tekom sezon, saj vemo da se je v zadnjih desetletjih (oziroma celo letih) način igranja v ligi NBA opazno spremenil ter napovedal pomembnost centrov v prihodnosti. Ogledal si bom tudi zvezne države, ki so prejele največ nazivov.
 
-Podatke sem (bom) pobiral iz sledečih spletnih naslovov:
+Podatke sem pobral s sledečih spletnih naslovov:
 
 * https://www.kaggle.com/jacobbaruch/nba-player-of-the-week (CSV)
 * http://mcubed.net/nba/nbaera.pl?year1=2000&year2=2018&sortby=rswin (HTML)
 * https://en.wikipedia.org/wiki/James_Harden (HTML)
 * https://en.wikipedia.org/wiki/Stephen_Curry (HTML)
+
 
 ## Tabele
 
@@ -31,6 +33,8 @@ Stolpci: starost igralca, konferenca igralčeve ekipe, leto drafta igralca, viš
 Stolpci: sezona - letnica zaključka sezone, št. odigranih tekem, št. začetih tekem, povprečno št. odigranih minut na tekmo, delež zadetih metov iz igre, delež zadetih metov za 3 točke, delež zadetih prostih metov, povprečno št. skokov na tekmo, povp. število asistenc na tekmo, povp. število ukradenih žog na tekmo, povp. število točk na tekmo, št. nazivov igralca tedna, ime igralca
 
 
+Ostale tabele so bile pridobljene iz zgornjih.
+
 
 ## Program
 
@@ -45,6 +49,7 @@ Vnaprej pripravljene funkcije se nahajajo v datotekah v mapi `lib/`.
 Podatkovni viri so v mapi `podatki/`.
 Zemljevidi v obliki SHP, ki jih program pobere,
 se shranijo v mapo `../zemljevidi/` (torej izven mape projekta).
+
 
 ## Potrebni paketi za R
 
