@@ -45,8 +45,6 @@ uvozi.rezultate <- function() {
   podatki_ekipe_imensko$Kratice <- ekipe_okrajsano
   podatki_ekipe_imensko[,c(1,14,2,3,4,5,6,7,8,9,10,11,12,13)]
   
-  podatki.join <- inner_join(x = podatki_ekipe_imensko, y= stevilo_nazivov, by = "Ekipa")
-
   return(podatki_ekipe_imensko)
 
 }
@@ -156,6 +154,13 @@ stevilo_nazivov <- tabela_stevilo_nazivov2 %>%
 stevilo_po_letih_vligi <- table(igralci_tedna$Stevilo_sezon_v_ligi)
 tabela_nazivi_po_letih <- as.data.frame(table(igralci_tedna$Stevilo_sezon_v_ligi))
 tabela_nazivi_po_letih$Var1 <- as.numeric(tabela_nazivi_po_letih$Var1)
+
+
+
+
+podatki.join <- inner_join(x = podatki_ekipe_imensko, y= stevilo_nazivov, by = "Ekipa")
+
+
 
 
 

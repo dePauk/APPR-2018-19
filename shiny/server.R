@@ -22,3 +22,8 @@ shinyServer(function(input, output) {
       ggtitle(main) + xlab("Število naselij") + ylab("Število občin")
   })
 })
+
+
+
+
+
