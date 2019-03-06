@@ -110,7 +110,6 @@ nazivi_zvezne <- statepop
 nazivi_zvezne$Nazivi <- stevilo_nazivov_zvezne
 
 
-
 #___________________________________________________________________________________________________________________________________________________________
 
 # Funckija, ki iz tabele igralci_tedna prešteje število dobljenih nazivov igralca tedne vsake ekipe.
@@ -242,17 +241,18 @@ zdruzena$Year <- as.numeric(zdruzena$Year)
 
 
 
-#___________________________________________________________________________________________________________________________________________________________
-# 
-# # Dodatek:
-# 
-# podatki.join <- inner_join(x = podatki_ekipe_imensko, y= stevilo_nazivov, by = "Ekipa") # %>% select("Ekipa", "Stevilo", "Uspesnost_redni_del")
-# 
-# igralci_tedna_pozicijefilt <- igralci_tedna[igralci_tedna$Pozicija != "G-F" & igralci_tedna$Pozicija != "F-C",]
-# 
-# stevilo_nazivov_zvezne = c(0,0,45,0,44+27+71+23,41,0,0,31,57+17,32,0,0,44,
-#                            23,0,0,0,17,0,0,43,29,26,0,0,0,0,0,0,0,0,36+36,
-#                            26,0,59,61,33,37,0,0,0,9,30+56+61,47,0,0,0,0,26,0)
-# 
-# nazivi_zvezne <- statepop
-# nazivi_zvezne$Nazivi <- stevilo_nazivov_zvezne
+
+
+
+
+
+
+
+### test za shiny
+
+graf_shiny <- ggplot(data=igralci_tedna_pozicijefilt,aes(x=igralci_tedna_pozicijefilt$Sezona_okrajsano)) + 
+  geom_histogram(binwidth=1, color="gray30", fill="gray30")
+
+
+
+
