@@ -16,7 +16,7 @@ graf_zda <- plot_usmap(data = nazivi_zvezne, values = "Nazivi", lines = "black")
 
 #2 Uspešnost ekip v rednem delu VS Uspešnost ekip v Play-Offih
 graf_korelacija_uspesn <- ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe_imensko$Uspesnost_redni_del, y=podatki_ekipe_imensko$Playoff_uspesnost)) + 
-  geom_jitter(size=(podatki_ekipe_imensko$Stevilo_playoffov)/1.8, shape=16, color="dodgerblue3") + geom_smooth(method = "lm", color="red",size=0.6) +
+  geom_jitter(size=(podatki_ekipe_imensko$Stevilo_playoffov)/1.8, shape=21, color="black", fill="dodgerblue") + geom_smooth(method = "lm", color="red",size=0.6) +
   ggtitle("Korelacija deleža zmag v rednem delu in izločilnih bojih (Play-Offih)") + xlab("Uspešnost v rednem delu") + ylab("Uspešnost v Play-offih") +
   annotate("text", x = 0.63, y = 0.22, label = "Velikost kroga pomeni relativno število uvrstitev v izločilne boje", size=3) + theme_bw()
 
@@ -71,33 +71,6 @@ graf_zmage_nazivi <- ggplot(data=join_za_graf, aes(x=reorder(Kratice,desc(Zmage_
   theme(axis.text.x = element_text(angle=90)) + geom_col() + xlab("Ekipa") + ggtitle("Število zmag in število osvojenih nazivov igralca tedna po ekipah") + 
   xlab("Ekipa") + ylab("Igralec tedna") + labs(fill="Zmage") 
 
-  
-
-
-
-
-
-##napoved števila centrov v prihodnosti
-
-
-# tabela_centri_vmesno <- igralci_tedna %>% filter(Pozicija == "C")
-# stetje <- count(tabela_centri_vmesno, Sezona_okrajsano)
-# tabela_centri <- as.data.frame(stetje)
-# 
-# pril_lm <- lm(data=tabela_centri, n~Sezona_okrajsano)
-# nova_leta <- data.frame(Sezona_okrajsano=seq(2019,2022,1))
-# 
-# napoved <- mutate(nova_leta, n=predict(pril_lm, nova_leta))
-# 
-# graf_napoved <- ggplot(tabela_centri, aes(Sezona_okrajsano,n)) + geom_smooth(method="lm", fullrange=TRUE)+
-#                          geom_point(data=napoved,aes(Sezona_okrajsano,n),color="red", size=2)+
-#                          geom_point() + ggtitle("Napoved števila centrov kot igralcev tedna") + xlab("Sezona")+ylab("Število")
-
-
-
-
-
-  
 
 
 
