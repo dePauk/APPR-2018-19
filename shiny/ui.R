@@ -1,37 +1,33 @@
 library(shiny)
 
-shinyUI(fluidPage(
-  
-  titlePanel("Slovenske občine"),
-  
-  tabsetPanel(
-      tabPanel("Velikost družine",
-               DT::dataTableOutput("druzine")),
-      
-      tabPanel("Število naselij",
-               sidebarPanel(
-                  uiOutput("pokrajine")
-                ),
-               mainPanel(plotOutput("naselja")))
-    )
-))
 
-shinyUI(fluidPage(
-  titlePanel("Igralci tedna"),
-  sidebarLayout(
+
+# fluidPage(
+#   titlePanel("Igralci tedna"),
+#   sidebarLayout(
+#     sidebarPanel(
+#       selectInput("id_klub","Izberi klub", choices=igralci_tedna$Igralceva_ekipa)
+#     ),
+#     
+#     mainPanel(
+#       tableOutput("igralci_tedna")
+#     )
+#   )
+# )
+
+
+  
+  
+fluidPage(
+  titlePanel("Igralci tedna po pozicijah"),
     sidebarPanel(
-      selectInput("sezona","Izberi sezono", choices=igralci_tedna$Sezona_okrajsano
+      selectInput("id_poz", "Izberi pozicijo", choices = igralci_tedna_pozicijefilt$Pozicija)
     ),
-    
-    mainPanel(
-      tableOutput("igralci_sezone")
-    )
-  )
-)))
+    mainPanel(plotOutput("graf_shiny"))
+)
 
+      
 
-  
-  
 
   
   
