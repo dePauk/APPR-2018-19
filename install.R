@@ -7,5 +7,6 @@
 # Ne vključuj v svoj program!
 
 install.packages("usmap")
+install.packages("DT")
 
 
