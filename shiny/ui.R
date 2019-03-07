@@ -3,7 +3,7 @@ library(shiny)
 
   
 fluidPage(
-  titlePanel("Igralci tedna po pozicijah"),
+  titlePanel(""),
     sidebarPanel(
       selectInput("id_poz", "Izberi pozicijo", choices = unique(igralci_tedna_pozicijefilt$Pozicija))
     ),
