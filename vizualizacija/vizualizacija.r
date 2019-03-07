@@ -23,7 +23,7 @@ graf_korelacija_uspesn <- ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe
 
 
 #3 Število osvojenih nazivov igralca tedna glede na število sezon v ligi (0 = sezona drafta)
-graf_sezone <- ggplot(data=tabela_nazivi_po_letih, aes(x=Var1,y=Freq)) + geom_point(size=3, shape=16, color="dodgerblue4", alpha = 1) + 
+graf_sezone <- ggplot(data=tabela_nazivi_po_letih, aes(x=Var1,y=Freq)) + geom_point(size=3, shape=16, color="dodgerblue4", alpha = 0.7) + 
   geom_hline(yintercept=mean(tabela_nazivi_po_letih$Freq), color="gray30", size=0.6) + geom_smooth(method="loess", color="dodgerblue2", size=0.6, alpha = 0.3) +
   ggtitle("Število nazivov glede na število sezon v ligi") + xlab("Število sezon v ligi") + ylab("Število nazivov")+ theme_bw()
   annotate("text", x = 14, y = 145, label = "Število sezon pomeni število že zaključenih sezon pred trenutno", size = 3)
