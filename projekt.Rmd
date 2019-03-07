@@ -33,6 +33,9 @@ V projektu bom analiziral igralce tedna ("Player of the Week") lige NBA v sezona
 ![](slike/nba-r.jpg)
 
 
+***
+
+
 # Obdelava, uvoz in čiščenje podatkov
 
 ```{r uvoz, echo=FALSE, message=FALSE, warning=FALSE}
@@ -94,6 +97,9 @@ Uvozil sem podatke o igralcih tedna v sezonah od 1984/85 do 2017/18 v obliki CSV
 Opomba: Nekatere tabele, uporabljene pri vizualizaciji in analizi, sem pridobil iz zgornjih tabel.
 
 
+***
+
+
 ```{r analiza, echo=FALSE, message=FALSE}
 source("analiza/analiza.r", encoding="UTF-8")
 ```
@@ -116,6 +122,8 @@ print(graf_zda)
 Zemljevid zveznih držav Združenih držav Amerike prikazuje število osvojenih nazivov igralca tedna igralcev vseh ekip iz določene zvezne države. Največ nazivov so pričakovano dobili igralci, ki igrajo za ekipe iz zveznih držav Kalifornija in Texas, saj tam domuje več skozi zgodovino zelo uspešnih ekip (v prvi Golden State Warriors, Los Angeles Clippers, Los Angeles Lakers in Sacramento Kings ter v drugi Dallas Mavericks, Houston Rockets in San Antonio Spurs ). Iz zemljevida je razvidno tudi, da poteka neke vrste pas od severozahoda do jugovzhoda države, v katerem zvezne države nimajo nobene ekipe, zastopane v ligi in zato seveda nimajo nobenega naziva igralca tedna lige NBA.
 
 
+***
+
 
 ```{r graf_korelacija_uspesn, echo=FALSE, message=FALSE, fig.align='center', warning = FALSE}
 print(graf_korelacija_uspesn)
@@ -126,6 +134,7 @@ print(graf_korelacija_uspesn)
 Graf prikazuje korelacijo uspešnosti ekip v rednem delu in v končnici. Opazna je sicer ne preveč močna korelacija med uspešnostjo ekip v rednem delu in v končnici. Seveda ima večina ekip slabšo učinkovitost v Play-Offih, saj tam igrajo le proti boljšim ekipam. Velikost kroga pomeni število uvrstitev v izločilne boje - po pričakovanjih se krogi s pomikanjem desno v splošnem povečujejo.
 
 
+***
 
 
 ```{r graf_sezone, echo=FALSE, message=FALSE, fig.align='center'}
@@ -136,6 +145,7 @@ print(graf_sezone)
 Iz grafa je razvidno, da igralci v prvih petih sezonah hitro napredujejo, dobivajo minute in izkušnje, nato pa v povprečju dosegajo vrhunec od 5. do 7. sezone v ligi. Po tem sledi upad števila osvojenih nazivov igralca tedna, ki pa je precej počasnejši od vzpona v prvih petih sezonah. Fizična pripravljenost igralcev se počasi slabša, tako da po desetih sezonah igranja število nazivov pade pod povprečje, nad katerim so bili igralci vse od svoje 3. sezone v ligi. Igralci so bili izbrani kot igralci tedna vse do svoje 18. sezone, v kateri sta bila podeljena 2 naziva. 
 
 
+***
 
 
 ```{r graf_visina_pozicija, echo=FALSE, message=FALSE, fig.align='center'}
@@ -146,6 +156,7 @@ print (graf_visina_pozicija)
 Po pričakovanjih se v povprečju višine nagrajenih igralcev povečujejo z bolj napadalno pozicijo igranja. Igralci na pozicijah kot so PG - "point guard/playmaker" oziroma "organizator igre", "shooting guard" oziroma "branilec" ter G - "guard", kar je nekaj vmes, morajo biti hitrejši, agilnejši in spretnejši žogo, te karakteristike pa lažje dosežejo nižji igralci. Po drugi strani pa morajo biti igralci na položajih PF - "power forward" oziroma "krilni center" in C - "center" dovolj visoki, da dominirajo pod košem. Najvišji igralci obrambnih pozicij so približno enako visoki najnižjim igralcem napadalnih pozicij.
 
 
+***
 
 
 ```{r graf_pozicije_cas, echo=FALSE, message=FALSE, fig.align='center'}
@@ -155,6 +166,15 @@ print(graf_pozicije_cas)
 
 Vidimo, da je trend v zadnjih desetletjih tak, da naslove vedno bolj pogosto osvajajo obrambne pozicije, "pomembnost"" centrov pa je vedno manjša. Seveda je ob tem podatkih treba upoštevati, da v določenih primerih ni lahko določiti igralčeve pozicije, zato so se morda v preteklosti bolj osredotočali na eno od petih klasičnih pozicij, v zadnjem času pa raje napišejo nek vmesen položaj - to je možna razlaga za porast pri poziciji F  - "forward", ki je nekaj med "krilom" - "small forward" oziroma SF ter PF - "power forward" oziroma krilni center.
 
+Sledi še s Shinyjem predstavljena interaktivna tabela, ki filtrira zgornji graf za posamezen izbran položaj igranja za bolj jasno vidne rezultate.
+
+
+```{r shiny, echo=FALSE}
+shinyAppDir("shiny", options=list(width="100%", height=450))
+```
+
+
+***
 
 
 ```{r graf_napoved, echo=FALSE, message=FALSE, fig.align='center'}
@@ -165,6 +185,7 @@ print(graf_napoved)
 Glede na upad števila nazivov igralca za centre napoved seveda prikazuje tak trend tudi v bodoče. V naslednjih štirih sezonah naj bi število centrov kot igralcev tedna v povprečju padlo pod 4 na sezono.
 
 
+***
 
 
 ```{r graf_harden_curry2, echo=FALSE, message=FALSE, fig.align='center'}
@@ -175,6 +196,7 @@ print (graf_harden_curry2)
 V zgornjem grafu sta prikazana dva zvezdnika lige - James Harden in Stephen Curry. Drugi je kot kaže že v zatonu, medtem ko se prvi še vedno vzpenja po že devetih odigranih sezonah. Za vsakega igralca sta prikazani dve različni grobi napovedi osvojenega števila nazivov igralca tedna za naslednjo sezono, ki pa ju je treba vzeti z veliko rezervo, saj ne upoštevata staranja igralcev.
 
 
+***
 
 
 ```{r graf_zmage_nazivi, echo=FALSE, message=FALSE, fig.align='center'}
@@ -183,7 +205,15 @@ print (graf_zmage_nazivi)
 ```
 
 
-Vidna je korelacija med številom zmaganih tekem v ligi (vključene so tekme tako iz rednega dela kot iz končnice) in številom osvojenih nazivov igralca tedne posameznih ekip. Te so razporejene po prvi spremenljivki, ki je prikazana z barvo - svetlejša pomeni več zmag. V splošnem so igralci ekip, ki so v izbranih sezonah več zmagovale, tudi prejemali več nazivov igralca tedna, vendar je ekipa Los Angeles Lakers "zmagovalka" te statistike kljub temu, da so po številu zmag šele na tretjem mestu. Opaznih je nekaj izrazitih izjem, in sicer pri ekipah Dallas Mavericks, Indiana Pacers, New Orleans Pelicans in Memphis Grizzlies. Slednji so po številu nazivov z naskokom zadnji, kljub temu da imajo več zmag ood kar šestih drugih ekip - te ekipe pa imajo vse 2-4x več nazivov igralca tedna kot Memphis Grizzlies v sezonah 1984/85 do 2017/18 .
+Vidna je korelacija med številom zmaganih tekem v ligi (vključene so tekme tako iz rednega dela kot iz končnice) in številom osvojenih nazivov igralca tedne posameznih ekip. Te so razporejene po prvi spremenljivki, ki je prikazana z barvo - svetlejša pomeni več zmag. V splošnem so igralci ekip, ki so v izbranih sezonah več zmagovale, tudi prejemali več nazivov igralca tedna, vendar je ekipa Los Angeles Lakers "zmagovalka" te statistike kljub temu, da so po številu zmag šele na tretjem mestu. Opaznih je nekaj izrazitih izjem, in sicer pri ekipah Dallas Mavericks, Indiana Pacers, New Orleans Pelicans in Memphis Grizzlies. Slednji so po številu nazivov z naskokom zadnji, kljub temu da imajo več zmag ood kar šestih drugih ekip - te ekipe pa imajo vse 2-4x več nazivov igralca tedna kot Memphis Grizzlies v sezonah 1984/85 do 2017/18.
+
+
+***
 
  
+# Zaključek
+
+Ugotovil sem, da so nagrade igralca tedna približen pokazatelj uspešnosti ekip. Najbolj zanimivo mi je, da se drugačen način igranja odraža tudi v spremenjenem številu dobljenih naslovov igralca tedna glede na pozicije igranja.
+
+***
 
