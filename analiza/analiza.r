@@ -11,9 +11,9 @@ pril_lm <- lm(data=tabela_centri, n ~ Sezona_okrajsano)
 nova_leta <- data.frame(Sezona_okrajsano=seq(2019,2022,1))
 napoved <- mutate(nova_leta, n=predict(pril_lm, nova_leta))
 
-graf_napoved <- ggplot(tabela_centri, aes(Sezona_okrajsano,n)) + geom_smooth(method="lm", fullrange=TRUE)+
+graf_napoved <- ggplot(tabela_centri, aes(Sezona_okrajsano,n)) + geom_smooth(method="lm", fullrange=TRUE, alpha = 0.3, color = "dodgerblue2", size = 0.6)+
   geom_point(data=napoved,aes(Sezona_okrajsano,n),color="red", size=2)+ theme_bw() +
-  geom_point() + ggtitle("Napoved števila centrov kot igralcev tedna") + xlab("Sezona")+ylab("Število")
+  geom_point(color="dodgerblue4", size = 2) + ggtitle("Napoved števila centrov kot igralcev tedna") + xlab("Sezona")+ylab("Število")
 
 
 
@@ -52,9 +52,9 @@ napovedc2[1,2] <- 0   # Ker vrednost ne more biti manjša od 0
 
 
 graf_harden_curry2 <- ggplot(data=zdruzena, aes(Year,P_WEEK)) + geom_point(data = zdruzena %>% filter (Name =="Harden"), color="red", size=2.8) + 
-  geom_smooth(data = zdruzena %>% filter (Name =="Harden"), color="red", fill="indianred1", size=1, method="loess") +
+  geom_smooth(data = zdruzena %>% filter (Name =="Harden"), color="red", fill="indianred1", size=1, alpha = 0.2, method="loess") +
   geom_point(data= zdruzena %>% filter (Name == "Curry"), color = "darkgoldenrod", size =2.8) + theme_bw()+
-  geom_smooth(data= zdruzena %>% filter (Name == "Curry"), color = "darkgoldenrod", fill="goldenrod1", size=1, method="loess") + 
+  geom_smooth(data= zdruzena %>% filter (Name == "Curry"), color = "darkgoldenrod", fill="goldenrod1", size=1, alpha= 0.2, method="loess") + 
   geom_point(data=napovedh,aes(Year,P_WEEK), color="tomato",size=6,shape=16)+
   geom_point(data=napovedh,aes(Year,P_WEEK), color="black",size=5,shape=49)+
   geom_point(data=napovedc,aes(Year,P_WEEK), color="goldenrod1",size=6,shape=16)+
