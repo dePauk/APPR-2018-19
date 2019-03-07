@@ -71,7 +71,7 @@ Za zagon tega vzorca je potrebno namestiti sledeče pakete za R:
 * `maptools` - za delo z zemljevidi
 * `extrafont` - za pravilen prikaz šumnikov (neobvezno)
 * `usmap` - za prikaz zemljevida
-
+* `DT` - za pravilno delovanje Shinyja
 
 ## Binder
 
