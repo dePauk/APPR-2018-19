@@ -240,19 +240,3 @@ zdruzena$Year <- as.numeric(zdruzena$Year)
 
 
 
-
-
-
-
-
-
-
-
-### test za shiny
-
-graf_shiny <- ggplot(data=igralci_tedna_pozicijefilt,aes(x=igralci_tedna_pozicijefilt$Sezona_okrajsano)) + 
-  geom_histogram(binwidth=1, color="gray30", fill="gray30")
-
-
-
-
