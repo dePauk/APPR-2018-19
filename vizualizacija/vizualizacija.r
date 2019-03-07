@@ -53,16 +53,6 @@ graf_pozicije_cas <- ggplot(data=igralci_tedna_pozicijefilt, aes(x=igralci_tedna
 
 #7 --> analiza/analiza.r
 
-# #7 Primerjava dveh igralcev
-# graf_harden_curry <- ggplot(data=zdruzena, aes(Year,P_WEEK)) + geom_point(data = zdruzena %>% filter (Name =="Harden"), color="red", size=2.8) + 
-#   geom_smooth(data = zdruzena %>% filter (Name =="Harden"), color="red", fill="indianred1", size=1) +
-#   geom_point(data= zdruzena %>% filter (Name == "Curry"), color = "darkgoldenrod", size =2.8) + theme_bw()+
-#   geom_smooth(data= zdruzena %>% filter (Name == "Curry"), color = "darkgoldenrod", fill="goldenrod1", size=1) + xlab("Sezona") + ylab("Igralec tedna") +
-#   ggtitle("Primerjava števila osvojenih nazivov igralca tedna") + theme(legend.position = "right") +
-#   annotate("text", x=16.8, y=7, label= "James Harden", color="red", size=5) + 
-#   annotate("text",x=14,y=-2,label="Stephen Curry", color="darkgoldenrod", size=5)
-  
-
 
 #8 Število zmag in število nazivov igralca tedna
 podatki.join <- inner_join(x = podatki_ekipe_imensko, y= stevilo_nazivov, by = "Ekipa") # %>% select("Ekipa", "Stevilo", "Uspesnost_redni_del")
