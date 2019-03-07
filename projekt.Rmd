@@ -7,7 +7,7 @@ output:
     includes:
       in_header: lib/styles.sty
     latex_engine: xelatex
-#runtime: shiny
+runtime: shiny
 ---
 
 ```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
@@ -108,10 +108,7 @@ source("vizualizacija/vizualizacija.r", encoding="UTF-8")
 
 
 
-
-
-
-```{r vizualizacija, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Število naslovov igralca tedna po zveznih državah', warning = FALSE}
+```{r graf_zda, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Število naslovov igralca tedna po zveznih državah', warning = FALSE}
 print(graf_zda)
 
 ```
@@ -120,7 +117,8 @@ Največ nazivov so pričakovano dobili igralci, ki igrajo za ekipe iz zveznih dr
 
 
 
-```{r vizualizacija, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Uspešnost ekip v rednem delu VS uspešnost ekip v Play-Offih', warning = FALSE}
+
+```{r graf_korelacija_uspesn, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Uspešnost ekip v rednem delu VS uspešnost ekip v Play-Offih', warning = FALSE}
 print(graf_korelacija_uspesn)
 
 ```
@@ -130,7 +128,8 @@ Opazna je ne preveč močna korelacija med uspešnostjo ekip v rednem delu in v 
 
 
 
-```{r vizualizacija, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Število nazivov glede na število sezon v ligi NBA'}
+
+```{r graf_sezone, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Število nazivov glede na število sezon v ligi NBA'}
 print(graf_sezone)
 
 ```
@@ -139,7 +138,8 @@ Iz grafa je razvidno, da igralci v povprečju dosegajo vrhunec od 5. do 7. sezon
 
 
 
-```{r vizualizacija, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Višina igralcev glede na pozicijo igranja'}
+
+```{r graf_visina_pozicija, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Višina igralcev glede na pozicijo igranja'}
 print (graf_visina_pozicija)
 
 ```
@@ -148,12 +148,14 @@ Po pričakovanjih se v povprečju višine nagrajenih igralcev povečujejo z bolj
 
 
 
-```{r vizualizacija, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Osvajanje nazivov igralca tedna glede na pozicijo skozi čas'}
+
+```{r graf_pozicije_cas, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Osvajanje nazivov igralca tedna glede na pozicijo skozi čas'}
 print(graf_pozicije_cas)
 
 ```
 
 Vidimo, da je trend v zadnjih desetletjih tak, da naslove vedno bolj pogosto osvajajo obrambne pozicije, pomembnost centrov pa je vedno manjša. Tako pravi tudi spodnja napoved za naslednje štiri sezone.
+
 
 
 
@@ -164,7 +166,8 @@ print(graf_napoved)
 
 
 
-```{r vizualizacija, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Primerjava in napoved za dva igralca'}
+
+```{r graf_harden_curry2, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Primerjava in napoved za dva igralca'}
 print (graf_harden_curry2)
 
 ```
@@ -173,7 +176,8 @@ Iz grafa se vidi, da je Stephen Curry že v zatonu, medtem ko se James Harden š
 
 
 
-```{r vizualizacija, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Število zmag vs Število osvojenih nazivov igralca tedna po ekipah'}
+
+```{r graf_zmage_nazivi, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Število zmag vs Število osvojenih nazivov igralca tedna po ekipah'}
 print (graf_zmage_nazivi)
 
 ```
