@@ -12,7 +12,7 @@ nova_leta <- data.frame(Sezona_okrajsano=seq(2019,2022,1))
 napoved <- mutate(nova_leta, n=predict(pril_lm, nova_leta))
 
 graf_napoved <- ggplot(tabela_centri, aes(Sezona_okrajsano,n)) + geom_smooth(method="lm", fullrange=TRUE)+
-  geom_point(data=napoved,aes(Sezona_okrajsano,n),color="red", size=2)+
+  geom_point(data=napoved,aes(Sezona_okrajsano,n),color="red", size=2)+ theme_bw() +
   geom_point() + ggtitle("Napoved števila centrov kot igralcev tedna") + xlab("Sezona")+ylab("Število")
 
 
