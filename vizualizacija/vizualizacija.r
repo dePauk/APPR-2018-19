@@ -16,7 +16,7 @@ graf_zda <- plot_usmap(data = nazivi_zvezne, values = "Nazivi", lines = "black")
 
 #2 Uspešnost ekip v rednem delu VS Uspešnost ekip v Play-Offih
 graf_korelacija_uspesn <- ggplot(data=podatki_ekipe_imensko, aes(x=podatki_ekipe_imensko$Uspesnost_redni_del, y=podatki_ekipe_imensko$Playoff_uspesnost)) + 
-  geom_jitter(size=(podatki_ekipe_imensko$Stevilo_playoffov)/1.8, shape=21, color="black", fill="dodgerblue4", alpha=0.7, color="black") + geom_smooth(method = "lm",size=0.6, alpha= 0.3, color= "dodgerblue2") +
+  geom_jitter(size=(podatki_ekipe_imensko$Stevilo_playoffov)/1.8, shape=21, color="black", fill="dodgerblue4", alpha=0.7) + geom_smooth(method = "lm",size=0.6, alpha= 0.3, color= "dodgerblue2") +
   ggtitle("Korelacija deleža zmag v rednem delu in izločilnih bojih (Play-Offih)") + xlab("Uspešnost v rednem delu") + ylab("Uspešnost v Play-offih") +
   annotate("text", x = 0.63, y = 0.22, label = "Velikost kroga pomeni relativno število uvrstitev v izločilne boje", size=3) + theme_bw()
 
@@ -44,7 +44,7 @@ graf_visina_pozicija <- ggplot(data=igralci_tedna_pozicijefilt2, aes(x=reorder(P
 igralci_tedna_pozicijefilt <- igralci_tedna[igralci_tedna$Pozicija != "G-F" & igralci_tedna$Pozicija != "F-C",]
 
 graf_pozicije_cas <- ggplot(data=igralci_tedna_pozicijefilt, aes(x=igralci_tedna_pozicijefilt$Sezona_okrajsano)) + 
-  geom_histogram(binwidth=1.1, color="dodgerblue4", fill="dodgerblue4", alpha= 0.7) + facet_grid(~Pozicija) + theme_bw() + 
+  geom_histogram(binwidth=1.1, fill="dodgerblue4", alpha= 0.7) + facet_grid(~Pozicija) + theme_bw() + 
   theme(axis.text.x = element_text(angle=90))  + ggtitle("Osvojeni nazivi igralca tedna glede na pozicijo igranja skozi čas") + 
   xlab("Leto") + ylab("Število")
 
