@@ -137,7 +137,7 @@ Graf prikazuje korelacijo uspešnosti ekip v rednem delu in v končnici. Opazna 
 ***
 
 
-```{r graf_sezone, echo=FALSE, message=FALSE, fig.align='center'}
+```{r graf_sezone, echo=FALSE, message=FALSE, fig.align='center', warning = FALSE}
 print(graf_sezone)
 
 ```
@@ -148,7 +148,7 @@ Iz grafa je razvidno, da igralci v prvih petih sezonah hitro napredujejo, dobiva
 ***
 
 
-```{r graf_visina_pozicija, echo=FALSE, message=FALSE, fig.align='center'}
+```{r graf_visina_pozicija, echo=FALSE, message=FALSE, fig.align='center', warning = FALSE}
 print (graf_visina_pozicija)
 
 ```
@@ -159,7 +159,7 @@ Po pričakovanjih se v povprečju višine nagrajenih igralcev povečujejo z bolj
 ***
 
 
-```{r graf_pozicije_cas, echo=FALSE, message=FALSE, fig.align='center'}
+```{r graf_pozicije_cas, echo=FALSE, message=FALSE, fig.align='center', warning = FALSE}
 print(graf_pozicije_cas)
 
 ```
@@ -169,7 +169,7 @@ Vidimo, da je trend v zadnjih desetletjih tak, da naslove vedno bolj pogosto osv
 Sledi še s Shinyjem predstavljena interaktivna tabela, ki filtrira zgornji graf za posamezen izbran položaj igranja za bolj jasno vidne rezultate.
 
 
-```{r shiny, echo=FALSE}
+```{r shiny, echo=FALSE, warning = FALSE}
 shinyAppDir("shiny", options=list(width="100%", height=450))
 ```
 
@@ -177,7 +177,7 @@ shinyAppDir("shiny", options=list(width="100%", height=450))
 ***
 
 
-```{r graf_napoved, echo=FALSE, message=FALSE, fig.align='center'}
+```{r graf_napoved, echo=FALSE, message=FALSE, fig.align='center', warning = FALSE}
 print(graf_napoved)
 
 ```
@@ -188,7 +188,7 @@ Glede na upad števila nazivov igralca za centre napoved seveda prikazuje tak tr
 ***
 
 
-```{r graf_harden_curry2, echo=FALSE, message=FALSE, fig.align='center'}
+```{r graf_harden_curry2, echo=FALSE, message=FALSE, fig.align='center', warning = FALSE}
 print (graf_harden_curry2)
 
 ```
@@ -199,7 +199,7 @@ V zgornjem grafu sta prikazana dva zvezdnika lige - James Harden in Stephen Curr
 ***
 
 
-```{r graf_zmage_nazivi, echo=FALSE, message=FALSE, fig.align='center'}
+```{r graf_zmage_nazivi, echo=FALSE, message=FALSE, fig.align='center', warning = FALSE}
 print (graf_zmage_nazivi)
 
 ```
@@ -213,7 +213,7 @@ Vidna je korelacija med številom zmaganih tekem v ligi (vključene so tekme tak
  
 # Zaključek
 
-Ugotovil sem, da so nagrade igralca tedna približen pokazatelj uspešnosti ekip. Najbolj zanimivo mi je, da se drugačen način igranja odraža tudi v spremenjenem številu dobljenih naslovov igralca tedna glede na pozicije igranja.
+Ugotovil sem, da so nagrade igralca tedna približen pokazatelj uspešnosti ekip- moštva, ki pogosteje prejemajo te nagrade, v splošnem pogosteje zmagujejo, je pa prisotnih nekaj izjem. Pri projektu so rezultati večinoma potrdili splošno veljavne lastnosti košarkarjev glede na starost in pozicijo igranja. Zanimiva ugotovitev je, da se razvoj igre oziroma spremenjena taktika odraža tudi v spremenjenem številu dobljenih naslovov igralca tedna glede na pozicije igranja.
 
 ***
 
